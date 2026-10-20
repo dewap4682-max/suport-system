@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suport System — Jasa Pembuatan Website UMKM & Properti · Surakarta</title>
+<meta name="description" content="Jasa pembuatan website untuk UMKM dan pemasaran properti di Surakarta & sekitarnya. Desain sesuai identitas usaha, domain & hosting termasuk, siap online 3–14 hari kerja. Pembayaran DP 50% — transfer bank atau GoPay.">
+<meta name="theme-color" content="#F6F2EA">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="assets/img/favicon.png" sizes="any">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="stylesheet" href="css/styles.css">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Suport System">
+<meta property="og:title" content="Suport System — Jasa Pembuatan Website UMKM & Properti Surakarta">
+<meta property="og:description" content="Website profesional untuk UMKM & pemasaran properti. Desain sesuai identitas usaha, domain & hosting termasuk, siap online 3–14 hari kerja.">
+<meta property="og:image" content="assets/img/og-image.png">
+<meta property="og:locale" content="id_ID">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Suport System — Jasa Pembuatan Website UMKM & Properti">
+<meta name="twitter:description" content="Desain sesuai identitas usaha, domain & hosting termasuk, siap online 3–14 hari kerja.">
+<meta name="twitter:image" content="assets/img/og-image.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Suport System",
+  "image": "assets/img/logo-mark.png",
+  "logo": "assets/img/logo-mark.png",
+  "description": "Jasa pembuatan website untuk UMKM dan pemasaran properti di Surakarta dan sekitarnya.",
+  "telephone": "+62-813-9239-9300",
+  "priceRange": "Rp1.000.000–Rp2.500.000",
+  "areaServed": "Surakarta dan sekitarnya",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Surakarta",
+    "addressRegion": "Jawa Tengah",
+    "addressCountry": "ID"
+  },
+  "paymentAccepted": "Transfer Bank, GoPay",
+  "makesOffer": [
+    {"@type": "Offer", "name": "Paket 1 — Profil Bisnis / Daftar Properti Dasar", "price": "1000000", "priceCurrency": "IDR"},
+    {"@type": "Offer", "name": "Paket 2 — Katalog Lengkap / Daftar Properti Menengah", "price": "1500000", "priceCurrency": "IDR"},
+    {"@type": "Offer", "name": "Paket 3 — Toko Daring / Portal Properti Lengkap", "price": "2500000", "priceCurrency": "IDR"}
+  ],
+  "openingHoursSpecification": {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "08:00", "closes": "20:00"}
+}
+</script>
+<style>
+/* critical fallback so first paint never shows unstyled content */
+html{background:#FBF9F4}
+</style>
+</head>
+<body>
+
+<div class="progress" id="scrollProgress" aria-hidden="true"></div>
+
+<!-- ICONS -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.39-1.48-.88-.79-1.48-1.76-1.66-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.89-9.89 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.89-9.88 9.89m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.69 1.45h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.17-1.24-6.16-3.48-8.41Z"/></symbol>
+  <symbol id="i-store" viewBox="0 0 24 24"><path d="M3 9.5 4.5 4h15L21 9.5M4 9.5V20h16V9.5M4 9.5h16M9.5 20v-5.5h5V20"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10.5 9-7.5 9 7.5M5 9.5V21h14V9.5M9.5 21v-6h5v6"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4.5 4.5"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 11.5 2 2 4-4"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+  <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 21a9 9 0 1 1 9-9c0 2.2-1.8 3.2-3.5 3.2H16a2 2 0 0 0-1.5 3.3c.5.6.1 1.5-.7 1.5H12Z"/><circle cx="7.5" cy="12" r="1"/><circle cx="9.5" cy="7.5" r="1"/><circle cx="14.5" cy="7" r="1"/><circle cx="17.5" cy="10" r="1"/></symbol>
+  <symbol id="i-server" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01M11 6.5h6M11 17.5h6"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 5h6a4 4 0 0 1 4 4v11a3 3 0 0 0-3-3H2V5ZM22 5h-6a4 4 0 0 0-4 4v11a3 3 0 0 1 3-3h7V5Z"/></symbol>
+  <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7Z"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="15" rx="2.5"/><path d="M2 10h20M16 15h2"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18.5h2"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+  <symbol id="i-message" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10Z"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3 1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3ZM19 16l.9 2.1L22 19l-2.1.9L19 22l-.9-2.1L16 19l2.1-.9L19 16Z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.4"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 5.2a3.4 3.4 0 0 1 0 6.6M18.5 14.2A6 6 0 0 1 22 20"/></symbol>
+  <symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.8h.01"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18M7 15l3-4 3 3 5-7"/></symbol>
+  <symbol id="i-guarantee" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="m9 14-1.5 8L12 20l4.5 2L15 14"/><path d="m9.8 9 1.6 1.6L14.4 7.6"/></symbol>
+  <symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5a4.5 4.5 0 0 0 7 0M9 9.5h.01M15 9.5h.01"/></symbol>
+</svg>
+
+<!-- HEADER -->
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a class="brand" href="#beranda" aria-label="Suport System — beranda">
+      <img src="assets/img/logo-mark-sm.png" alt="" width="28" height="40">
+      <span class="brand-text">
+        <b>Suport System</b>
+        <span>Jasa Pembuatan Website</span>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Navigasi utama">
+      <a href="#manfaat">Manfaat</a>
+      <a href="#paket">Paket</a>
+      <a href="#proses">Proses</a>
+      <a href="#pembayaran">Pembayaran</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="btn btn--outline btn--sm" href="#paket">Lihat paket</a>
+      <a class="btn btn--gold btn--sm" href="#pesan">Mulai proyek <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Buka menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="menu-scrim" id="menuScrim"></div>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a class="mm" href="#manfaat">Manfaat <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  <a class="mm" href="#paket">Paket &amp; harga <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  <a class="mm" href="#termasuk">Yang Anda dapatkan <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  <a class="mm" href="#proses">Cara kerja <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  <a class="mm" href="#pembayaran">Pembayaran <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  <a class="mm" href="#faq">FAQ <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  <div class="sep"></div>
+  <a class="btn btn--wa btn--block" href="https://wa.me/6281392399300?text=Halo%20Suport%20System%2C%20saya%20ingin%20bertanya%20tentang%20jasa%20pembuatan%20website." target="_blank" rel="noopener">
+    <svg class="ic fill" aria-hidden="true"><use href="#i-wa"/></svg> Chat WhatsApp
+  </a>
+</div>
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero" id="beranda">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="idx">01</span><span class="dash" aria-hidden="true"></span> Jasa pembuatan website · Surakarta</p>
+      <h1>Website yang membuat bisnis Anda <span class="serif mark-underline">terlihat serius.</span></h1>
+      <p class="hero-lead">Untuk <strong>UMKM</strong> dan <strong>pemasaran properti</strong> — desain menyesuaikan identitas usaha, domain &amp; hosting sudah termasuk, siap online dalam 3–14 hari kerja.</p>
+      <div class="hero-actions">
+        <a class="btn btn--gold btn--lg" href="#pesan">Mulai proyek Anda <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn--outline btn--lg" href="#paket">Lihat paket &amp; harga</a>
+      </div>
+      <ul class="hero-facts">
+        <li><b>Rp 1.000.000</b><span>harga mulai</span></li>
+        <li><b>3–14 hari kerja</b><span>waktu pengerjaan</span></li>
+        <li><b>Gratis</b><span>domain &amp; hosting</span></li>
+      </ul>
+    </div>
+
+    <div class="hero-visual">
+      <div class="preview-switch">
+        <span class="lbl">Pratinjau tampilan</span>
+        <div class="switch" role="tablist" aria-label="Contoh tampilan website">
+          <button class="is-active" data-mock="properti" data-url="griyasolo.id" role="tab" aria-selected="true"><svg class="ic" aria-hidden="true"><use href="#i-home"/></svg> Properti</button>
+          <button data-mock="umkm" data-url="kopinusantara.id" role="tab" aria-selected="false"><svg class="ic" aria-hidden="true"><use href="#i-store"/></svg> UMKM</button>
+        </div>
+      </div>
+
+      <div class="frame">
+        <div class="window">
+          <div class="window-bar">
+            <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="url"><svg class="ic" aria-hidden="true"><use href="#i-lock"/></svg> <span id="mockUrl">griyasolo.id</span></span>
+          </div>
+          <div class="window-body">
+            <!-- PROPERTI -->
+            <div class="mock is-active" data-panel="properti" aria-label="Contoh website properti">
+              <div class="mock-nav">
+                <span class="mock-brand"><span class="sq">G</span> Griya Solo</span>
+                <span class="mock-links"><i>Beranda</i><i class="on">Properti</i><i>Kontak</i></span>
+              </div>
+              <div class="mock-hero">
+                <span class="mock-kicker">PROPERTI SOLO RAYA</span>
+                <strong>Temukan hunian yang tepat untuk keluarga Anda</strong>
+                <div class="mock-search">
+                  <span><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg> Cari lokasi atau jenis properti…</span>
+                  <span class="chip"><svg class="ic" aria-hidden="true"><use href="#i-filter"/></svg> Filter</span>
+                </div>
+              </div>
+              <div class="mock-grid">
+                <div class="mock-card">
+                  <div class="mock-img a">
+                    <svg viewBox="0 0 64 48" aria-hidden="true"><path d="M8 22 32 4l24 18M13 20v22h38V20"/><path d="M26 42V30h12v12M4 42h56"/></svg>
+                    <span class="mock-badge">Dijual</span><span class="mock-heart">♡</span>
+                  </div>
+                  <div class="mock-info">
+                    <span class="mock-price">Rp 650 jt</span>
+                    <span class="mock-title">Rumah minimalis 2 lantai</span>
+                    <span class="mock-loc"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg> Baki, Sukoharjo</span>
+                    <div class="mock-tags"><span>3 KT</span><span>2 KM</span><span>120 m²</span></div>
+                  </div>
+                </div>
+                <div class="mock-card">
+                  <div class="mock-img b">
+                    <svg viewBox="0 0 64 48" aria-hidden="true"><path d="M10 16 32 3l22 13M14 14v28h36V14"/><path d="M10 22h44M18 28h8v8h-8zM38 28h8v8h-8zM4 42h56"/></svg>
+                    <span class="mock-badge">Dijual</span><span class="mock-heart">♡</span>
+                  </div>
+                  <div class="mock-info">
+                    <span class="mock-price">Rp 1,25 M</span>
+                    <span class="mock-title">Ruko strategis Solo Baru</span>
+                    <span class="mock-loc"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg> Grogol, Sukoharjo</span>
+                    <div class="mock-tags"><span>2 lantai</span><span>150 m²</span><span class="wa"><svg class="ic fill" aria-hidden="true"><use href="#i-wa"/></svg> WA</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- UMKM -->
+            <div class="mock" data-panel="umkm" aria-label="Contoh website UMKM">
+              <div class="mock-nav">
+                <span class="mock-brand alt"><span class="sq">K</span> Kopi Nusantara</span>
+                <span class="mock-links"><i>Beranda</i><i class="on">Produk</i><i>Kontak</i></span>
+              </div>
+              <div class="mock-hero cream">
+                <span class="mock-kicker">PRODUK LOKAL PILIHAN</span>
+                <strong>Kopi &amp; oleh-oleh khas Solo Raya</strong>
+                <div class="mock-search">
+                  <span><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg> Cari produk favorit Anda…</span>
+                  <span class="chip"><svg class="ic" aria-hidden="true"><use href="#i-filter"/></svg> Kategori</span>
+                </div>
+              </div>
+              <div class="mock-grid">
+                <div class="mock-card">
+                  <div class="mock-img c cap">
+                    <svg viewBox="0 0 48 48" aria-hidden="true" style="stroke:#8A6A34"><path d="M8 16h24v14a8 8 0 0 1-8 8h-8a8 8 0 0 1-8-8V16ZM32 18h3a5 5 0 0 1 0 10h-3M13 7v4M20 7v4M27 7v4M6 44h32"/></svg>
+                    <span class="mock-badge">Kopi</span><span class="mock-heart">♡</span>
+                  </div>
+                  <div class="mock-info">
+                    <span class="mock-price">Rp 45.000</span>
+                    <span class="mock-title">Arabika Boyolali 250 g</span>
+                    <span class="mock-loc"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg> Boyolali</span>
+                    <div class="mock-tags"><span>250 g</span><span class="wa"><svg class="ic fill" aria-hidden="true"><use href="#i-wa"/></svg> Pesan</span></div>
+                  </div>
+                </div>
+                <div class="mock-card">
+                  <div class="mock-img d">
+                    <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 16h20l2 24H12l2-24ZM17 16a7 7 0 0 1 14 0M18 26h12"/></svg>
+                    <span class="mock-badge">Fashion</span><span class="mock-heart">♡</span>
+                  </div>
+                  <div class="mock-info">
+                    <span class="mock-price">Rp 350.000</span>
+                    <span class="mock-title">Batik tulis motif Solo</span>
+                    <span class="mock-loc"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg> Solo</span>
+                    <div class="mock-tags"><span>Katun</span><span class="wa"><svg class="ic fill" aria-hidden="true"><use href="#i-wa"/></svg> Pesan</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="container stats-grid">
+      <div class="stat"><span class="k">Harga mulai</span><span class="v">Rp 1.000.000</span></div>
+      <div class="stat"><span class="k">Waktu pengerjaan</span><span class="v">3–14 <small>hari kerja</small></span></div>
+      <div class="stat"><span class="k">Domain &amp; hosting</span><span class="v">Gratis <small>sudah termasuk</small></span></div>
+      <div class="stat"><span class="k">Pembayaran</span><span class="v">DP 50% <small>GoPay / transfer</small></span></div>
+    </div>
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">UMKM <i></i> Pemasaran properti <i></i> Domain &amp; hosting <i></i> WhatsApp terintegrasi <i></i> Desain kustom <i></i> Surakarta &amp; sekitarnya <i></i></span>
+      <span class="marquee-item">UMKM <i></i> Pemasaran properti <i></i> Domain &amp; hosting <i></i> WhatsApp terintegrasi <i></i> Desain kustom <i></i> Surakarta &amp; sekitarnya <i></i></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MANFAAT ============ -->
+<section class="section section--white" id="manfaat">
+  <div class="container">
+    <div class="section-head section-head--row reveal">
+      <div class="section-head" style="margin-bottom:0">
+        <p class="eyebrow"><span class="idx">02</span><span class="dash" aria-hidden="true"></span> Mengapa perlu website</p>
+        <h2>Kesan pertama yang rapi membuka <span class="serif">lebih banyak peluang.</span></h2>
+        <p class="lede">Satu website membuat usaha Anda terlihat serius, mudah ditemukan, dan siap melayani pelanggan kapan saja — tanpa harus selalu online membalas chat.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Pilih jenis usaha">
+        <button class="is-active" data-why="umkm" role="tab" aria-selected="true"><svg class="ic" aria-hidden="true"><use href="#i-store"/></svg> UMKM</button>
+        <button data-why="properti" role="tab" aria-selected="false"><svg class="ic" aria-hidden="true"><use href="#i-home"/></svg> Pemasaran properti</button>
+      </div>
+    </div>
+
+    <div class="why-panel is-active reveal" data-whypanel="umkm">
+      <div class="why-grid">
+        <article class="why-item">
+          <span class="why-num">01</span>
+          <div><h3>Produk &amp; jasa tampil lebih profesional</h3><p>Katalog tersusun rapi dengan foto dan harga yang jelas, sehingga usaha Anda terlihat lebih meyakinkan sejak pandangan pertama.</p></div>
+        </article>
+        <article class="why-item">
+          <span class="why-num">02</span>
+          <div><h3>Katalog aktif 24 jam</h3><p>Pelanggan bisa melihat produk kapan saja tanpa perlu bertanya satu per satu lewat chat. Anda pun lebih hemat waktu membalas.</p></div>
+        </article>
+        <article class="why-item">
+          <span class="why-num">03</span>
+          <div><h3>Membangun kepercayaan pelanggan</h3><p>Keberadaan website memberi kesan usaha yang serius dan mapan — penting sebelum calon pelanggan memutuskan untuk membeli.</p></div>
+        </article>
+        <article class="why-item">
+          <span class="why-num">04</span>
+          <div><h3>Mudah dibagikan ke mana saja</h3><p>Cukup satu tautan untuk WhatsApp, Instagram, Facebook, dan media sosial lain. Semua informasi usaha ada di satu tempat.</p></div>
+        </article>
+      </div>
+    </div>
+
+    <div class="why-panel reveal" data-whypanel="properti">
+      <div class="why-grid">
+        <article class="why-item">
+          <span class="why-num">01</span>
+          <div><h3>Daftar properti lengkap</h3><p>Foto, harga, lokasi, dan spesifikasi tampil dalam satu halaman yang rapi — memudahkan calon pembeli menilai setiap unit.</p></div>
+        </article>
+        <article class="why-item">
+          <span class="why-num">02</span>
+          <div><h3>Calon pembeli mencari kapan saja</h3><p>Daftar properti Anda dapat diakses dari mana saja, sehingga peluang masuknya calon klien tidak terbatas jam kerja.</p></div>
+        </article>
+        <article class="why-item">
+          <span class="why-num">03</span>
+          <div><h3>Tampil profesional di mata klien</h3><p>Portofolio properti yang tersusun baik memberi kesan agen atau developer yang serius, terpercaya, dan berpengalaman.</p></div>
+        </article>
+        <article class="why-item">
+          <span class="why-num">04</span>
+          <div><h3>Filter sesuai kebutuhan</h3><p>Properti bisa difilter berdasarkan harga, lokasi, dan jenisnya. Klien menemukan unit yang relevan lebih cepat.</p></div>
+        </article>
+      </div>
+    </div>
+
+    <div class="why-note reveal">
+      <svg class="ic" aria-hidden="true"><use href="#i-info"/></svg>
+      <div>Tidak perlu paham teknis. <b>Anda siapkan data &amp; foto, kami urus desain, pembuatan, sampai website online.</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAKET ============ -->
+<section class="section section--ivory" id="paket">
+  <div class="container">
+    <div class="section-head section-head--row reveal">
+      <div class="section-head" style="margin-bottom:0">
+        <p class="eyebrow"><span class="idx">03</span><span class="dash" aria-hidden="true"></span> Paket &amp; harga</p>
+        <h2>Pilih sesuai kebutuhan <span class="serif">usaha Anda.</span></h2>
+        <p class="lede">Harga transparan, sekali bayar. Domain &amp; hosting sudah termasuk — tanpa biaya tambahan.</p>
+      </div>
+      <div class="seg" role="group" aria-label="Tampilkan paket untuk">
+        <button class="is-active" data-aud="umkm" aria-pressed="true"><svg class="ic" aria-hidden="true"><use href="#i-store"/></svg> UMKM</button>
+        <button data-aud="properti" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#i-home"/></svg> Properti</button>
+      </div>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- Paket 1 -->
+      <article class="card-price reveal" id="paket-1">
+        <div class="tier">
+          <span class="lab">Paket 01</span>
+          <span class="time"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg> 3–5 hari</span>
+        </div>
+        <h3 data-umkm="Profil Bisnis" data-properti="Daftar Properti Dasar">Profil Bisnis</h3>
+        <p class="desc" data-umkm="Cocok untuk usaha yang baru mulai tampil online dengan rapi." data-properti="Cocok untuk agen properti yang mulai membangun katalog.">Cocok untuk usaha yang baru mulai tampil online dengan rapi.</p>
+        <div class="price"><span class="cur">Rp</span><span class="amt">1.000.000</span><span class="per">sekali bayar</span></div>
+        <span class="price-badge"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Domain &amp; penyimpanan termasuk</span>
+        <ul class="feats">
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span><b>Halaman:</b> <span data-umkm="Beranda · Tentang · Daftar Produk · Kontak" data-properti="Beranda · Tentang · Daftar Properti · Kontak">Beranda · Tentang · Daftar Produk · Kontak</span></span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Responsif, nyaman di ponsel &amp; komputer</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Tautan WA langsung · Peta lokasi · Media sosial</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span data-umkm="Hingga 10 produk" data-properti="Hingga 10 daftar properti">Hingga 10 produk</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Panduan mengelola &amp; mengedit sendiri</span></li>
+        </ul>
+        <button class="btn btn--outline" type="button" data-pkg="1">Pilih Paket 1 <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      </article>
+
+      <!-- Paket 2 -->
+      <article class="card-price card-price--pop reveal" id="paket-2" style="--d:.08s">
+        <span class="pop-flag"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg> Paling populer</span>
+        <div class="tier">
+          <span class="lab">Paket 02</span>
+          <span class="time"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg> 5–7 hari</span>
+        </div>
+        <h3 data-umkm="Katalog Lengkap" data-properti="Daftar Properti Menengah">Katalog Lengkap</h3>
+        <p class="desc" data-umkm="Pilihan terbaik untuk usaha yang katalognya terus bertambah." data-properti="Untuk agen dengan daftar properti yang aktif dan terus bergerak.">Pilihan terbaik untuk usaha yang katalognya terus bertambah.</p>
+        <div class="price"><span class="cur">Rp</span><span class="amt">1.500.000</span><span class="per">sekali bayar</span></div>
+        <span class="price-badge"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Domain &amp; penyimpanan termasuk</span>
+        <ul class="feats">
+          <li class="sub">Semua fitur Paket 1, plus:</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Galeri foto &amp; kategori</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Pencarian &amp; filter · Simpan favorit</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Formulir tanya / jadwal kunjungan</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span data-umkm="Hingga 50 produk" data-properti="Hingga 30 daftar properti">Hingga 50 produk</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Bantuan pembaruan 1 bulan</span></li>
+        </ul>
+        <button class="btn btn--gold" type="button" data-pkg="2">Pilih Paket 2 <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      </article>
+
+      <!-- Paket 3 -->
+      <article class="card-price reveal" id="paket-3" style="--d:.16s">
+        <div class="tier">
+          <span class="lab">Paket 03</span>
+          <span class="time"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg> 7–14 hari</span>
+        </div>
+        <h3 data-umkm="Toko Daring" data-properti="Portal Properti Lengkap">Toko Daring</h3>
+        <p class="desc" data-umkm="Untuk usaha yang siap menerima pesanan dan tumbuh lebih besar." data-properti="Untuk portal properti lengkap dengan akun &amp; penawaran.">Untuk usaha yang siap menerima pesanan dan tumbuh lebih besar.</p>
+        <div class="price"><span class="cur">Rp</span><span class="amt">2.500.000</span><span class="per">sekali bayar</span></div>
+        <span class="price-badge"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Domain &amp; penyimpanan termasuk</span>
+        <ul class="feats">
+          <li class="sub">Semua fitur Paket 2, plus:</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span data-umkm="Sistem pesanan &amp; akun pengguna" data-properti="Sistem penawaran &amp; akun pengguna">Sistem pesanan &amp; akun pengguna</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Galeri foto besar &amp; video properti</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Laporan data pengunjung</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Produk / properti tanpa batas</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Pelatihan lengkap + bantuan 3 bulan</span></li>
+        </ul>
+        <button class="btn btn--outline" type="button" data-pkg="3">Pilih Paket 3 <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      </article>
+    </div>
+
+    <div class="pricing-note reveal">
+      <p>Belum yakin paket mana yang cocok? Ceritakan usaha Anda — kami bantu pilihkan.</p>
+      <a href="https://wa.me/6281392399300?text=Halo%20Suport%20System%2C%20saya%20ingin%20dibantu%20memilih%20paket%20website%20yang%20sesuai%20untuk%20usaha%20saya." target="_blank" rel="noopener">Konsultasi via WhatsApp <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+
+    <div style="text-align:center">
+      <button class="compare-toggle" id="compareToggle" aria-expanded="false" aria-controls="compareWrap">
+        <svg class="ic" aria-hidden="true"><use href="#i-filter"/></svg>
+        Bandingkan semua fitur
+        <svg class="ic chev" aria-hidden="true"><use href="#i-chevron"/></svg>
+      </button>
+      <div class="compare-wrap" id="compareWrap">
+        <div class="compare-scroll">
+          <table class="compare">
+            <thead>
+              <tr><th scope="col">Fitur</th><th scope="col">Paket 1</th><th scope="col" class="hi">Paket 2 ★</th><th scope="col">Paket 3</th></tr>
+            </thead>
+            <tbody>
+              <tr class="group"><td colspan="4">Halaman &amp; tampilan</td></tr>
+              <tr><td>Halaman inti</td><td class="val">4 halaman</td><td class="val hi">+ Galeri &amp; kategori</td><td class="val">+ Akun pengguna</td></tr>
+              <tr><td>Responsif di ponsel &amp; komputer</td><td><svg class="ic yes" aria-label="Termasuk"><use href="#i-check"/></svg></td><td class="hi"><svg class="ic yes" aria-label="Termasuk"><use href="#i-check"/></svg></td><td><svg class="ic yes" aria-label="Termasuk"><use href="#i-check"/></svg></td></tr>
+              <tr><td>Tautan WhatsApp, peta &amp; media sosial</td><td><svg class="ic yes" aria-label="Termasuk"><use href="#i-check"/></svg></td><td class="hi"><svg class="ic yes" aria-label="Termasuk"><use href="#i-check"/></svg></td><td><svg class="ic yes" aria-label="Termasuk"><use href="#i-check"/></svg></td></tr>
+              <tr><td>Desain sesuai identitas usaha</td><td><svg class="ic yes" aria-label="Termasuk"><use href="#i-check"/></svg></td><td class="hi"><svg class="ic yes" aria-label="Termasuk"><use href="#i-check"/></svg></td><td><svg class="ic yes" aria-label="Termasuk"><use href="#i-check"/></svg></td></tr>
+              <tr class="group"><td colspan="4">Katalog &amp; pencarian</td></tr>
+              <tr><td>Jumlah item</td><td class="val">10</td><td class="val hi">50 produk / 30 properti</td><td class="val">Tanpa batas</td></tr>
+              <tr><td>Galeri foto</td><td class="no">—</td><td class="hi"><svg class="ic yes" aria-label="Termasuk"><use href="#i-check"/></svg></td><td><svg class="ic yes" aria-label="Termasuk"><use href="#i-check"/></svg></td></tr>
+              <tr><td>Pencarian &amp; filter</td><td class="no">—</td><td class="hi"><svg class="ic yes" aria-label="Termasuk"><use href="#i-check"/></svg></td><td><svg class="ic yes" aria-label="Termasuk"><use href="#i-check"/></svg></td></tr>
+              <tr><td>Simpan favorit</td><td class="no">—</td><td class="hi"><svg class="ic yes" aria-label="Termasuk"><use href="#i-check"/></svg></td><td><svg class="ic yes" aria-label="Termasuk"><use href="#i-check"/></svg></td></tr>
+              <tr><td>Video properti</td><td class="no">—</td><td class="hi no">—</td><td><svg class="ic yes" aria-label="Termasuk"><use href="#i-check"/></svg></td></tr>
+              <tr class="group"><td colspan="4">Interaksi &amp; fitur tambahan</td></tr>
+              <tr><td>Formulir tanya / jadwal kunjungan</td><td class="no">—</td><td class="hi"><svg class="ic yes" aria-label="Termasuk"><use href="#i-check"/></svg></td><td><svg class="ic yes" aria-label="Termasuk"><use href="#i-check"/></svg></td></tr>
+              <tr><td>Sistem pesanan / penawaran</td><td class="no">—</td><td class="hi no">—</td><td><svg class="ic yes" aria-label="Termasuk"><use href="#i-check"/></svg></td></tr>
+              <tr><td>Akun pengguna</td><td class="no">—</td><td class="hi no">—</td><td><svg class="ic yes" aria-label="Termasuk"><use href="#i-check"/></svg></td></tr>
+              <tr><td>Laporan data pengunjung</td><td class="no">—</td><td class="hi no">—</td><td><svg class="ic yes" aria-label="Termasuk"><use href="#i-check"/></svg></td></tr>
+              <tr class="group"><td colspan="4">Dukungan &amp; pengerjaan</td></tr>
+              <tr><td>Domain &amp; hosting</td><td class="val">Gratis</td><td class="val hi">Gratis</td><td class="val">Gratis</td></tr>
+              <tr><td>Panduan pengelolaan</td><td><svg class="ic yes" aria-label="Termasuk"><use href="#i-check"/></svg></td><td class="hi"><svg class="ic yes" aria-label="Termasuk"><use href="#i-check"/></svg></td><td><svg class="ic yes" aria-label="Termasuk"><use href="#i-check"/></svg></td></tr>
+              <tr><td>Bantuan pembaruan</td><td class="no">—</td><td class="hi">1 bulan</td><td>3 bulan</td></tr>
+              <tr><td>Pelatihan pengelolaan</td><td class="no">—</td><td class="hi no">—</td><td><svg class="ic yes" aria-label="Termasuk"><use href="#i-check"/></svg></td></tr>
+              <tr><td>Waktu pengerjaan</td><td>3–5 hari</td><td class="hi">5–7 hari</td><td>7–14 hari</td></tr>
+              <tr class="total"><td>Investasi</td><td class="money">Rp 1.000.000</td><td class="money hi">Rp 1.500.000</td><td class="money">Rp 2.500.000</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TERMASUK ============ -->
+<section class="section section--white" id="termasuk">
+  <div class="container split">
+    <div class="reveal">
+      <p class="eyebrow"><span class="idx">04</span><span class="dash" aria-hidden="true"></span> Tanpa biaya tersembunyi</p>
+      <h2>Semua sudah lengkap, dari nama domain sampai <span class="serif">peluncuran.</span></h2>
+      <p class="lede" style="margin-top:18px">Anda tidak perlu mencari penyedia domain atau hosting terpisah. Setiap paket sudah mencakup kebutuhan dasar agar website siap dipakai dan mudah dirawat.</p>
+      <ul class="checklist">
+        <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span><b>Desain menyesuaikan identitas usaha.</b> Warna, logo, dan gaya disesuaikan dengan karakter bisnis Anda.</span></li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span><b>Panduan penggunaan sederhana.</b> Anda bisa mengelola dan mengedit konten tanpa latar belakang teknis.</span></li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span><b>Pendampingan saat peluncuran.</b> Website dicek bersama sebelum resmi online dan dibagikan.</span></li>
+      </ul>
+
+      <div class="timeline reveal" id="timelineCard">
+        <h4><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg> Estimasi waktu pengerjaan</h4>
+        <div class="tl-row">
+          <div class="tl-top"><b>Paket 1</b><span>3–5 hari kerja</span></div>
+          <div class="tl-bar"><i class="w1"></i></div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-top"><b>Paket 2</b><span>5–7 hari kerja</span></div>
+          <div class="tl-bar"><i class="w2"></i></div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-top"><b>Paket 3</b><span>7–14 hari kerja</span></div>
+          <div class="tl-bar"><i class="w3"></i></div>
+        </div>
+        <p class="tl-note">Dihitung setelah semua data &amp; materi diterima. Jumlah revisi mengikuti kesepakatan pada paket yang dipilih.</p>
+      </div>
+    </div>
+
+    <div class="panel reveal" style="--d:.1s">
+      <div class="panel-head"><strong>Yang Anda dapatkan</strong><span>Semua paket</span></div>
+      <div class="panel-row"><span class="l"><svg class="ic" aria-hidden="true"><use href="#i-palette"/></svg> Desain disesuaikan identitas usaha</span><span class="tag">Termasuk</span></div>
+      <div class="panel-row"><span class="l"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Tampilan ramah ponsel &amp; komputer</span><span class="tag">Termasuk</span></div>
+      <div class="panel-row"><span class="l"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg> Nama domain</span><span class="tag ink">Gratis</span></div>
+      <div class="panel-row"><span class="l"><svg class="ic" aria-hidden="true"><use href="#i-server"/></svg> Penyimpanan &amp; pengelolaan hosting</span><span class="tag ink">Gratis</span></div>
+      <div class="panel-row"><span class="l"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg> Panduan penggunaan sederhana</span><span class="tag">Termasuk</span></div>
+      <div class="panel-row"><span class="l"><svg class="ic" aria-hidden="true"><use href="#i-rocket"/></svg> Bantuan saat peluncuran</span><span class="tag">Termasuk</span></div>
+      <div class="panel-row"><span class="l"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg> Tautan WhatsApp langsung</span><span class="tag">Termasuk</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROSES ============ -->
+<section class="section section--ivory" id="proses">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <p class="eyebrow"><span class="idx">05</span><span class="dash" aria-hidden="true"></span> Cara kerja</p>
+      <h2>Enam langkah, <span class="serif">tanpa ribet.</span></h2>
+      <p class="lede">Anda cukup mengirim data. Kami yang menyusun, membangun, dan meluncurkan website Anda.</p>
+    </div>
+    <div class="steps">
+      <article class="step reveal">
+        <div class="step-top"><span class="step-num">01</span><span class="step-who you">Anda</span></div>
+        <h3>Pilih paket</h3>
+        <p>Tentukan paket yang paling sesuai. Bisa konsultasi dulu lewat WhatsApp tanpa biaya.</p>
+      </article>
+      <article class="step reveal" style="--d:.06s">
+        <div class="step-top"><span class="step-num">02</span><span class="step-who you">Anda</span></div>
+        <h3>Kirim data &amp; aset</h3>
+        <p>Data usaha, logo, foto produk atau properti, harga, dan kontak — cukup lewat WhatsApp.</p>
+      </article>
+      <article class="step reveal" style="--d:.12s">
+        <div class="step-top"><span class="step-num">03</span><span class="step-who">Kami</span></div>
+        <h3>Kami buat draf</h3>
+        <p>Desain dan struktur website disusun sesuai identitas usaha serta kebutuhan pengunjung.</p>
+      </article>
+      <article class="step reveal">
+        <div class="step-top"><span class="step-num">04</span><span class="step-who you">Anda</span></div>
+        <h3>Cek &amp; beri masukan</h3>
+        <p>Tinjau draf yang kami kirim, lalu sampaikan bagian yang ingin disesuaikan.</p>
+      </article>
+      <article class="step reveal" style="--d:.06s">
+        <div class="step-top"><span class="step-num">05</span><span class="step-who">Kami</span></div>
+        <h3>Setujui &amp; diluncurkan</h3>
+        <p>Setelah disetujui dan pelunasan, website resmi online dan siap dibagikan.</p>
+      </article>
+      <article class="step reveal" style="--d:.12s">
+        <div class="step-top"><span class="step-num">06</span><span class="step-who">Kami</span></div>
+        <h3>Serah terima</h3>
+        <p>Anda menerima akun, akses pengelolaan, dan panduan penggunaan website.</p>
+      </article>
+    </div>
+    <div class="steps-foot reveal">
+      <p>Tidak perlu menyiapkan semuanya sekaligus — mulai dari konsultasi singkat dulu.</p>
+      <a class="btn btn--ink" href="#pesan">Mulai langkah pertama <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PEMBAYARAN ============ -->
+<section class="section section--white" id="pembayaran">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow"><span class="idx">06</span><span class="dash" aria-hidden="true"></span> Pembayaran</p>
+      <h2>Mudah, transparan, dan bisa <span class="serif">pakai GoPay.</span></h2>
+      <p class="lede">Mulai dengan DP 50%, sisanya setelah draf disetujui. Tidak ada biaya tersembunyi.</p>
+    </div>
+    <div class="pay-grid">
+      <div class="pay-card reveal">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-wallet"/></svg> Skema pembayaran</h3>
+        <p class="sub">Dua tahap sederhana — aman untuk kedua pihak.</p>
+        <div class="split-bar" aria-hidden="true"><span class="p1">DP 50%</span><span class="p2">Pelunasan 50%</span></div>
+        <div class="split-labels"><span>Saat pengerjaan dimulai</span><span>Sebelum peluncuran</span></div>
+        <ul class="pay-points">
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span><b>Uang muka 50%</b> saat pengerjaan dimulai.</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span><b>Pelunasan 50%</b> setelah draf disetujui, sebelum website diluncurkan.</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Bisa melalui <b>transfer bank</b> atau <b>GoPay</b>.</span></li>
+        </ul>
+        <div class="micro-note" style="margin-top:24px">
+          <svg class="ic" aria-hidden="true"><use href="#i-info"/></svg>
+          <span>Nominal DP dan pelunasan menyesuaikan paket yang dipilih — rincian otomatis tampil pada ringkasan di formulir pemesanan.</span>
+        </div>
+      </div>
+
+      <div class="pay-card reveal" style="--d:.08s">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-guarantee"/></svg> Metode pembayaran</h3>
+        <p class="sub">Pilih yang paling nyaman untuk Anda.</p>
+        <div class="pay-tabs" role="tablist" aria-label="Metode pembayaran">
+          <button class="is-active" data-pay="gopay" role="tab" aria-selected="true">GoPay</button>
+          <button data-pay="bank" role="tab" aria-selected="false"><svg class="ic" aria-hidden="true"><use href="#i-wallet"/></svg> Transfer bank</button>
+        </div>
+
+        <div class="pay-panel is-active" data-paypanel="gopay">
+          <div class="method">
+            <span class="logo gopay">gopay</span>
+            <span><b>GoPay / dompet digital</b><small>Praktis, langsung dari aplikasi.</small></span>
+          </div>
+          <div class="number-box">
+            <span><span class="lb">Nomor GoPay</span><span class="nb" id="gopayNumber">0813-9239-9300</span></span>
+            <button class="copy" type="button" data-copy="081392399300" aria-label="Salin nomor GoPay">
+              <svg class="ic" aria-hidden="true"><use href="#i-copy"/></svg><span class="copy-label">Salin</span>
+            </button>
+          </div>
+          <p class="micro-note"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span>Nama penerima: <b>Suport System</b>. Mohon konfirmasi via WhatsApp sebelum mengirim dana agar nominal &amp; paket tercatat dengan benar.</span></p>
+          <div class="pay-cta">
+            <a class="btn btn--wa" href="https://wa.me/6281392399300?text=Halo%20Suport%20System%2C%20saya%20ingin%20konfirmasi%20pembayaran%20melalui%20GoPay." target="_blank" rel="noopener"><svg class="ic fill" aria-hidden="true"><use href="#i-wa"/></svg> Konfirmasi via WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="pay-panel" data-paypanel="bank">
+          <div class="method">
+            <span class="logo bank">BANK</span>
+            <span><b>Transfer bank</b><small>BCA, BRI, Mandiri, dan bank lainnya.</small></span>
+          </div>
+          <div class="bank-note">Detail nomor rekening dan nama pemilik dikirim melalui WhatsApp saat konfirmasi — <b>agar selalu akurat</b> dan sesuai paket yang Anda pilih.</div>
+          <p class="micro-note"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span>Sertakan nama dan paket pada keterangan transfer, lalu kirim bukti pembayaran via WhatsApp.</span></p>
+          <div class="pay-cta">
+            <a class="btn btn--wa" href="https://wa.me/6281392399300?text=Halo%20Suport%20System%2C%20mohon%20informasi%20nomor%20rekening%20untuk%20pembayaran%20transfer%20bank." target="_blank" rel="noopener"><svg class="ic fill" aria-hidden="true"><use href="#i-wa"/></svg> Minta detail rekening</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROMO ============ -->
+<section class="section section--tight section--white" id="promo" style="padding-top:0">
+  <div class="container">
+    <div class="promo reveal">
+      <div>
+        <span class="badge"><svg class="ic" aria-hidden="true"><use href="#i-spark"/></svg> Penawaran terbatas · bulan ini</span>
+        <h2>Pilih Paket 2 atau 3, dapat <span class="serif">gratis 1× pembaruan tampilan.</span></h2>
+        <p>Berlaku untuk pemesanan yang dikonfirmasi sebelum akhir bulan ini. Pembaruan tampilan dapat digunakan kapan saja dalam 3 bulan setelah website diluncurkan.</p>
+        <div class="promo-actions">
+          <button class="btn btn--gold" type="button" data-pkg="2">Ambil penawaran ini <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <a class="btn btn--ghost" href="#paket">Lihat semua paket</a>
+        </div>
+        <p class="fine"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg> Tanpa biaya tambahan — otomatis untuk Paket 2 &amp; 3.</p>
+      </div>
+      <div class="count">
+        <div class="lbl"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg> Berakhir dalam</div>
+        <div class="count-grid" id="countdown" aria-live="polite">
+          <div class="count-cell"><b id="cdDays">00</b><span>Hari</span></div>
+          <div class="count-cell"><b id="cdHours">00</b><span>Jam</span></div>
+          <div class="count-cell"><b id="cdMins">00</b><span>Menit</span></div>
+          <div class="count-cell"><b id="cdSecs">00</b><span>Detik</span></div>
+        </div>
+        <div class="until" id="cdDeadline">sampai akhir bulan</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PESAN ============ -->
+<section class="section section--ivory" id="pesan">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow"><span class="idx">07</span><span class="dash" aria-hidden="true"></span> Mulai proyek Anda</p>
+      <h2>Pesan langsung <span class="serif">lewat WhatsApp.</span></h2>
+      <p class="lede">Tidak perlu membuat akun. Isi data singkat di bawah, lalu kirim pesannya — kami balas untuk konfirmasi langkah berikutnya.</p>
+    </div>
+
+    <div class="order-grid">
+      <form class="form-card reveal" id="orderForm" novalidate>
+        <h3>Formulir pemesanan</h3>
+        <p class="hint">Sebagian besar data bisa dilengkapi nanti lewat WhatsApp.</p>
+        <div class="form-grid">
+          <div class="field" id="fieldNama">
+            <label for="nama">Nama Anda <span class="req">*</span></label>
+            <input type="text" id="nama" name="nama" placeholder="Contoh: Rina" autocomplete="name" required>
+            <span class="err">Mohon isi nama Anda.</span>
+          </div>
+          <div class="field" id="fieldWa">
+            <label for="wa">Nomor WhatsApp <span class="req">*</span></label>
+            <input type="tel" id="wa" name="wa" placeholder="08xxxxxxxxxx" inputmode="tel" autocomplete="tel" required>
+            <span class="err">Masukkan nomor WhatsApp yang valid.</span>
+          </div>
+          <div class="field">
+            <label for="jenis">Jenis usaha</label>
+            <select id="jenis" name="jenis">
+              <option value="umkm">UMKM / usaha produk &amp; jasa</option>
+              <option value="properti">Agen / pemasaran properti</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="paketSelect">Paket yang dipilih</label>
+            <select id="paketSelect" name="paket">
+              <option value="1">Paket 1 — Profil Bisnis</option>
+              <option value="2" selected>Paket 2 — Katalog Lengkap</option>
+              <option value="3">Paket 3 — Toko Daring</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="catatan">Catatan (opsional)</label>
+            <textarea id="catatan" name="catatan" placeholder="Ceritakan singkat usaha Anda — contoh: katalog kopi &amp; oleh-oleh, butuh halaman galeri dan filter kategori."></textarea>
+          </div>
+        </div>
+        <div class="form-submit">
+          <button class="btn btn--wa btn--block btn--lg" type="submit">
+            <svg class="ic fill" aria-hidden="true"><use href="#i-wa"/></svg> Kirim formulir via WhatsApp
+          </button>
+        </div>
+        <p class="form-foot"><svg class="ic" aria-hidden="true"><use href="#i-lock"/></svg><span>Anda akan diarahkan ke WhatsApp dengan pesan yang sudah terisi otomatis. Tidak ada pembayaran yang diproses di halaman ini.</span></p>
+      </form>
+
+      <aside class="summary reveal" id="summaryCard" style="--d:.08s" aria-label="Ringkasan pilihan paket">
+        <div class="lab"><svg class="ic" aria-hidden="true"><use href="#i-spark"/></svg> Ringkasan pilihan</div>
+        <h3 id="sumName">Paket 2 — Katalog Lengkap</h3>
+        <p class="for" id="sumJenis">Untuk UMKM / usaha produk &amp; jasa</p>
+        <div class="total"><span class="cur">Rp</span><span class="amt" id="sumPrice">1.500.000</span><span class="per">/ sekali bayar</span></div>
+        <div class="sum-row dp"><span>DP 50% saat mulai</span><b id="sumDp">Rp 750.000</b></div>
+        <div class="sum-row"><span>Pelunasan sebelum peluncuran</span><b id="sumSisa">Rp 750.000</b></div>
+        <div class="sum-incl"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Domain &amp; hosting sudah termasuk</div>
+        <ul class="sum-list">
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Desain menyesuaikan identitas usaha</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Tautan WhatsApp langsung ke pelanggan</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Panduan pengelolaan sederhana</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Bantuan saat peluncuran</li>
+        </ul>
+        <div class="sum-note"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span>Ringkasan ini bersifat estimasi. Detail akhir dikonfirmasi bersama via WhatsApp.</span></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section section--white" id="faq">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <p class="eyebrow"><span class="idx">08</span><span class="dash" aria-hidden="true"></span> FAQ</p>
+      <h2>Pertanyaan yang <span class="serif">sering diajukan.</span></h2>
+    </div>
+    <div class="faq reveal">
+      <div class="faq-item open">
+        <button class="faq-q" aria-expanded="true">Apakah harga paket sudah termasuk domain &amp; hosting?<span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></span></button>
+        <div class="faq-a"><p>Sudah. Semua paket mencakup nama domain dan penyimpanan/hosting tanpa biaya tambahan, sesuai yang tertera pada bagian “Yang Anda dapatkan”. Jika ada kebutuhan khusus di luar paket, kami sampaikan rinciannya lebih dulu sebelum pengerjaan.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Berapa lama proses pembuatannya?<span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></span></button>
+        <div class="faq-a"><p>Paket 1 sekitar 3–5 hari kerja, Paket 2 sekitar 5–7 hari kerja, dan Paket 3 sekitar 7–14 hari kerja. Hitungan dimulai setelah data dan materi (logo, foto, daftar produk/properti) kami terima lengkap.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Bagaimana cara pembayaran dan apakah bisa GoPay?<span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></span></button>
+        <div class="faq-a"><p>Pembayaran dua tahap: DP 50% saat pengerjaan dimulai, lalu pelunasan 50% setelah draf disetujui dan sebelum website diluncurkan. Pembayaran bisa melalui transfer bank atau GoPay ke <strong>0813-9239-9300</strong>. Mohon konfirmasi via WhatsApp sebelum mengirim dana.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Apakah desainnya bisa disesuaikan dengan usaha saya?<span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></span></button>
+        <div class="faq-a"><p>Bisa. Warna, logo, gaya foto, dan susunan halaman disesuaikan dengan identitas usaha Anda. Anda juga bisa memberikan referensi tampilan yang disukai saat konsultasi.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Setelah selesai, apakah saya bisa mengedit sendiri?<span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></span></button>
+        <div class="faq-a"><p>Bisa. Anda akan menerima panduan penggunaan yang sederhana. Untuk Paket 2 tersedia bantuan pembaruan 1 bulan, dan Paket 3 mendapatkan pelatihan lengkap serta bantuan 3 bulan.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Saya di luar Surakarta. Apakah tetap bisa pesan?<span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></span></button>
+        <div class="faq-a"><p>Bisa. Pengerjaan dilakukan secara online melalui WhatsApp, jadi Anda tetap dapat memesan dari luar kota. Wilayah utama layanan kami adalah Surakarta dan sekitarnya.</p></div>
+      </div>
+    </div>
+    <p class="faq-foot reveal">Belum menemukan jawabannya? <a href="https://wa.me/6281392399300?text=Halo%20Suport%20System%2C%20saya%20ingin%20bertanya%20seputar%20jasa%20pembuatan%20website." target="_blank" rel="noopener">Tanya langsung via WhatsApp <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer" id="kontak">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/img/logo-mark-white.png" alt="Suport System" width="60" height="86">
+        <p class="tag">Website untuk UMKM dan pemasaran properti — dirancang sesuai identitas usaha, lengkap dengan domain &amp; hosting.</p>
+        <span class="footer-area"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg> Surakarta &amp; sekitarnya</span>
+        <div class="footer-cta">
+          <a class="btn btn--gold" href="https://wa.me/6281392399300?text=Halo%20Suport%20System%2C%20saya%20ingin%20konsultasi%20pembuatan%20website%20untuk%20usaha%20saya." target="_blank" rel="noopener">
+            <svg class="ic fill" aria-hidden="true"><use href="#i-wa"/></svg> Konsultasi gratis
+          </a>
+          <a class="btn btn--ghost" href="#paket">Lihat paket</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="#manfaat">Manfaat website</a></li>
+          <li><a href="#paket">Paket &amp; harga</a></li>
+          <li><a href="#termasuk">Yang Anda dapatkan</a></li>
+          <li><a href="#proses">Cara kerja</a></li>
+          <li><a href="#pembayaran">Pembayaran</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Hubungi kami</h4>
+        <ul>
+          <li><a class="wa-link" href="https://wa.me/6281392399300" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg> 0813-9239-9300</a></li>
+          <li class="contact"><svg class="ic" aria-hidden="true"><use href="#i-message"/></svg><span>WhatsApp adalah jalur komunikasi utama kami.</span></li>
+          <li class="contact"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg><span>Surakarta, Jawa Tengah — melayani sekitarnya.</span></li>
+          <li class="contact"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg><span>Senin–Sabtu · 08.00–20.00 WIB</span></li>
+        </ul>
+        <div class="footer-pay"><span>GoPay</span><span>Transfer bank</span><span>DP 50%</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Suport System. Semua hak dilindungi.</span>
+      <span class="made"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg> Dibuat untuk usaha lokal di Surakarta &amp; sekitarnya.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/6281392399300?text=Halo%20Suport%20System%2C%20saya%20ingin%20bertanya%20tentang%20jasa%20pembuatan%20website." target="_blank" rel="noopener" aria-label="Chat via WhatsApp">
+  <svg class="ic fill" aria-hidden="true"><use href="#i-wa"/></svg>
+  <span class="txt">Chat WhatsApp</span>
+</a>
+
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span id="toastText">Tersimpan</span>
+</div>
+
+<script src="js/app.js" defer></script>
+</body>
+</html>
