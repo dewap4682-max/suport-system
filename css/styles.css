@@ -212,12 +212,12 @@ h3{font-size:1.1rem;letter-spacing:-.02em;line-height:1.35}
 .hero-lead strong{color:var(--ink);font-weight:700}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:44px}
 .hero-facts{
-  display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:0 38px;
-  border-top:1px solid var(--line);padding-top:24px;max-width:520px;
+  display:grid;grid-template-columns:repeat(3,max-content);justify-content:start;gap:0 40px;
+  border-top:1px solid var(--line);padding-top:24px;
 }
-.hero-facts li{position:relative;padding-right:38px}
-.hero-facts li+li::before{content:"";position:absolute;left:-19px;top:4px;bottom:4px;width:1px;background:var(--line)}
-.hero-facts b{display:block;font-size:1.02rem;font-weight:700;letter-spacing:-.02em;line-height:1.3}
+.hero-facts li{position:relative;padding-right:0}
+.hero-facts li+li::before{content:"";position:absolute;left:-20px;top:2px;bottom:2px;width:1px;background:var(--line)}
+.hero-facts b{display:block;font-size:1rem;font-weight:700;letter-spacing:-.02em;line-height:1.3;white-space:nowrap}
 .hero-facts span{display:block;font-size:.72rem;color:var(--muted);letter-spacing:.02em;margin-top:2px}
 
 /* hero visual */
@@ -749,11 +749,12 @@ h3{font-size:1.1rem;letter-spacing:-.02em;line-height:1.35}
   .section--tight{padding:64px 0}
   .hero{padding-top:104px}
   .hero-inner{padding-bottom:60px;gap:44px}
-  .hero-facts{grid-template-columns:1fr 1fr;gap:18px 0;max-width:none}
-  .hero-facts li{padding-right:0}
-  .hero-facts li+li::before{left:-10px}
-  .hero-facts li:nth-child(odd)::before{display:none}
-  .hero-facts li:nth-child(3){grid-column:1/-1;padding-top:14px;border-top:1px solid var(--line-soft)}
+  .hero-facts{grid-template-columns:repeat(3,1fr);gap:0;max-width:none;padding-top:18px}
+  .hero-facts li{padding-right:8px}
+  .hero-facts li+li{padding-left:12px}
+  .hero-facts li+li::before{left:0}
+  .hero-facts b{font-size:.88rem;white-space:normal;line-height:1.25}
+  .hero-facts span{font-size:.66rem;line-height:1.3}
   .hero-actions{flex-direction:column;align-items:stretch}
   .hero-actions .btn{width:100%}
     .preview-switch{flex-wrap:wrap;gap:8px}
@@ -808,4 +809,476 @@ h3{font-size:1.1rem;letter-spacing:-.02em;line-height:1.35}
   html{scroll-behavior:auto}
   .reveal{opacity:1;transform:none}
   .marquee-track{animation:none}
+}
+
+/* grid children must be allowed to shrink (prevents 1–2% overflow on phones) */
+.order-grid > *, .split > *, .pricing-grid > *, .app-grid > *, .pay-grid > *, .steps > *, .why-grid > *{min-width:0}
+
+/* ============================================================
+   20. APLIKASI SIAP PAKAI
+   ============================================================ */
+.app-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+.app-card{
+  position:relative;display:flex;flex-direction:column;background:var(--white);
+  border:1px solid var(--line);border-radius:var(--radius-lg);padding:30px 28px;
+  transition:transform .3s var(--ease),box-shadow .3s,border-color .3s;
+}
+.app-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:#D8D1C2}
+.app-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:20px}
+.app-tile{
+  width:54px;height:54px;border-radius:14px;display:grid;place-items:center;flex:none;
+  background:linear-gradient(150deg,#FFF7E2,#FAE7B4);border:1px solid rgba(240,177,0,.38);color:var(--gold-deep);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.7);
+}
+.app-tile .ic{width:25px;height:25px;stroke-width:1.6}
+.app-tag{
+  font-size:.58rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--muted-2);
+  border:1px solid var(--line);border-radius:999px;padding:4px 9px;white-space:nowrap;
+}
+.app-card .code{display:block;font-size:.66rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:6px}
+.app-card h3{font-size:1.18rem;letter-spacing:-.025em;margin-bottom:8px}
+.app-card .desc{font-size:.86rem;color:var(--muted);line-height:1.6;min-height:3.2em;margin-bottom:20px}
+.app-price{display:flex;align-items:baseline;gap:6px;margin-bottom:12px;font-variant-numeric:tabular-nums}
+.app-price .cur{font-size:.85rem;font-weight:600;color:var(--muted)}
+.app-price .amt{font-size:1.95rem;font-weight:700;letter-spacing:-.04em;line-height:1}
+.app-price .per{font-size:.7rem;color:var(--muted-2)}
+.app-price--quote .amt{font-size:1.5rem;letter-spacing:-.03em}
+.app-card--custom .app-price--quote .amt{color:var(--gold)}
+.lifetime{
+  display:inline-flex;align-items:center;gap:7px;align-self:flex-start;
+  font-size:.69rem;font-weight:700;color:var(--gold-deep);
+  background:var(--gold-tint);border:1px solid rgba(240,177,0,.34);border-radius:7px;
+  padding:6px 10px;margin-bottom:22px;
+}
+.lifetime .ic{width:13px;height:13px;stroke-width:2}
+.app-card .feats{margin-top:0}
+.app-card .btn{width:100%;margin-top:auto}
+.lifetime-strip{
+  display:grid;grid-template-columns:repeat(3,1fr);margin-top:26px;
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+}
+.lifetime-item{display:flex;gap:12px;align-items:flex-start;padding:22px 24px}
+.lifetime-item+.lifetime-item{border-left:1px solid var(--line)}
+.lifetime-item .ic{width:19px;height:19px;color:var(--gold-deep);flex:none;margin-top:2px;stroke-width:1.8}
+.lifetime-item b{display:block;font-size:.885rem;font-weight:700;letter-spacing:-.01em;margin-bottom:3px}
+.lifetime-item span{display:block;font-size:.79rem;color:var(--muted);line-height:1.6}
+.apps-foot{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:26px;padding-top:22px;border-top:1px solid var(--line)}
+.apps-foot p{font-size:.87rem;color:var(--muted)}
+.apps-foot a{font-weight:700;color:var(--ink);display:inline-flex;align-items:center;gap:6px;font-size:.87rem}
+.apps-foot a .ic{width:14px;height:14px;transition:transform .25s var(--ease)}
+.apps-foot a:hover .ic{transform:translateX(3px)}
+
+@media (max-width:1024px){
+  .app-grid{grid-template-columns:1fr;max-width:560px;margin-inline:auto}
+  .app-card .desc{min-height:0}
+  .lifetime-strip{grid-template-columns:1fr}
+  .lifetime-item+.lifetime-item{border-left:0;border-top:1px solid var(--line)}
+}
+
+/* ============================================================
+   21. APLIKASI — WA ORDER, CUSTOM CARD, ALUR BAYAR
+   ============================================================ */
+.wa-order{
+  display:inline-flex;align-items:center;gap:6px;margin-top:10px;align-self:flex-start;
+  font-size:.74rem;font-weight:600;color:var(--muted);
+  transition:color .2s;
+}
+.wa-order .ic{width:13px;height:13px;color:var(--green)}
+.wa-order:hover{color:var(--green)}
+.wa-hint{display:block;margin-top:10px;font-size:.7rem;color:var(--muted-2);text-align:left}
+.app-card--custom{
+  background:linear-gradient(168deg,#101A1E,#0C1316 70%);border-color:#1E2B30;color:var(--ivory);
+  box-shadow:0 30px 60px -40px rgba(13,20,23,.75);
+}
+.app-card--custom h3{color:#fff}
+.app-card--custom .code{color:var(--gold)}
+.app-card--custom .desc{color:rgba(246,242,234,.62)}
+.app-card--custom .desc b{color:#fff}
+.app-card--custom .app-tag{border-color:rgba(255,255,255,.16);color:rgba(246,242,234,.6)}
+.app-card--custom .app-tile{background:rgba(255,194,14,.12);border-color:rgba(255,194,14,.3);color:var(--gold);box-shadow:none}
+.app-card--custom .app-price .amt{color:#fff}
+.app-card--custom .lifetime{background:rgba(255,194,14,.12);border-color:rgba(255,194,14,.3);color:var(--gold)}
+.app-card--custom .feats li{color:rgba(246,242,234,.78)}
+.app-card--custom .feats li .ic{color:var(--gold)}
+.app-card--custom .wa-hint{color:rgba(246,242,234,.4)}
+.app-card--custom .btn--ink{background:var(--gold);color:var(--ink)}
+.app-card--custom .btn--ink:hover{background:var(--gold-2)}
+
+.pay-flow{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:24px;
+  border:1px solid var(--line);border-radius:var(--radius);background:var(--white);overflow:hidden;
+}
+.pf-step{display:flex;gap:12px;align-items:flex-start;padding:20px 22px;position:relative}
+.pf-step+.pf-step{border-left:1px solid var(--line)}
+.pf-num{
+  width:26px;height:26px;border-radius:50%;flex:none;display:grid;place-items:center;
+  background:var(--gold-tint);border:1px solid rgba(240,177,0,.4);color:var(--gold-deep);
+  font-size:.76rem;font-weight:800;font-variant-numeric:tabular-nums;
+}
+.pf-step b{display:block;font-size:.85rem;font-weight:700;letter-spacing:-.01em;margin-bottom:3px}
+.pf-step span:not(.pf-num){display:block;font-size:.76rem;color:var(--muted);line-height:1.55}
+.pf-step span b{display:inline;font-size:inherit}
+
+.form-alt{display:flex;justify-content:center;margin-top:14px}
+.form-alt .btn--link{font-size:.8rem;color:var(--muted)}
+.form-alt .btn--link:hover{color:var(--gold-deep)}
+
+/* ============================================================
+   22. INVOICE MODAL
+   ============================================================ */
+.inv-scrim{
+  position:fixed;inset:0;z-index:140;background:rgba(13,20,23,.55);backdrop-filter:blur(4px);
+  display:flex;align-items:flex-start;justify-content:center;padding:28px 18px 40px;overflow-y:auto;
+  animation:fade .25s var(--ease);
+}
+.inv-scrim[hidden]{display:none}
+.inv-modal{
+  width:100%;max-width:660px;background:var(--paper);border-radius:20px;overflow:hidden;
+  box-shadow:0 40px 100px -30px rgba(13,20,23,.7);animation:rise .35s var(--ease);border:1px solid var(--line);
+}
+.inv-top{
+  display:flex;align-items:flex-start;gap:16px;padding:22px 26px;border-bottom:1px solid var(--line);
+  background:var(--white);position:relative;
+}
+.inv-brand{display:flex;align-items:center;gap:10px;flex:1;min-width:0}
+.inv-brand img{height:36px;width:auto;flex:none}
+.inv-brand b{display:block;font-size:.92rem;letter-spacing:-.02em;line-height:1.2}
+.inv-brand span{display:block;font-size:.66rem;color:var(--muted);letter-spacing:.02em}
+.inv-meta{text-align:right;padding-right:34px}
+.inv-meta strong{display:block;font-size:.68rem;font-weight:800;letter-spacing:.2em;color:var(--gold-deep)}
+.inv-meta span{display:block;font-size:.74rem;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.5}
+.inv-meta span:first-of-type{font-weight:700}
+.inv-x{
+  position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:50%;
+  border:1px solid var(--line);background:var(--paper);display:grid;place-items:center;color:var(--ink-soft);
+  transition:.2s;
+}
+.inv-x:hover{background:var(--ink);color:var(--ivory);border-color:var(--ink)}
+.inv-x .ic{width:14px;height:14px}
+.inv-body{padding:24px 26px}
+.inv-parties{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding-bottom:20px;border-bottom:1px dashed var(--line)}
+.inv-parties small{display:block;font-size:.62rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--muted-2);margin-bottom:5px}
+.inv-parties b{display:block;font-size:.92rem;font-weight:700;letter-spacing:-.01em}
+.inv-parties span{display:block;font-size:.76rem;color:var(--muted);line-height:1.5}
+.inv-status b{color:var(--gold-deep)}
+.inv-table{width:100%;border-collapse:collapse;margin:20px 0 0;font-size:.82rem}
+.inv-table th{
+  text-align:left;font-size:.6rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--muted-2);padding:0 0 8px;border-bottom:1px solid var(--line);
+}
+.inv-table th.r,.inv-table td.r{text-align:right}
+.inv-table td{padding:12px 0;border-bottom:1px solid var(--line-soft);vertical-align:top;color:var(--ink-soft)}
+.inv-table td b{display:block;color:var(--ink);font-weight:700;font-size:.86rem;line-height:1.4}
+.inv-table td span{display:block;font-size:.72rem;color:var(--muted);margin-top:2px;line-height:1.45}
+.inv-table td.r{font-weight:700;color:var(--ink);white-space:nowrap;font-variant-numeric:tabular-nums}
+.inv-totals{margin-top:14px;display:flex;flex-direction:column;gap:6px;align-items:flex-end}
+.inv-totals .row{display:flex;justify-content:space-between;gap:24px;width:100%;max-width:320px;font-size:.82rem;color:var(--muted)}
+.inv-totals .row b{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+.inv-totals .row.dp{padding:7px 0;border-top:1px dashed var(--line);border-bottom:1px dashed var(--line)}
+.inv-totals .row.dp span{color:var(--ink);font-weight:700}
+.inv-totals .row.dp b{color:var(--gold-deep);font-size:.95rem}
+.inv-pay{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+.inv-gopay{
+  display:flex;align-items:center;gap:11px;background:var(--white);border:1px solid var(--line);
+  border-radius:12px;padding:13px 14px;position:relative;min-width:0;
+}
+.gp-logo{
+  width:44px;height:44px;border-radius:9px;display:grid;place-items:center;flex:none;
+  background:var(--green-soft);color:var(--green);font-size:.72rem;font-weight:800;letter-spacing:-.03em;
+}
+.inv-gopay small{display:block;font-size:.6rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--muted-2)}
+.inv-gopay b{display:block;font-size:.98rem;font-weight:700;letter-spacing:.01em;font-variant-numeric:tabular-nums;line-height:1.4;white-space:nowrap}
+.inv-gopay span{display:block;font-size:.68rem;color:var(--muted)}
+.copy--light{
+  margin-left:auto;flex:none;background:var(--paper);border:1px solid var(--line);color:var(--ink);
+  display:inline-flex;align-items:center;gap:5px;border-radius:7px;padding:6px 9px;font-size:.68rem;font-weight:700;
+}
+.copy--light:hover{background:var(--gold-tint);border-color:rgba(240,177,0,.4)}
+.copy--light.done{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.inv-steps{
+  counter-reset:invst;display:flex;flex-direction:column;gap:7px;
+  font-size:.73rem;color:var(--muted);line-height:1.5;
+}
+.inv-steps li{display:flex;gap:7px;align-items:flex-start}
+.inv-steps li + li{margin-top:1px}
+.inv-steps li b{color:var(--ink);font-weight:700}
+.inv-notes{margin-top:18px;padding-top:16px;border-top:1px dashed var(--line);display:flex;flex-direction:column;gap:7px}
+.inv-notes li{display:flex;gap:8px;align-items:flex-start;font-size:.72rem;color:var(--muted);line-height:1.55}
+.inv-notes .ic{width:12px;height:12px;flex:none;margin-top:3px;color:var(--gold-deep)}
+.inv-foot{
+  display:flex;gap:9px;flex-wrap:wrap;padding:18px 26px 22px;border-top:1px solid var(--line);background:var(--white);
+}
+.inv-foot .btn{flex:1;min-width:150px;font-size:.82rem;padding:.8rem 1rem}
+
+@media (max-width:1024px){
+  .pay-flow{grid-template-columns:1fr 1fr}
+  .pf-step:nth-child(3){border-left:0;border-top:1px solid var(--line)}
+  .pf-step:nth-child(4){border-top:1px solid var(--line)}
+}
+@media (max-width:760px){
+  .pay-flow{grid-template-columns:1fr}
+  .pf-step+.pf-step{border-left:0;border-top:1px solid var(--line)}
+  .inv-scrim{padding:14px 10px 24px}
+  .inv-top{flex-direction:column;align-items:flex-start;gap:10px;padding:16px 48px 16px 18px}
+  .inv-brand{flex-direction:row;align-items:center;gap:9px;width:100%}
+  .inv-brand img{height:28px}
+  .inv-brand b{font-size:.85rem}
+  .inv-brand span{font-size:.62rem}
+  .inv-meta{text-align:left;padding-right:0;width:100%;margin-top:0}
+  .inv-meta strong{font-size:.58rem;letter-spacing:.18em;margin-bottom:2px}
+  .inv-meta span{font-size:.72rem;line-height:1.45}
+  .inv-x{top:14px;right:14px}
+  .inv-body{padding:18px}
+  .inv-parties{grid-template-columns:1fr;gap:14px}
+  .inv-pay{grid-template-columns:1fr}
+  .inv-foot{padding:14px 18px 18px}
+  .inv-foot .btn{flex:1 1 100%}
+  .inv-table td span{font-size:.7rem}
+  /* invoice line-item becomes stacked on phones */
+  .inv-table thead{display:none}
+  .inv-table, .inv-table tbody, .inv-table tr, .inv-table td{display:block;width:100%}
+  .inv-table tr{padding:12px 0;border-bottom:1px solid var(--line-soft)}
+  .inv-table td{padding:0;border:0}
+  .inv-table td.r{text-align:left;margin-top:6px;font-size:.9rem}
+  .inv-table td.r::before{content:"Harga: ";font-weight:600;color:var(--muted);font-size:.72rem}
+  .inv-table td:nth-child(2){margin-top:4px;font-size:.75rem;color:var(--muted)}
+  .inv-totals .row{max-width:none}
+}
+
+/* ---------- print: only the invoice ---------- */
+@media print{
+  @page{margin:14mm}
+  body{background:#fff}
+  body > *:not(.inv-scrim){display:none !important}
+  .inv-scrim{position:static;display:block !important;background:none;padding:0;backdrop-filter:none;overflow:visible}
+  .inv-modal{box-shadow:none;border:0;max-width:none;border-radius:0;animation:none}
+  .inv-foot,.inv-x{display:none !important}
+  .inv-top{border-bottom:1px solid #ddd}
+  .inv-body{padding:18px 0}
+  .copy--light{display:none !important}
+  .inv-gopay{border:1px solid #ddd}
+  .inv-notes li,.inv-table td,.inv-parties span,.inv-steps{color:#333}
+}
+
+/* ============================================================
+   23. V3 — BOLD PREMIUM PASS (kontras tinggi + mobile/tablet)
+   ============================================================ */
+
+/* ---------- 23.1 Header: terang di atas hero gelap, gelap saat scroll ---------- */
+.site-header:not(.is-scrolled) .brand-text b{color:#fff}
+.site-header:not(.is-scrolled) .brand-text span{color:rgba(246,242,234,.62)}
+.site-header:not(.is-scrolled) .nav a{color:rgba(246,242,234,.72)}
+.site-header:not(.is-scrolled) .nav a:hover,
+.site-header:not(.is-scrolled) .nav a.is-active{color:#fff}
+.site-header:not(.is-scrolled) .nav a::after{background:var(--gold)}
+.site-header:not(.is-scrolled) .btn--outline{
+  border-color:rgba(255,255,255,.26);color:#fff;background:rgba(255,255,255,.06);
+}
+.site-header:not(.is-scrolled) .btn--outline:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.45)}
+.site-header:not(.is-scrolled) .menu-btn{border-color:rgba(255,255,255,.24);color:#fff;background:rgba(255,255,255,.07)}
+.site-header:not(.is-scrolled) .brand img{filter:drop-shadow(0 2px 8px rgba(0,0,0,.35))}
+
+/* ---------- 23.2 HERO GELAP ---------- */
+.hero--ink{
+  background:var(--ink);color:var(--ivory);
+  padding-top:132px;
+}
+.hero--ink::before{
+  background:
+    radial-gradient(760px 460px at 78% -6%,rgba(255,194,14,.26),transparent 62%),
+    radial-gradient(620px 420px at 6% 96%,rgba(255,194,14,.1),transparent 62%),
+    linear-gradient(170deg,#0B1215 0%,#0D171B 46%,#0A1013 100%);
+}
+.hero--ink::after{
+  background:linear-gradient(180deg,transparent,rgba(255,255,255,.07) 18%,rgba(255,255,255,.07) 82%,transparent);
+}
+.hero--ink .eyebrow{color:rgba(246,242,234,.72)}
+.hero--ink .eyebrow .idx{color:var(--gold);border-right-color:rgba(255,255,255,.18)}
+.hero--ink .eyebrow .dash{background:var(--gold)}
+.hero--ink h1{color:#fff}
+.hero--ink h1 .serif{color:var(--gold)}
+.hero--ink .mark-underline::after{opacity:.95}
+.hero--ink .hero-lead{color:rgba(246,242,234,.72)}
+.hero--ink .hero-lead strong{color:#fff}
+.hero--ink .hero-facts{border-top-color:rgba(255,255,255,.14)}
+.hero--ink .hero-facts li+li::before{background:rgba(255,255,255,.14)}
+.hero--ink .hero-facts b{color:#fff}
+.hero--ink .hero-facts span{color:rgba(246,242,234,.5)}
+.hero--ink .preview-switch .lbl{color:rgba(246,242,234,.45)}
+.hero--ink .switch{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16)}
+.hero--ink .switch button{color:rgba(246,242,234,.8)}
+.hero--ink .switch button.is-active{background:var(--gold);color:var(--ink)}
+.hero--ink .frame{border-color:rgba(255,255,255,.14);box-shadow:0 50px 100px -40px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.05)}
+.hero--ink .frame::after{background:rgba(0,0,0,.5);opacity:.85}
+
+.hero-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.hero-chips li{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.74rem;font-weight:600;color:rgba(246,242,234,.82);
+  border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.05);
+  border-radius:999px;padding:6px 12px;backdrop-filter:blur(6px);
+}
+.hero-chips .ic{width:12px;height:12px;color:var(--gold);stroke-width:2.8}
+
+/* ---------- 23.3 BAND STATISTIK (gelap + angka emas) ---------- */
+.stats{background:#0A1013;border-top:1px solid rgba(255,255,255,.09)}
+.stats-grid{grid-template-columns:repeat(4,1fr)}
+.stat{padding:34px 26px 34px 0}
+.stat+.stat{padding-left:26px}
+.stat+.stat::before{background:rgba(255,255,255,.1);top:24px;bottom:24px}
+.stat .k{color:rgba(246,242,234,.42);font-size:.63rem;letter-spacing:.18em}
+.stat .v{color:#fff;font-size:1.5rem;letter-spacing:-.035em}
+.stat .v small{color:var(--gold);font-weight:700}
+
+/* ---------- 23.4 MARQUEE EMAS ---------- */
+.marquee{background:var(--gold);border-top:0;border-bottom:0;padding:14px 0}
+.marquee-item{color:var(--ink);font-weight:800;letter-spacing:.18em}
+.marquee-item i{background:var(--ink);opacity:.85}
+
+/* ---------- 23.5 Tipografi lebih tegas ---------- */
+h2{font-size:clamp(2.05rem,3.9vw,3.15rem);letter-spacing:-.04em}
+.eyebrow{color:var(--gold-deep);letter-spacing:.2em}
+.eyebrow .idx{color:var(--ink);border-right-color:var(--line);font-size:1.1rem}
+.section-head{max-width:700px}
+.section-head .lede{font-size:1.08rem}
+
+/* ---------- 23.6 Kartu: bayangan & aksen emas ---------- */
+.card-price,.app-card,.pay-card,.form-card,.panel,.timeline{border-color:#E4DED2}
+.card-price:hover,.app-card:hover{transform:translateY(-4px);box-shadow:0 34px 70px -40px rgba(13,20,23,.5);border-color:rgba(240,177,0,.55)}
+.card-price--pop{
+  background:linear-gradient(168deg,#131E23 0%,#0A1013 62%);
+  box-shadow:0 40px 80px -40px rgba(10,16,19,.85),0 0 0 1px rgba(255,194,14,.18) inset;
+}
+.price .amt{font-size:2.5rem}
+.card-price--pop .price .amt{color:var(--gold)}
+.pop-flag{background:var(--gold);color:var(--ink);font-size:.68rem;padding:6px 13px}
+
+/* ---------- 23.7 Tombol lebih besar di layar sentuh ---------- */
+@media (hover:none){
+  .btn{min-height:48px}
+  .btn--sm{min-height:42px}
+}
+
+/* ---------- 23.8 TABLET (761–1024 px) ---------- */
+@media (min-width:761px) and (max-width:1024px){
+  .pricing-grid{grid-template-columns:1fr 1fr;max-width:none;gap:20px}
+  .card-price--pop{order:0}
+  .app-grid{grid-template-columns:1fr 1fr;max-width:none}
+  .lifetime-strip{grid-template-columns:1fr 1fr}
+  .lifetime-item:nth-child(3){grid-column:1/-1;border-left:0;border-top:1px solid var(--line)}
+  .pay-flow{grid-template-columns:1fr 1fr}
+  .hero-inner{gap:44px}
+  .hero h1{font-size:3.05rem}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .stat:nth-child(3)::before{display:none}
+  .stat:nth-child(odd){padding-left:0}
+  .steps{grid-template-columns:1fr 1fr;gap:0 40px}
+  .why-grid{grid-template-columns:1fr 1fr;gap:0 40px}
+}
+
+/* ---------- 23.9 PONSEL ---------- */
+@media (max-width:760px){
+  body{padding-bottom:74px}                /* ruang untuk action bar */
+  .hero--ink{padding-top:104px}
+  .hero h1{font-size:clamp(2.15rem,8.6vw,2.65rem);letter-spacing:-.045em}
+  .hero-lead{font-size:1rem;margin-bottom:24px}
+  .hero-actions{margin-bottom:30px}
+  .hero-actions{gap:9px}
+  .hero-actions .btn{min-height:52px;font-size:.94rem}
+  .hero-chips{gap:6px;margin-top:16px}
+  .hero-chips li{font-size:.7rem;padding:5px 10px}
+  .preview-switch{margin-bottom:10px}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .stat{padding:18px 14px 18px 0 !important;border-top:0}
+  .stat:nth-child(even){padding-left:16px !important}
+  .stat::before{display:none}
+  .stat:nth-child(even){border-left:1px solid rgba(255,255,255,.1)}
+  .stat .v{font-size:1.16rem}
+  .marquee{padding:12px 0}
+
+  /* kartu aplikasi jadi carousel geser */
+  .app-grid{
+    display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;
+    gap:14px;margin-inline:-20px;padding:4px 20px 16px;scroll-padding-left:20px;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;
+  }
+  .app-grid::-webkit-scrollbar{display:none}
+  .app-card{min-width:82%;max-width:82%;scroll-snap-align:center;flex:0 0 auto}
+  .app-card .desc{min-height:0}
+
+  /* tabel perbandingan */
+  .compare-scroll{border-radius:14px}
+
+  /* form & ringkasan */
+  .btn--lg{min-height:54px}
+  .field input,.field select,.field textarea{font-size:16px}  /* cegah zoom iOS */
+}
+
+/* ---------- 23.10 ACTION BAR LENGKET ---------- */
+.m-bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:90;display:none;
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  gap:9px;background:rgba(251,249,244,.92);backdrop-filter:blur(14px);
+  border-top:1px solid var(--line);box-shadow:0 -10px 30px -22px rgba(13,20,23,.5);
+}
+.m-bar__wa,.m-bar__main{
+  flex:1;display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  min-height:50px;border-radius:12px;font-size:.9rem;font-weight:700;
+}
+.m-bar__wa{background:var(--green);color:#fff;flex:0 0 44%}
+.m-bar__wa .ic{width:17px;height:17px}
+.m-bar__main{background:var(--gold);color:var(--ink);box-shadow:0 10px 22px -14px rgba(240,177,0,.9)}
+.m-bar__main .ic{width:16px;height:16px}
+@media (max-width:760px){
+  .m-bar{display:flex}
+  .wa-float{display:none}
+  .toast{bottom:84px}
+}
+
+/* ---------- 23.11 Perbaikan kontras di hero gelap ---------- */
+.hero--ink .btn--outline{
+  background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.28);color:#fff;
+}
+.hero--ink .btn--outline:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.5);color:#fff}
+.frame,.window,.mock,.mock-card,.mock-info,.mock-brand,.mock-links{color:var(--ink)}
+.mock-brand .sq{color:var(--gold)}
+.mock-price{color:var(--ink)}
+.mock-title{color:var(--ink-soft)}
+.mock-links i{color:var(--muted-2)}
+.mock-links .on{color:var(--ink)}
+.hero--ink .url{color:var(--muted)}
+.hero--ink .window-bar{background:#FCFAF5}
+
+/* hero overlay::before sempat menutupi pita emas & band statistik */
+.hero--ink .stats,.hero--ink .marquee{position:relative;z-index:2}
+
+/* ---------- 23.12 Sentuhan akhir: harga & carousel ponsel ---------- */
+.app-price{flex-wrap:wrap;row-gap:2px}
+.app-price .per{white-space:nowrap}
+.app-price .amt{white-space:nowrap}
+@media (max-width:760px){
+  .app-grid{scroll-snap-type:x proximity;padding-bottom:8px}
+  .app-card{min-width:86%;max-width:86%;scroll-snap-align:start}
+  .lifetime{font-size:.66rem;align-items:flex-start;line-height:1.45}
+  .lifetime .ic{margin-top:1px}
+  .app-grid::after{content:"";flex:0 0 4px}
+}
+.swipe-hint{display:none;align-items:center;gap:6px;margin:2px 0 12px;font-size:.72rem;color:var(--muted-2)}
+.swipe-hint .ic{width:13px;height:13px}
+@media (max-width:760px){.swipe-hint{display:flex}}
+
+/* ---------- 23.13 Tablet: kartu sisa di tengah ---------- */
+@media (min-width:761px) and (max-width:1024px){
+  .pricing-grid > :nth-child(3){grid-column:1/-1;max-width:540px;width:100%;margin-inline:auto}
+  .app-grid > :nth-child(6){grid-column:1/-1;max-width:540px;width:100%;margin-inline:auto}
+}
+
+/* tablet: 6 kartu aplikasi → baris terakhir 2 kolom rata tengah */
+@media (min-width:761px) and (max-width:1024px){
+  .app-grid{
+    grid-template-columns:1fr 1fr;
+    justify-content:center;
+    column-gap:20px;row-gap:20px;
+  }
+  .app-grid > :nth-child(6){grid-column:auto;max-width:none;width:auto;margin-inline:0}
 }

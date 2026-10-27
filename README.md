@@ -12,19 +12,29 @@ siap dipasang di **GitHub Pages**, Netlify, Vercel, cPanel, atau hosting apa pun
 
 | Bagian | Keterangan |
 |---|---|
-| Hero | Pratinjau tampilan website properti/UMKM yang bisa diganti dengan satu klik |
+| Hero | Latar **gelap kontras tinggi** + aksen emas, *chip* keunggulan, pratinjau tampilan properti/UMKM yang bisa diganti satu klik |
+| Band statistik & pita emas | Angka besar (harga mulai, waktu pengerjaan, biaya langganan **Nol**) + marquee emas |
 | Manfaat | Tab **UMKM** dan **Pemasaran Properti** |
-| Paket & harga | 3 paket (Rp 1 jt / 1,5 jt / 2,5 jt) + tabel perbandingan yang bisa dibuka |
+| Paket & harga | 3 paket website (Rp 1 jt / 1,5 jt / 2,5 jt) + tabel perbandingan yang bisa dibuka |
+| Aplikasi siap pakai | **I-KOS** Rp 2,5 jt · **POS Rentcar** Rp 2,5 jt · **POS Dokter Gigi** Rp 4,5 jt · **Jimpitan Ronda** Rp 1 jt · **POS UMKM** Rp 1 jt · **Aplikasi custom** (online/offline, sesuai kebutuhan) — semuanya beli selamanya, tanpa biaya bulanan/tahunan |
+| Pesan via WhatsApp | Setiap kartu aplikasi punya tautan pesan langsung ke WhatsApp |
 | Yang Anda dapatkan | Termasuk domain & hosting, plus estimasi waktu pengerjaan |
 | Cara kerja | 6 langkah |
 | Pembayaran | Skema DP 50% + pelunasan, tab **GoPay** (nomor bisa disalin) dan **transfer bank** |
 | Promo | Countdown otomatis sampai akhir bulan |
-| Pemesanan | Formulir validasi → membuka WhatsApp dengan pesan otomatis (paket, harga, DP) |
+| Pemesanan | Formulir validasi (website **atau** aplikasi) → **invoice otomatis** (nomor invoice, rincian harga, DP 50%, nomor GoPay) → **kirim invoice ke WhatsApp** atau **cetak/simpan PDF** |
+| Invoice | Nomor berurutan per hari (`INV/SS/YYYYMMDD/001`), tersimpan di `localStorage` sehingga bisa dibuka lagi lewat tombol *Lihat invoice terakhir* |
 | FAQ | Akordeon 6 pertanyaan |
 
-Fitur teknis: responsif (360 px → 1440 px), navigasi mobile, animasi *reveal on scroll*,
-`prefers-reduced-motion`, meta SEO + JSON-LD `ProfessionalService`, dan OG image
-untuk pratinjau saat link dibagikan.
+Fitur teknis: responsif penuh (**360 px → 1440 px**, termasuk optimasi khusus tablet),
+navigasi mobile + menu geser, animasi *reveal on scroll*, `prefers-reduced-motion`,
+meta SEO + JSON-LD `ProfessionalService`, dan OG image untuk pratinjau link.
+
+**Khusus ponsel & tablet**
+- *Action bar* lengket di bawah: **WhatsApp** + **Buat invoice** (selalu terjangkau ibu jari)
+- Kartu aplikasi menjadi **carousel geser** (scroll-snap) dengan petunjuk geser
+- Tablet 761–1024 px: paket & aplikasi tampil **2 kolom**, kartu sisa ditaruh di tengah
+- Target sentuh ≥ 48 px, ukuran font input 16 px (mencegah auto-zoom iOS), dukungan `safe-area-inset`
 
 ---
 
@@ -102,7 +112,9 @@ Jika `git` meminta kata sandi, gunakan **Personal Access Token** (Settings → D
 
 - **Nomor WhatsApp:** cari `6281392399300` di `index.html` (beberapa tautan) dan `WA_NUMBER` di `js/app.js`.
 - **Nomor GoPay:** cari `gopayNumber` di `index.html` (teks tampil) dan `data-copy="081392399300"`.
-- **Harga & nama paket:** objek `PACKAGES` di bagian atas `js/app.js`.
+- **Harga & nama paket/aplikasi:** objek `PACKAGES` di bagian atas `js/app.js`
+  (kunci `1`, `2`, `3` = paket website; `ik`, `rc`, `dg` = aplikasi).
+  Harga yang tampil di kartu aplikasi ada di `index.html` (bagian `<section id="aplikasi">`).
 - **Warna brand:** variabel `--gold`, `--ink`, `--ivory` di `css/styles.css`.
 - **Teks & FAQ:** langsung di `index.html`.
 
@@ -120,6 +132,22 @@ Detail lengkap ada di [PANDUAN-EDIT.md](PANDUAN-EDIT.md).
 - Logo `assets/img/logo-mark.png` berasal dari berkas logo yang diberikan pemilik usaha; versi putihnya
   (`logo-mark-white.png`) dipakai di footer. Favicon dibuat dari logo yang sama.
 - Font tertanam (base64) agar tampilan identik meski tanpa koneksi ke Google Fonts.
+
+---
+
+## Daftar harga ringkas
+
+| Produk | Harga | Biaya bulanan/tahunan |
+|---|---|---|
+| Paket 1 — Profil Bisnis / Daftar Properti Dasar | Rp 1.000.000 | Tidak ada |
+| Paket 2 — Katalog Lengkap / Daftar Properti Menengah | Rp 1.500.000 | Tidak ada |
+| Paket 3 — Toko Daring / Portal Properti Lengkap | Rp 2.500.000 | Tidak ada |
+| APK I-KOS — Pengelolaan Kos | Rp 2.500.000 | Tidak ada (beli selamanya) |
+| APK POS Rentcar — Rental Mobil | Rp 2.500.000 | Tidak ada (beli selamanya) |
+| APK POS Dokter Gigi | Rp 4.500.000 | Tidak ada (beli selamanya) |
+| APK Jimpitan Ronda — Kas & Ronda Warga | Rp 1.000.000 | Tidak ada (beli selamanya) |
+| APK POS UMKM — Kasir UMKM | Rp 1.000.000 | Tidak ada (beli selamanya) |
+| Aplikasi custom (online / offline) | sesuai kebutuhan | Tidak ada (beli selamanya) |
 
 ---
 

@@ -7,10 +7,20 @@
 
   var WA_NUMBER = '6281392399300';
   var PACKAGES = {
-    '1': { price: 1000000, umkm: 'Paket 1 — Profil Bisnis', properti: 'Paket 1 — Daftar Properti Dasar' },
-    '2': { price: 1500000, umkm: 'Paket 2 — Katalog Lengkap', properti: 'Paket 2 — Daftar Properti Menengah' },
-    '3': { price: 2500000, umkm: 'Paket 3 — Toko Daring', properti: 'Paket 3 — Portal Properti Lengkap' }
+    '1':  { price: 1000000, type: 'web', umkm: 'Paket 1 — Profil Bisnis', properti: 'Paket 1 — Daftar Properti Dasar' },
+    '2':  { price: 1500000, type: 'web', umkm: 'Paket 2 — Katalog Lengkap', properti: 'Paket 2 — Daftar Properti Menengah' },
+    '3':  { price: 2500000, type: 'web', umkm: 'Paket 3 — Toko Daring', properti: 'Paket 3 — Portal Properti Lengkap' },
+    'ik': { price: 2500000, type: 'app', label: 'APK I-KOS — Pengelolaan Kos' },
+    'rc': { price: 2500000, type: 'app', label: 'APK POS Rentcar — Rental Mobil' },
+    'dg': { price: 4500000, type: 'app', label: 'APK POS Dokter Gigi' },
+    'jr': { price: 1000000, type: 'app', label: 'APK Jimpitan Ronda — Kas & Ronda Warga' },
+    'pu': { price: 1000000, type: 'app', label: 'APK POS UMKM — Kasir UMKM' }
   };
+
+  function packageName(pkg, aud) {
+    if (!pkg) return '';
+    return pkg.type === 'app' ? pkg.label : pkg[aud];
+  }
 
   function $(sel, ctx) { return (ctx || document).querySelector(sel); }
   function $$(sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); }
@@ -78,7 +88,7 @@
 
   /* ---------------- active nav link ---------------- */
   var navLinks = $$('.nav a');
-  var sections = ['manfaat', 'paket', 'proses', 'pembayaran', 'faq'];
+  var sections = ['manfaat', 'paket', 'aplikasi', 'proses', 'pembayaran', 'faq'];
   if ('IntersectionObserver' in window && navLinks.length) {
     var navObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -173,7 +183,7 @@
     var aud = jenisSelect.value;
     $$('option', paketSelect).forEach(function (opt) {
       var pkg = PACKAGES[opt.value];
-      if (pkg) opt.textContent = pkg[aud];
+      if (pkg) opt.textContent = packageName(pkg, aud);
     });
   }
 
@@ -203,11 +213,23 @@
     var aud = jenisSelect.value;
     var pkg = PACKAGES[paketSelect.value];
     if (!pkg) return;
-    if (sumName) sumName.textContent = pkg[aud];
-    if (sumJenis) sumJenis.textContent = aud === 'umkm' ? 'Untuk UMKM / usaha produk & jasa' : 'Untuk pemasaran properti';
+    if (sumName) sumName.textContent = packageName(pkg, aud);
+    if (sumJenis) {
+      sumJenis.textContent = pkg.type === 'app'
+        ? 'Aplikasi siap pakai · beli selamanya'
+        : (aud === 'umkm' ? 'Untuk UMKM / usaha produk & jasa' : 'Untuk pemasaran properti');
+    }
     if (sumPrice) sumPrice.textContent = new Intl.NumberFormat('id-ID').format(pkg.price);
     if (sumDp) sumDp.textContent = rupiah(pkg.price / 2);
     if (sumSisa) sumSisa.textContent = rupiah(pkg.price / 2);
+    var incl = $('#sumInclText');
+    if (incl) {
+      incl.textContent = pkg.type === 'app'
+        ? 'Sekali bayar — tanpa biaya bulanan atau tahunan'
+        : 'Domain & hosting sudah termasuk';
+    }
+    var sisaLabel = $('.sum-row:not(.dp) span');
+    if (sisaLabel) sisaLabel.textContent = pkg.type === 'app' ? 'Pelunasan sebelum serah terima' : 'Pelunasan sebelum peluncuran';
   }
 
   if (jenisSelect) {
@@ -233,10 +255,15 @@
   $$('[data-pkg]').forEach(function (btn) {
     btn.addEventListener('click', function () {
       var val = btn.getAttribute('data-pkg');
-      if (paketSelect) { paketSelect.value = val; updateSummary(); }
+      if (paketSelect) {
+        paketSelect.value = val;
+        updateSummary();
+      }
       var target = document.getElementById('pesan');
       if (target) target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
-      showToast('Paket ' + val + ' dipilih — lengkapi data Anda.');
+      var pkg = PACKAGES[val];
+      var nm = pkg ? packageName(pkg, jenisSelect ? jenisSelect.value : 'umkm') : ('Paket ' + val);
+      showToast(nm.replace(' — ', ': ') + ' dipilih — lengkapi data Anda.');
     });
   });
 
@@ -349,6 +376,150 @@
     });
   });
 
+  /* ---------------- invoice system ---------------- */
+  var INVOICE_KEY = 'ss_last_invoice';
+  var invScrim = $('#invScrim');
+  var lastFocus = null;
+
+  function pad2(n) { return String(n).padStart(2, '0'); }
+
+  function invoiceNumber() {
+    var d = new Date();
+    var date = '' + d.getFullYear() + pad2(d.getMonth() + 1) + pad2(d.getDate());
+    var counter = 1;
+    try {
+      var raw = localStorage.getItem('ss_invoice_counter');
+      var today = localStorage.getItem('ss_invoice_day');
+      counter = (raw && today === date) ? (parseInt(raw, 10) + 1) : 1;
+      localStorage.setItem('ss_invoice_day', date);
+      localStorage.setItem('ss_invoice_counter', String(counter));
+    } catch (e) { counter = Math.floor(Math.random() * 900) + 100; }
+    return 'INV/SS/' + date + '/' + String(counter).padStart(3, '0');
+  }
+
+  function formatDate(d) {
+    return d.toLocaleDateString('id-ID', { day: '2-digit', month: 'long', year: 'numeric' });
+  }
+
+  function buildInvoice(data) {
+    var pkg = PACKAGES[data.paket];
+    var isApp = pkg.type === 'app';
+    return {
+      no: invoiceNumber(),
+      date: formatDate(new Date()),
+      name: data.nama,
+      wa: data.wa,
+      item: packageName(pkg, data.jenis),
+      sub: isApp ? 'Aplikasi siap pakai — beli selamanya' : 'Jasa pembuatan website',
+      term: isApp ? 'Sekali bayar · tanpa biaya bulanan/tahunan' : 'Domain & hosting termasuk',
+      price: pkg.price,
+      dp: pkg.price / 2,
+      sisa: pkg.price / 2,
+      sisaLabel: isApp ? 'Pelunasan sebelum serah terima' : 'Pelunasan sebelum peluncuran',
+      isApp: isApp,
+      note: data.catatan || ''
+    };
+  }
+
+  function fillInvoice(inv) {
+    if (!invScrim) return;
+    $('#invNo').textContent = inv.no;
+    $('#invDate').textContent = inv.date;
+    $('#invTo').textContent = inv.name;
+    $('#invWa').textContent = inv.wa;
+    $('#invItem').textContent = inv.item;
+    $('#invItemSub').textContent = inv.sub;
+    $('#invTerm').textContent = inv.term;
+    $('#invPrice').textContent = rupiah(inv.price);
+    $('#invTotal').textContent = rupiah(inv.price);
+    $('#invDp').textContent = rupiah(inv.dp);
+    $('#invSisa').textContent = rupiah(inv.sisa);
+    $('#invSisaLabel').textContent = inv.sisaLabel;
+  }
+
+  function openInvoice(inv) {
+    if (!invScrim) return;
+    fillInvoice(inv);
+    lastFocus = document.activeElement;
+    invScrim.hidden = false;
+    document.body.style.overflow = 'hidden';
+    var modal = $('.inv-modal', invScrim);
+    if (modal) modal.focus({ preventScroll: true });
+    try { localStorage.setItem(INVOICE_KEY, JSON.stringify(inv)); } catch (e) { /* silent */ }
+    var lastBtn = $('#lastInvoiceBtn');
+    if (lastBtn) lastBtn.hidden = false;
+  }
+
+  function closeInvoice() {
+    if (!invScrim) return;
+    invScrim.hidden = true;
+    document.body.style.overflow = '';
+    var lastBtn = $('#lastInvoiceBtn');
+    if (lastBtn) lastBtn.hidden = false;
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  function invoiceMessage(inv) {
+    return 'Halo Suport System 👋\n\nSaya ingin memesan dan sudah membuat invoice di website.\n\n'
+      + 'No. Invoice: ' + inv.no + '\n'
+      + 'Tanggal: ' + inv.date + '\n'
+      + 'Nama: ' + inv.name + '\n'
+      + 'Nomor WhatsApp: ' + inv.wa + '\n'
+      + 'Pesanan: ' + inv.item + '\n'
+      + 'Harga: ' + rupiah(inv.price) + '\n'
+      + 'DP 50%: ' + rupiah(inv.dp) + '\n'
+      + (inv.note ? 'Catatan: ' + inv.note + '\n' : '')
+      + '\nSaya akan membayar DP melalui GoPay 0813-9239-9300 dan mengirim bukti transfer.\n'
+      + 'Mohon dikonfirmasi. Terima kasih.';
+  }
+
+  if (invScrim) {
+    var currentInvoice = null;
+    var sendBtn = $('#invSend');
+    var printBtn = $('#invPrint');
+    var closeBtns = [$('#invClose'), $('#invClose2')];
+
+    // remember the invoice currently displayed
+    var origFill = fillInvoice;
+    fillInvoice = function (inv) { currentInvoice = inv; origFill(inv); };
+
+    if (sendBtn) {
+      sendBtn.addEventListener('click', function () {
+        if (!currentInvoice) return;
+        window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(invoiceMessage(currentInvoice)), '_blank', 'noopener');
+        showToast('WhatsApp dibuka — kirim invoice untuk konfirmasi.');
+      });
+    }
+    if (printBtn) {
+      printBtn.addEventListener('click', function () { window.print(); });
+    }
+    closeBtns.forEach(function (btn) {
+      if (btn) btn.addEventListener('click', closeInvoice);
+    });
+    invScrim.addEventListener('click', function (e) {
+      if (e.target === invScrim) closeInvoice();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !invScrim.hidden) closeInvoice();
+    });
+
+    // reopen last invoice
+    var lastBtn2 = $('#lastInvoiceBtn');
+    if (lastBtn2) {
+      var saved = null;
+      try { saved = JSON.parse(localStorage.getItem(INVOICE_KEY) || 'null'); } catch (e) { saved = null; }
+      lastBtn2.hidden = !(saved && saved.no);
+      lastBtn2.addEventListener('click', function () {
+        var data = saved;
+        try { data = JSON.parse(localStorage.getItem(INVOICE_KEY) || 'null') || data; } catch (e) { /* keep */ }
+        if (data && data.no) openInvoice(data);
+        else showToast('Belum ada invoice. Buat lewat formulir di atas.');
+      });
+    }
+
+    window.__openInvoice = openInvoice;
+  }
+
   /* ---------------- order form ---------------- */
   var form = $('#orderForm');
   if (form) {
@@ -373,18 +544,13 @@
         return;
       }
 
-      var pkg = PACKAGES[paket];
-      var msg = 'Halo Suport System 👋\n\nSaya ingin pesan website.\n\n'
-        + 'Nama: ' + nama + '\n'
-        + 'Nomor WhatsApp: ' + wa + '\n'
-        + 'Jenis usaha: ' + (jenis === 'umkm' ? 'UMKM / usaha produk & jasa' : 'Agen / pemasaran properti') + '\n'
-        + 'Paket: ' + pkg[jenis] + '\n'
-        + 'Harga: ' + rupiah(pkg.price) + ' (DP 50%: ' + rupiah(pkg.price / 2) + ')\n'
-        + (catatan ? 'Catatan: ' + catatan + '\n' : '')
-        + '\nMohon info langkah selanjutnya. Terima kasih.';
-
-      window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
-      showToast('WhatsApp dibuka — kirim pesannya untuk melanjutkan.');
+      var inv = buildInvoice({ nama: nama, wa: wa, jenis: jenis, paket: paket, catatan: catatan });
+      if (window.__openInvoice) {
+        window.__openInvoice(inv);
+        showToast('Invoice ' + inv.no + ' dibuat — kirim ke WhatsApp atau cetak.');
+      } else {
+        window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(invoiceMessage(inv)), '_blank', 'noopener');
+      }
     });
 
     ['#nama', '#wa'].forEach(function (sel) {
