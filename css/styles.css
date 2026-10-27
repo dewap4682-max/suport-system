@@ -1282,3 +1282,24 @@ h2{font-size:clamp(2.05rem,3.9vw,3.15rem);letter-spacing:-.04em}
   }
   .app-grid > :nth-child(6){grid-column:auto;max-width:none;width:auto;margin-inline:0}
 }
+
+/* ---------- 23.14 Invoice: blok pembayaran dirapikan ---------- */
+.inv-pay{grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:20px}
+.inv-gopay{padding:12px 13px;gap:10px}
+.inv-gopay b{font-size:.92rem}
+.gp-logo{width:40px;height:40px;font-size:.68rem}
+.inv-steps li{counter-increment:invst}
+.inv-steps li::before{
+  content:counter(invst);flex:none;width:17px;height:17px;border-radius:50%;
+  background:var(--gold-tint);color:var(--gold-deep);
+  font-size:.6rem;font-weight:800;display:grid;place-items:center;margin-top:1px;
+}
+.inv-steps li b{white-space:nowrap}
+@media (max-width:700px){
+  .inv-pay{grid-template-columns:1fr;gap:14px}
+  .inv-gopay b{font-size:.95rem}
+}
+
+/* langkah invoice: badge nomor absolut agar teks mengalir normal */
+.inv-steps li{display:block;position:relative;padding-left:26px}
+.inv-steps li::before{position:absolute;left:0;top:2px;margin-top:0}
