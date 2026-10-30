@@ -1323,6 +1323,212 @@ h2{font-size:clamp(2.05rem,3.9vw,3.15rem);letter-spacing:-.04em}
 .inv-steps li{display:block;position:relative;padding-left:26px}
 .inv-steps li::before{position:absolute;left:0;top:2px;margin-top:0}
 
+/* ============================================================
+   24. FORM: HARGA OTOMATIS / ISI SENDIRI
+   ============================================================ */
+.field--price{grid-column:1/-1}
+.lab-note{font-weight:600;font-size:.72rem;color:var(--muted-2);letter-spacing:0}
+.price-input{
+  display:flex;align-items:center;gap:0;position:relative;
+  border:1px solid var(--line);border-radius:11px;background:var(--white);
+  transition:border-color .2s,box-shadow .2s;overflow:hidden;
+}
+.price-input:focus-within{border-color:var(--gold-deep);box-shadow:0 0 0 3px rgba(240,177,0,.16)}
+.field--price.bad .price-input{border-color:#D9806B;background:#FFF8F5;box-shadow:0 0 0 3px rgba(217,128,107,.12)}
+.price-input .rp{
+  padding:0 4px 0 14px;font-size:.82rem;font-weight:800;color:var(--muted-2);letter-spacing:.02em;
+}
+.price-input input{
+  flex:1;min-width:0;border:0!important;box-shadow:none!important;background:transparent!important;
+  padding:12px 10px 12px 4px;font-size:1.02rem;font-weight:800;color:var(--ink);
+  font-variant-numeric:tabular-nums;letter-spacing:-.01em;
+}
+.price-input input:read-only{color:var(--ink-soft);cursor:default}
+.price-input input.is-manual{color:var(--gold-deep)}
+.price-edit{
+  flex:none;display:inline-flex;align-items:center;gap:5px;height:100%;min-height:44px;
+  padding:0 14px;border:0;border-left:1px solid var(--line);background:var(--paper);
+  font-family:inherit;font-size:.72rem;font-weight:800;color:var(--ink-soft);cursor:pointer;
+  transition:background .2s,color .2s;
+}
+.price-edit:hover{background:var(--gold-tint);color:var(--ink)}
+.price-edit .ic{width:13px;height:13px}
+.price-edit.is-on{background:var(--ink);color:var(--gold);border-left-color:var(--ink)}
+.price-edit.is-on:hover{background:#182227;color:var(--gold)}
+.hint-sm{font-size:.69rem;color:var(--muted-2);line-height:1.55}
+
+/* tautan pilih paket custom di teks */
+.link-pkg{
+  font:inherit;font-weight:800;color:var(--gold-deep);background:none;border:0;padding:0;
+  cursor:pointer;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px;
+}
+.link-pkg:hover{color:var(--ink)}
+.cta-custom{width:100%;justify-content:center;margin-top:8px;color:rgba(255,255,255,.62);font-size:.76rem}
+.cta-custom:hover{color:var(--gold)}
+.cta-custom .ic{width:12px;height:12px}
+
+/* ringkasan: mode "sesuai lingkup" */
+.total.is-quote{gap:0}
+.total.is-quote .amt{
+  font-size:1.42rem;font-weight:700;letter-spacing:-.02em;color:var(--gold);
+}
+@media (max-width:760px){
+  .price-edit span{display:none}
+  .price-edit{padding:0 12px}
+  .price-edit .ic{width:16px;height:16px}
+  .total.is-quote .amt{font-size:1.24rem}
+}
+
+/* jarak tombol "Lihat invoice terakhir" */
+.form-submit #lastInvoiceBtn{margin-top:12px}
+.price-edit[hidden]{display:none!important}
+
+/* tautan "isi sendiri harganya" di kartu custom */
+.cta-custom{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  margin:12px 0 2px;padding:8px 0;color:var(--gold);
+  font-size:.76rem;font-weight:800;letter-spacing:.01em;
+  border-top:1px solid rgba(255,255,255,.12);width:100%;
+}
+.cta-custom:hover{color:#fff;opacity:1}
+.cta-custom .ic{width:13px;height:13px;transition:transform .2s}
+.cta-custom:hover .ic{transform:translateX(3px)}
+.cta-custom{border:0;border-top:1px solid rgba(255,255,255,.12);border-radius:0;box-shadow:none;background:none}
+.cta-custom{border-top:0;margin-top:4px;padding-top:2px}
+
+/* ============================================================
+   25. DAFTAR PESANAN — beberapa layanan dalam satu invoice
+   ============================================================ */
+.field--add{grid-column:1/-1;gap:8px}
+.btn--add{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:48px;border:1.5px dashed rgba(13,20,23,.28);border-radius:11px;
+  background:var(--paper);color:var(--ink);font-weight:800;font-size:.84rem;
+  transition:border-color .2s,background .2s,color .2s;
+}
+.btn--add .ic{width:15px;height:15px;stroke-width:2.6}
+.btn--add:hover{border-color:var(--gold-deep);background:var(--gold-tint);color:var(--ink)}
+
+.order-list{grid-column:1/-1;gap:9px;margin-top:2px}
+.ol-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.ol-title{display:inline-flex;align-items:center;gap:6px;font-size:.76rem;font-weight:800;color:var(--ink-soft)}
+.ol-title .ic{width:13px;height:13px;color:var(--gold-deep)}
+.ol-count{
+  font-size:.66rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--gold-deep);background:var(--gold-tint);border-radius:999px;padding:3px 9px;
+}
+.ol-items{display:flex;flex-direction:column;gap:7px;list-style:none;margin:0;padding:0}
+.ol-item{
+  display:flex;align-items:center;gap:10px;padding:10px 11px;
+  border:1px solid var(--line);border-radius:10px;background:var(--white);
+}
+.ol-badge{
+  flex:none;font-size:.58rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
+  padding:3px 7px;border-radius:5px;background:var(--ink);color:var(--gold);
+}
+.ol-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
+.ol-info b{font-size:.8rem;font-weight:700;color:var(--ink);line-height:1.35}
+.ol-info span{font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.ol-del{
+  flex:none;width:28px;height:28px;border-radius:7px;border:1px solid var(--line);
+  background:var(--paper);color:var(--muted);display:grid;place-items:center;cursor:pointer;
+  transition:background .18s,color .18s,border-color .18s;
+}
+.ol-del .ic{width:12px;height:12px}
+.ol-del:hover{background:#FFF1EC;border-color:#E9B7A8;color:#B8503A}
+.ol-clear{
+  align-self:flex-start;font-family:inherit;font-size:.71rem;font-weight:700;
+  color:var(--muted);background:none;border:0;padding:2px 0;cursor:pointer;
+  text-decoration:underline;text-underline-offset:3px;
+}
+.ol-clear:hover{color:#B8503A}
+
+/* ringkasan: rincian item */
+.sum-items{display:flex;flex-direction:column;gap:6px;margin:14px 0 0;padding:0;list-style:none;
+  border-top:1px solid rgba(255,255,255,.12);padding-top:12px}
+.sum-items li{display:flex;align-items:baseline;justify-content:space-between;gap:14px;font-size:.76rem}
+.sum-items li span{color:rgba(246,242,234,.66);min-width:0}
+.sum-items li b{color:#fff;font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+@media (max-width:760px){
+  .ol-item{padding:9px 10px;gap:8px}
+  .ol-badge{font-size:.55rem}
+  .ol-info b{font-size:.77rem}
+}
+
+/* total invoice: label panjang tidak memecah nominal */
+.inv-totals .row{max-width:370px}
+.inv-totals .row span{min-width:0}
+.inv-totals .row b{white-space:nowrap;flex:none}
+/* ponsel: total tetap satu baris, label boleh mengecil */
+@media (max-width:760px){
+  .inv-totals .row{gap:12px;align-items:baseline}
+  .inv-totals .row span{font-size:.78rem}
+  .inv-totals .row.dp span{font-size:.8rem}
+}
+/* cetak: hindari baris item terpotong di tengah */
+@media print{
+  .inv-table tr{break-inside:avoid;page-break-inside:avoid}
+  .inv-totals{break-inside:avoid}
+}
+
+/* ============================================================
+   26. NOMOR URUT PEMESAN
+   ============================================================ */
+.seq-pill{
+  display:flex;align-items:center;gap:12px;margin:14px 0 4px;
+  padding:11px 14px;border:1px solid rgba(240,177,0,.4);border-radius:11px;
+  background:linear-gradient(120deg,rgba(255,194,14,.12),rgba(255,194,14,.04));
+}
+.seq-no{
+  flex:none;font-size:1.06rem;font-weight:800;letter-spacing:-.02em;color:var(--gold-deep);
+  font-variant-numeric:tabular-nums;background:var(--white);border:1px solid rgba(240,177,0,.35);
+  border-radius:8px;padding:4px 10px;
+}
+.seq-txt{display:flex;flex-direction:column;gap:2px;min-width:0}
+.seq-txt b{font-size:.79rem;font-weight:800;color:var(--ink);line-height:1.3}
+.seq-txt span{font-size:.7rem;color:var(--muted);display:inline-flex;align-items:center;gap:5px}
+.seq-txt .dot,.sales-badge .dot{
+  width:6px;height:6px;border-radius:50%;background:#C9C2B4;display:inline-block;flex:none;
+}
+.seq-ok .dot{background:#2E9E63;box-shadow:0 0 0 3px rgba(46,158,99,.16)}
+.seq-local .dot{background:#D9A400;box-shadow:0 0 0 3px rgba(217,164,0,.16)}
+
+/* nomor pesanan di kepala invoice */
+.inv-seqline{
+  display:inline-block;margin-top:5px;font-size:.66rem;font-weight:800;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--muted-2);
+}
+.inv-seqline b{color:var(--gold-deep);font-size:.76rem;letter-spacing:0;text-transform:none;margin-left:3px}
+
+/* lencana jumlah pesanan pada kartu */
+.sales-badge{
+  display:inline-flex;align-items:center;gap:4px;flex:none;
+  font-size:.6rem;font-weight:800;letter-spacing:.03em;color:var(--gold-deep);
+  background:var(--gold-tint);border:1px solid rgba(240,177,0,.3);
+  border-radius:999px;padding:3px 7px;white-space:nowrap;
+}
+.sales-badge .dot{width:5px;height:5px;background:#2E9E63;box-shadow:0 0 0 2px rgba(46,158,99,.18)}
+.app-card--custom .sales-badge{background:rgba(255,255,255,.08);border-color:rgba(255,194,14,.35);color:var(--gold)}
+.btn[disabled]{opacity:.72;cursor:progress}
+@media (max-width:760px){
+  .seq-pill{padding:10px 12px;gap:10px}
+  .seq-no{font-size:.98rem}
+  .seq-txt b{font-size:.75rem}
+  .seq-txt span{font-size:.66rem}
+}
+
+/* elemen ber-atribut hidden tetap disembunyikan meski .field memakai flex */
+.order-list[hidden]{display:none!important}
+.sum-items[hidden]{display:none!important}
+.seq-pill{margin-bottom:16px}
+.seq-pill[hidden]{display:none!important}
+
+/* lencana pesanan di kartu (ditempel di wadah tag) */
+.app-top{position:relative}
+.sales-badge{position:absolute;right:0;top:52px;z-index:1}
+.card-price .sales-badge{position:static;display:inline-flex;margin-top:10px}
+.sales-badge--static{position:static;margin-top:10px}
+
 </style>
 
 <meta property="og:type" content="website">
@@ -1376,7 +1582,8 @@ html{background:#FBF9F4}
 
 <!-- ICONS -->
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
-  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
   <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
   <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.39-1.48-.88-.79-1.48-1.76-1.66-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.89-9.89 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.89-9.88 9.89m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.69 1.45h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.17-1.24-6.16-3.48-8.41Z"/></symbol>
@@ -1756,7 +1963,7 @@ html{background:#FBF9F4}
     </div>
 
     <div class="pricing-note reveal">
-      <p>Belum yakin paket mana yang cocok? Ceritakan usaha Anda — kami bantu pilihkan.</p>
+      <p>Belum yakin paket mana yang cocok? Pilih <button class="link-pkg" type="button" data-pkg="wcust">website custom</button> lalu isi sendiri harganya, atau ceritakan usaha Anda — kami bantu pilihkan.</p>
       <a href="https://wa.me/6281392399300?text=Halo%20Suport%20System%2C%20saya%20ingin%20dibantu%20memilih%20paket%20website%20yang%20sesuai%20untuk%20usaha%20saya." target="_blank" rel="noopener">Konsultasi via WhatsApp <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
 
@@ -1942,6 +2149,7 @@ html{background:#FBF9F4}
         </ul>
         <a class="btn btn--ink" href="https://wa.me/6281392399300?text=Halo%20Suport%20System%2C%20saya%20ingin%20konsultasi%20aplikasi%20custom%20(online%20atau%20offline)%20untuk%20usaha%20saya." target="_blank" rel="noopener">Konsultasi aplikasi custom <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <span class="wa-hint">Gratis diskusi kebutuhan — belum tentu lanjut</span>
+        <button class="btn btn--link cta-custom" type="button" data-pkg="acust">Isi sendiri harganya di formulir <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
       </article>
     </div>
 
@@ -2184,7 +2392,14 @@ html{background:#FBF9F4}
     <div class="order-grid">
       <form class="form-card reveal" id="orderForm" novalidate>
         <h3>Formulir pemesanan</h3>
-        <p class="hint">Sebagian besar data bisa dilengkapi nanti lewat WhatsApp.</p>
+        <p class="hint">Harga terisi otomatis mengikuti paket. Untuk <b>website/aplikasi custom</b> atau kesepakatan khusus, isi sendiri nominalnya.</p>
+        <div class="seq-pill" id="seqPill">
+          <span class="seq-no" id="seqNext">#0001</span>
+          <span class="seq-txt">
+            <b>Nomor urut pemesan berikutnya</b>
+            <span id="seqStatus"><i class="dot"></i> menghubungkan…</span>
+          </span>
+        </div>
         <div class="form-grid">
           <div class="field" id="fieldNama">
             <label for="nama">Nama Anda <span class="req">*</span></label>
@@ -2218,7 +2433,40 @@ html{background:#FBF9F4}
                 <option value="jr">APK Jimpitan Ronda — Rp 1.000.000</option>
                 <option value="pu">APK POS UMKM — Rp 1.000.000</option>
               </optgroup>
+              <optgroup label="Custom — harga diisi sendiri">
+                <option value="wcust">Website custom — sesuai kebutuhan</option>
+                <option value="acust">Aplikasi custom — online / offline</option>
+              </optgroup>
             </select>
+          </div>
+          <div class="field full field--price" id="fieldHarga">
+            <label for="harga">Harga <span class="lab-note" id="hargaLabNote">— otomatis dari paket</span></label>
+            <div class="price-input">
+              <span class="rp" aria-hidden="true">Rp</span>
+              <input type="text" id="harga" name="harga" inputmode="numeric" autocomplete="off" placeholder="0" aria-describedby="hargaHint">
+              <button type="button" class="price-edit" id="hargaEdit" aria-pressed="false" aria-controls="harga">
+                <svg class="ic" aria-hidden="true"><use href="#i-wallet"/></svg><span>Ubah sendiri</span>
+              </button>
+            </div>
+            <span class="hint-sm" id="hargaHint">Harga mengikuti paket yang dipilih. Klik “Ubah sendiri” bila ingin menyesuaikan.</span>
+            <span class="err" id="hargaErr">Isi harga terlebih dahulu — contoh: 3.500.000.</span>
+          </div>
+
+          <div class="field full field--add" id="fieldAdd">
+            <button type="button" class="btn btn--add btn--block" id="addItemBtn">
+              <svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg>
+              <span>Tambah ke daftar pesanan</span>
+            </button>
+            <span class="hint-sm" id="addHint">Ingin <b>website + aplikasi dalam satu invoice</b>? Tambahkan lebih dari satu layanan di sini.</span>
+          </div>
+
+          <div class="field full order-list" id="orderListWrap" hidden>
+            <div class="ol-head">
+              <span class="ol-title"><svg class="ic" aria-hidden="true"><use href="#i-receipt"/></svg> Daftar pesanan</span>
+              <span class="ol-count" id="olCount">0 layanan</span>
+            </div>
+            <ul class="ol-items" id="olItems"></ul>
+            <button type="button" class="ol-clear" id="olClear">Kosongkan daftar</button>
           </div>
           <div class="field full">
             <label for="catatan">Catatan (opsional)</label>
@@ -2240,7 +2488,8 @@ html{background:#FBF9F4}
         <div class="lab"><svg class="ic" aria-hidden="true"><use href="#i-spark"/></svg> Ringkasan pilihan</div>
         <h3 id="sumName">Paket 2 — Katalog Lengkap</h3>
         <p class="for" id="sumJenis">Untuk UMKM / usaha produk &amp; jasa</p>
-        <div class="total"><span class="cur">Rp</span><span class="amt" id="sumPrice">1.500.000</span><span class="per">/ sekali bayar</span></div>
+        <ul class="sum-items" id="sumItems" hidden></ul>
+        <div class="total" id="sumTotalBox"><span class="cur" id="sumCur">Rp</span><span class="amt" id="sumPrice">1.500.000</span><span class="per" id="sumPer">/ sekali bayar</span></div>
         <div class="sum-row dp"><span>DP 50% saat mulai</span><b id="sumDp">Rp 750.000</b></div>
         <div class="sum-row"><span>Pelunasan sebelum peluncuran</span><b id="sumSisa">Rp 750.000</b></div>
         <div class="sum-incl"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> <span id="sumInclText">Domain &amp; hosting sudah termasuk</span></div>
@@ -2374,6 +2623,7 @@ html{background:#FBF9F4}
         <strong id="invTitle">INVOICE</strong>
         <span id="invNo">—</span>
         <span id="invDate">—</span>
+        <span class="inv-seqline">No. Pesanan <b id="invSeq">—</b></span>
       </div>
       <button class="inv-x" id="invClose" type="button" aria-label="Tutup invoice">
         <svg class="ic" aria-hidden="true"><use href="#i-close"/></svg>
@@ -2398,7 +2648,7 @@ html{background:#FBF9F4}
         <thead>
           <tr><th>Item</th><th>Ketentuan</th><th class="r">Harga</th></tr>
         </thead>
-        <tbody>
+        <tbody id="invRows">
           <tr>
             <td><b id="invItem">—</b><span id="invItemSub">—</span></td>
             <td id="invTerm">—</td>
@@ -2433,6 +2683,7 @@ html{background:#FBF9F4}
       </div>
 
       <ul class="inv-notes">
+        <li><svg class="ic" aria-hidden="true"><use href="#i-receipt"/></svg> <span id="invSeqNote">Nomor urut pemesan — diperbarui otomatis setiap ada pesanan baru.</span></li>
         <li><svg class="ic" aria-hidden="true"><use href="#i-infinity"/></svg> Beli selamanya — tanpa biaya bulanan, tahunan, atau potongan tersembunyi.</li>
         <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Invoice ini dibuat otomatis oleh sistem dan sah tanpa tanda tangan.</li>
       </ul>
@@ -2455,6 +2706,7 @@ html{background:#FBF9F4}
 </div>
 
 <script>
+
 /* ============================================================
    SUPORT SYSTEM — interactions
    Vanilla JS, no dependencies.
@@ -2471,18 +2723,192 @@ html{background:#FBF9F4}
     'rc': { price: 2500000, type: 'app', label: 'APK POS Rentcar — Rental Mobil' },
     'dg': { price: 4500000, type: 'app', label: 'APK POS Dokter Gigi' },
     'jr': { price: 1000000, type: 'app', label: 'APK Jimpitan Ronda — Kas & Ronda Warga' },
-    'pu': { price: 1000000, type: 'app', label: 'APK POS UMKM — Kasir UMKM' }
+    'pu': { price: 1000000, type: 'app', label: 'APK POS UMKM — Kasir UMKM' },
+    'wcust': { price: 0, type: 'custom', label: 'Website custom — sesuai kebutuhan' },
+    'acust': { price: 0, type: 'custom', label: 'Aplikasi custom — online / offline' }
   };
 
   function packageName(pkg, aud) {
     if (!pkg) return '';
-    return pkg.type === 'app' ? pkg.label : pkg[aud];
+    return (pkg.type === 'app' || pkg.type === 'custom') ? pkg.label : pkg[aud];
   }
+
+  function isCustomPackage(pkg) { return !!pkg && pkg.type === 'custom'; }
 
   function $(sel, ctx) { return (ctx || document).querySelector(sel); }
   function $$(sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); }
   function rupiah(n) { return 'Rp ' + new Intl.NumberFormat('id-ID').format(n); }
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ============================================================
+     NOMOR URUT PEMESAN
+     - Sumber utama: penghitung daring (lintas perangkat)
+     - Cadangan: penghitung lokal di peramban (tetap berjalan saat luring)
+     ============================================================ */
+  var SEQ_BASE = 'https://abacus.jasoncameron.dev';
+  var SEQ_NS = 'suport-system-solo';
+  var SEQ_KEY = 'pesanan-web';
+  var SEQ_LOCAL_KEY = 'ss_order_seq_v2';
+  /* setiap penghitung disemai 1 kali saat pemasangan → nilai tampil = nilai - 1 */
+  var SEQ_BASELINE = 1;
+
+  var seqNextEl = $('#seqNext');
+  var seqStatusEl = $('#seqStatus');
+
+  function seqCount(raw) { return Math.max(0, (raw || 0) - SEQ_BASELINE); }
+  function pad4(n) { return String(n).padStart(4, '0'); }
+  function seqLabel(n) { return '#' + pad4(n); }
+
+  var SEQ_LAST_ONLINE = 'ss_order_seq_online';
+
+  function readLocalSeq() {
+    var v = 0;
+    try { v = parseInt(localStorage.getItem(SEQ_LOCAL_KEY) || '0', 10) || 0; } catch (e) { v = 0; }
+    return v;
+  }
+  function writeLocalSeq(n) {
+    try { localStorage.setItem(SEQ_LOCAL_KEY, String(n)); } catch (e) { /* silent */ }
+  }
+  function readLastOnline() {
+    var v = 0;
+    try { v = parseInt(localStorage.getItem(SEQ_LAST_ONLINE) || '0', 10) || 0; } catch (e) { v = 0; }
+    return v;
+  }
+  function writeLastOnline(n) {
+    try { localStorage.setItem(SEQ_LAST_ONLINE, String(n)); } catch (e) { /* silent */ }
+  }
+
+  function seqFetch(path, ms) {
+    ms = ms || 2600;
+    if (typeof fetch !== 'function') return Promise.reject(new Error('no fetch'));
+    var ctrl = typeof AbortController === 'function' ? new AbortController() : null;
+    var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, ms);
+    return fetch(SEQ_BASE + path, ctrl ? { signal: ctrl.signal } : undefined)
+      .then(function (r) {
+        /* 404 = penghitung belum ada (artinya 0), bukan kegagalan */
+        if (r.status === 404) return { value: 0 };
+        if (!r.ok) throw new Error('http ' + r.status);
+        return r.json();
+      })
+      .then(function (d) { clearTimeout(timer); return d; })
+      .catch(function (err) { clearTimeout(timer); throw err; });
+  }
+
+  function setSeqStatus(kind, text) {
+    if (!seqStatusEl) return;
+    seqStatusEl.className = 'seq-' + kind;
+    seqStatusEl.innerHTML = '<i class="dot"></i> ' + text;
+  }
+
+  /* tampilkan nomor berikutnya (belum menaikkan penghitung) */
+  var seqRetry = 0;
+
+  function refreshSeqPreview() {
+    var local = Math.max(readLocalSeq(), readLastOnline());
+    if (seqNextEl) seqNextEl.textContent = seqLabel(local + 1);
+    seqFetch('/get/' + SEQ_NS + '/' + SEQ_KEY, 6000)
+      .then(function (d) {
+        seqRetry = 0;
+        var online = seqCount((d && typeof d.value === 'number') ? d.value : 0);
+        var base = Math.max(local, online);
+        writeLastOnline(base);
+        if (seqNextEl) seqNextEl.textContent = seqLabel(base + 1);
+        setSeqStatus('ok', 'tersinkron online · pesanan ke-' + pad4(base + 1));
+      })
+      .catch(function () {
+        setSeqStatus('local', seqRetry < 3
+          ? 'menyambungkan ulang… (nomor sementara)'
+          : 'mode luring · nomor dihitung di perangkat ini');
+        if (seqRetry < 3) {
+          seqRetry += 1;
+          setTimeout(refreshSeqPreview, 3000 + seqRetry * 2000);
+        }
+      });
+  }
+
+  /* ambil nomor pesanan baru (menaikkan penghitung) */
+  function takeSeq() {
+    var local = Math.max(readLocalSeq(), readLastOnline());
+    return seqFetch('/hit/' + SEQ_NS + '/' + SEQ_KEY, 7000)
+      .then(function (d) {
+        var raw = (d && typeof d.value === 'number') ? d.value : (local + 1 + SEQ_BASELINE);
+        var n = Math.max(seqCount(raw), local + 1);   /* jangan pernah mundur */
+        writeLocalSeq(n);
+        setSeqStatus('ok', 'tersinkron online');
+        writeLastOnline(n);
+        if (seqNextEl) seqNextEl.textContent = seqLabel(n + 1);
+        return n;
+      })
+      .catch(function () {
+        /* coba sekali lagi sebelum memakai nomor lokal */
+        return seqFetch('/hit/' + SEQ_NS + '/' + SEQ_KEY, 7000).then(function (d) {
+          var raw2 = (d && typeof d.value === 'number') ? d.value : (local + 1 + SEQ_BASELINE);
+          var n2 = Math.max(seqCount(raw2), local + 1);
+          writeLocalSeq(n2);
+          writeLastOnline(n2);
+          setSeqStatus('ok', 'tersinkron online');
+          if (seqNextEl) seqNextEl.textContent = seqLabel(n2 + 1);
+          return n2;
+        }).catch(function () {
+        var n = local + 1;
+        writeLocalSeq(n);
+        setSeqStatus('local', 'mode luring · nomor dihitung di perangkat ini');
+        if (seqNextEl) seqNextEl.textContent = seqLabel(n + 1);
+        return n;
+        });
+      });
+  }
+
+  /* jumlah pesanan per produk (opsional, untuk lencana di kartu) */
+  function productKey(id) { return 'produk-web-' + id; }
+
+  function paintProductBadges(map) {
+    Object.keys(map).forEach(function (id) {
+      var n = map[id];
+      if (!n) return;
+      var btn = document.querySelector('[data-pkg="' + id + '"]');
+      if (!btn) return;
+      var card = btn.closest('.app-card, .card-price');
+      if (!card) return;
+      var host = card.querySelector('.app-top') || card.querySelector('.price-top') || card;
+      var badge = card.querySelector('.sales-badge');
+      if (!badge) {
+        badge = document.createElement('span');
+        badge.className = 'sales-badge';
+        if (host === card) card.appendChild(badge); else host.appendChild(badge);
+      }
+      badge.innerHTML = '<i class="dot"></i> ' + n + ' pesanan';
+      badge.hidden = false;
+    });
+  }
+
+  function refreshProductBadges() {
+    var ids = ['1', '2', '3', 'ik', 'rc', 'dg', 'jr', 'pu'];
+    Promise.all(ids.map(function (id) {
+      return seqFetch('/get/' + SEQ_NS + '/' + productKey(id), 2200)
+        .then(function (d) { return [id, seqCount((d && d.value) || 0)]; })
+        .catch(function () { return [id, 0]; });
+    })).then(function (rows) {
+      var map = {};
+      rows.forEach(function (r) { if (r[1] > 0) map[r[0]] = r[1]; });
+      paintProductBadges(map);
+    });
+  }
+
+  function bumpProductCounters(items) {
+    var seen = {};
+    items.forEach(function (it) {
+      if (seen[it.pkgId]) return;
+      seen[it.pkgId] = 1;
+      seqFetch('/hit/' + SEQ_NS + '/' + productKey(it.pkgId), 2200).catch(function () { /* silent */ });
+    });
+  }
+
+  if (seqNextEl) refreshSeqPreview();
+  if (document.querySelector('.app-card')) setTimeout(refreshProductBadges, 900);
+  document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'visible' && seqNextEl) refreshSeqPreview();
+  });
 
   /* ---------------- toast ---------------- */
   var toast = $('#toast'), toastText = $('#toastText'), toastTimer = null;
@@ -2634,6 +3060,192 @@ html{background:#FBF9F4}
   var sumDp = $('#sumDp');
   var sumSisa = $('#sumSisa');
   var summaryCard = $('#summaryCard');
+  var sumCur = $('#sumCur');
+  var sumPer = $('#sumPer');
+  var sumTotalBox = $('#sumTotalBox');
+  var hargaInput = $('#harga');
+  var hargaEdit = $('#hargaEdit');
+  var fieldHarga = $('#fieldHarga');
+  var hargaHint = $('#hargaHint');
+  var hargaNote = $('#hargaLabNote');
+  var manualPrice = false;
+
+  /* ---------- daftar pesanan (multi-layanan dalam satu invoice) ---------- */
+  var orderItems = [];
+  var olWrap = $('#orderListWrap');
+  var olItemsEl = $('#olItems');
+  var olCount = $('#olCount');
+  var olClear = $('#olClear');
+  var addItemBtn = $('#addItemBtn');
+  var sumItemsEl = $('#sumItems');
+
+  function esc(str) {
+    return String(str == null ? '' : str).replace(/[&<>"']/g, function (c) {
+      return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c];
+    });
+  }
+
+  function itemSub(pkg, pkgId) {
+    if (isCustomPackage(pkg)) {
+      return pkgId === 'acust'
+        ? 'Aplikasi custom — online / offline · lingkup sesuai kesepakatan'
+        : 'Website custom — lingkup sesuai kesepakatan';
+    }
+    return pkg.type === 'app' ? 'Aplikasi siap pakai — beli selamanya' : 'Jasa pembuatan website';
+  }
+
+  function itemTerm(pkg) {
+    if (isCustomPackage(pkg)) return 'Sekali bayar · harga sesuai lingkup';
+    return pkg.type === 'app' ? 'Sekali bayar · tanpa biaya bulanan/tahunan' : 'Domain & hosting termasuk';
+  }
+
+  function makeItem(pkgId, jenis, price, manual) {
+    var pkg = PACKAGES[pkgId];
+    if (!pkg) return null;
+    var isApp = pkg.type === 'app';
+    var isCustom = isCustomPackage(pkg);
+    return {
+      pkgId: pkgId,
+      name: packageName(pkg, jenis),
+      sub: itemSub(pkg, pkgId),
+      term: itemTerm(pkg),
+      price: price,
+      manual: !!manual,
+      isApp: isApp,
+      isWebsite: !isApp && !(isCustom && pkgId === 'acust'),
+      kind: isApp ? 'Aplikasi' : (isCustom ? 'Custom' : 'Website')
+    };
+  }
+
+  /* yang akan ditagihkan: daftar pesanan, atau pilihan saat ini bila daftar kosong */
+  function invoiceItems() {
+    if (orderItems.length) return orderItems.slice();
+    var pkg = PACKAGES[paketSelect ? paketSelect.value : ''];
+    if (!pkg) return [];
+    var it = makeItem(paketSelect.value, jenisSelect ? jenisSelect.value : 'umkm', currentPrice(), manualPrice);
+    return it ? [it] : [];
+  }
+
+  function renderOrderList() {
+    if (!olWrap) return;
+    var has = orderItems.length > 0;
+    olWrap.hidden = !has;
+    if (olCount) olCount.textContent = orderItems.length + ' layanan';
+    if (olItemsEl) {
+      olItemsEl.innerHTML = orderItems.map(function (it, i) {
+        return '<li class="ol-item">'
+          + '<span class="ol-badge">' + esc(it.kind) + '</span>'
+          + '<span class="ol-info"><b>' + esc(it.name) + '</b>'
+          + '<span>' + rupiah(it.price) + (it.manual ? ' · harga isian' : '') + '</span></span>'
+          + '<button type="button" class="ol-del" data-del="' + i + '" aria-label="Hapus ' + esc(it.name) + '">'
+          + '<svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button>'
+          + '</li>';
+      }).join('');
+    }
+  }
+
+  function flashSummary() {
+    if (summaryCard && !reduceMotion) {
+      summaryCard.classList.remove('flash');
+      void summaryCard.offsetWidth;
+      summaryCard.classList.add('flash');
+    }
+  }
+
+  function addCurrentItem() {
+    var pkgId = paketSelect ? paketSelect.value : '';
+    var pkg = PACKAGES[pkgId];
+    var price = currentPrice();
+    if (!pkg) return;
+    if (!price) {
+      if (fieldHarga) fieldHarga.classList.add('bad');
+      showToast('Isi harga terlebih dahulu sebelum menambah ke daftar.');
+      if (hargaInput) hargaInput.focus();
+      return;
+    }
+    var dupe = orderItems.some(function (it) { return it.pkgId === pkgId && it.price === price; });
+    if (dupe) {
+      showToast('Layanan ini sudah ada di daftar pesanan.');
+      return;
+    }
+    var item = makeItem(pkgId, jenisSelect ? jenisSelect.value : 'umkm', price, manualPrice);
+    orderItems.push(item);
+    renderOrderList();
+    updateSummary();
+    flashSummary();
+    showToast(item.name.replace(' — ', ': ') + ' ditambahkan — ' + rupiah(price) + '.');
+  }
+
+  function removeItem(idx) {
+    if (isNaN(idx)) return;
+    orderItems.splice(idx, 1);
+    renderOrderList();
+    updateSummary();
+    flashSummary();
+  }
+
+  function parsePrice(v) {
+    var d = String(v == null ? '' : v).replace(/[^\d]/g, '');
+    return d ? parseInt(d, 10) : 0;
+  }
+  function fmtNum(n) { return new Intl.NumberFormat('id-ID').format(n || 0); }
+  function currentPrice() { return parsePrice(hargaInput ? hargaInput.value : 0); }
+
+  function refreshPriceUI() {
+    if (!hargaInput) return;
+    if (hargaEdit) {
+      hargaEdit.setAttribute('aria-pressed', manualPrice ? 'true' : 'false');
+      hargaEdit.classList.toggle('is-on', manualPrice);
+      var lbl = hargaEdit.querySelector('span');
+      if (lbl) lbl.textContent = manualPrice ? 'Pakai harga paket' : 'Ubah sendiri';
+    }
+    hargaInput.readOnly = !manualPrice;
+    hargaInput.classList.toggle('is-manual', manualPrice);
+    if (hargaNote) hargaNote.textContent = manualPrice ? '— Anda isi sendiri' : '— otomatis dari paket';
+  }
+
+  function setManual(on) {
+    manualPrice = !!on;
+    refreshPriceUI();
+  }
+
+  var lastCustom = false;
+
+  /* dipanggil setiap kali paket berubah: atur mode harga & nilainya */
+  function applyPackage(pkg) {
+    if (!hargaInput || !pkg) return;
+    var custom = isCustomPackage(pkg);
+    var cameFromCustom = lastCustom;
+    lastCustom = custom;
+    if (hargaEdit) hargaEdit.hidden = custom;
+
+    if (custom) {
+      setManual(true);
+      hargaInput.value = '';
+      hargaInput.placeholder = '3.500.000';
+      if (hargaHint) hargaHint.textContent = 'Isi perkiraan harga sesuai lingkup pekerjaan — masih bisa didiskusikan lewat WhatsApp.';
+    } else if (cameFromCustom) {
+      /* dari paket custom kembali ke paket tetap → harga ikut paket lagi */
+      setManual(false);
+      hargaInput.value = fmtNum(pkg.price);
+      hargaInput.placeholder = '0';
+      if (hargaHint) hargaHint.textContent = 'Harga mengikuti paket yang dipilih. Klik “Ubah sendiri” bila ingin menyesuaikan.';
+    } else if (manualPrice) {
+      hargaInput.placeholder = '0';
+      if (hargaHint) hargaHint.textContent = 'Harga isian Anda tetap dipakai. Klik “Pakai harga paket” untuk kembali ke ' + rupiah(pkg.price) + '.';
+    } else {
+      hargaInput.value = fmtNum(pkg.price);
+      hargaInput.placeholder = '0';
+      if (hargaHint) hargaHint.textContent = 'Harga mengikuti paket yang dipilih. Klik “Ubah sendiri” bila ingin menyesuaikan.';
+    }
+    if (hargaInput) hargaInput.readOnly = !manualPrice;
+  }
+
+  function onPackageChange() {
+    var pkg = PACKAGES[paketSelect ? paketSelect.value : ''];
+    applyPackage(pkg);
+    updateSummary();
+  }
 
   function updatePackageOptions() {
     if (!jenisSelect || !paketSelect) return;
@@ -2670,23 +3282,85 @@ html{background:#FBF9F4}
     var aud = jenisSelect.value;
     var pkg = PACKAGES[paketSelect.value];
     if (!pkg) return;
-    if (sumName) sumName.textContent = packageName(pkg, aud);
-    if (sumJenis) {
-      sumJenis.textContent = pkg.type === 'app'
-        ? 'Aplikasi siap pakai · beli selamanya'
-        : (aud === 'umkm' ? 'Untuk UMKM / usaha produk & jasa' : 'Untuk pemasaran properti');
+
+    var items = invoiceItems();
+    var multi = orderItems.length > 1;
+    var custom = isCustomPackage(pkg);
+    var isApp = pkg.type === 'app';
+    var price = items.reduce(function (sum, it) { return sum + (it.price || 0); }, 0);
+    var dp = Math.round(price / 2);
+    var anyManual = items.some(function (it) { return it.manual; });
+
+    if (sumName) {
+      sumName.textContent = multi
+        ? orderItems.length + ' layanan dalam satu invoice'
+        : (orderItems.length === 1 ? orderItems[0].name : packageName(pkg, aud));
     }
-    if (sumPrice) sumPrice.textContent = new Intl.NumberFormat('id-ID').format(pkg.price);
-    if (sumDp) sumDp.textContent = rupiah(pkg.price / 2);
-    if (sumSisa) sumSisa.textContent = rupiah(pkg.price / 2);
+    if (sumJenis) {
+      sumJenis.textContent = multi
+        ? 'Website & aplikasi digabung — satu nomor invoice'
+        : orderItems.length === 1
+          ? (orderItems[0].isApp ? 'Aplikasi siap pakai · beli selamanya'
+            : (orderItems[0].kind === 'Custom' ? 'Custom · lingkup sesuai kesepakatan' : 'Jasa pembuatan website'))
+          : custom
+            ? (paketSelect.value === 'acust' ? 'Aplikasi custom · online atau offline' : 'Website custom · lingkup bebas')
+            : isApp
+              ? 'Aplikasi siap pakai · beli selamanya'
+              : (aud === 'umkm' ? 'Untuk UMKM / usaha produk & jasa' : 'Untuk pemasaran properti');
+    }
+
+    if (sumItemsEl) {
+      sumItemsEl.hidden = !multi;
+      sumItemsEl.innerHTML = multi ? orderItems.map(function (it) {
+        return '<li><span>' + esc(it.name) + '</span><b>' + rupiah(it.price) + '</b></li>';
+      }).join('') : '';
+    }
+
+    var quote = !price;
+    if (sumTotalBox) sumTotalBox.classList.toggle('is-quote', quote);
+    if (sumCur) sumCur.hidden = quote;
+    if (sumPer) sumPer.textContent = quote ? '' : (anyManual ? '/ termasuk harga isian' : '/ sekali bayar');
+    if (sumPrice) sumPrice.textContent = quote ? 'Sesuai lingkup' : fmtNum(price);
+
+    if (sumDp) sumDp.textContent = quote ? 'Menunggu harga' : rupiah(dp);
+    if (sumSisa) sumSisa.textContent = quote ? 'Menunggu harga' : rupiah(price - dp);
+
     var incl = $('#sumInclText');
     if (incl) {
-      incl.textContent = pkg.type === 'app'
+      incl.textContent = (multi || custom || isApp)
         ? 'Sekali bayar — tanpa biaya bulanan atau tahunan'
         : 'Domain & hosting sudah termasuk';
     }
     var sisaLabel = $('.sum-row:not(.dp) span');
-    if (sisaLabel) sisaLabel.textContent = pkg.type === 'app' ? 'Pelunasan sebelum serah terima' : 'Pelunasan sebelum peluncuran';
+    if (sisaLabel) {
+      var hasWeb = items.some(function (it) { return it.isWebsite; });
+      var hasApp = items.some(function (it) { return !it.isWebsite; });
+      sisaLabel.textContent = (hasWeb && hasApp)
+        ? 'Peluncuran web & serah terima aplikasi'
+        : hasApp ? 'Pelunasan sebelum serah terima' : 'Pelunasan sebelum peluncuran';
+    }
+    var noteEl = $('.sum-note span');
+    if (noteEl) {
+      noteEl.textContent = (anyManual || (custom && !orderItems.length))
+        ? 'Harga ini Anda isi sendiri. Harga final dikonfirmasi bersama via WhatsApp sebelum pengerjaan dimulai.'
+        : 'Ringkasan ini bersifat estimasi. Detail akhir dikonfirmasi bersama via WhatsApp.';
+    }
+  }
+
+  if (addItemBtn) addItemBtn.addEventListener('click', addCurrentItem);
+  if (olItemsEl) {
+    olItemsEl.addEventListener('click', function (e) {
+      var btn = e.target.closest('[data-del]');
+      if (btn) removeItem(parseInt(btn.getAttribute('data-del'), 10));
+    });
+  }
+  if (olClear) {
+    olClear.addEventListener('click', function () {
+      orderItems = [];
+      renderOrderList();
+      updateSummary();
+      showToast('Daftar pesanan dikosongkan.');
+    });
   }
 
   if (jenisSelect) {
@@ -2697,7 +3371,7 @@ html{background:#FBF9F4}
   }
   if (paketSelect) {
     paketSelect.addEventListener('change', function () {
-      updateSummary();
+      onPackageChange();
       if (summaryCard && !reduceMotion) {
         summaryCard.classList.remove('flash');
         void summaryCard.offsetWidth;
@@ -2705,8 +3379,45 @@ html{background:#FBF9F4}
       }
     });
   }
+
+  /* input harga: hanya angka, otomatis diberi pemisah ribuan */
+  if (hargaInput) {
+    hargaInput.addEventListener('input', function () {
+      var caretEnd = hargaInput.selectionStart === hargaInput.value.length;
+      var n = parsePrice(hargaInput.value);
+      hargaInput.value = n ? fmtNum(n) : '';
+      if (caretEnd) {
+        try { hargaInput.setSelectionRange(hargaInput.value.length, hargaInput.value.length); } catch (e) { /* silent */ }
+      }
+      if (fieldHarga) fieldHarga.classList.remove('bad');
+      updateSummary();
+    });
+    hargaInput.addEventListener('focus', function () {
+      if (!hargaInput.readOnly && hargaInput.value === '') hargaInput.placeholder = '3.500.000';
+    });
+  }
+
+  if (hargaEdit) {
+    hargaEdit.addEventListener('click', function () {
+      var pkg = PACKAGES[paketSelect ? paketSelect.value : ''];
+      if (manualPrice) {
+        setManual(false);
+        if (hargaInput) hargaInput.value = pkg && pkg.price ? fmtNum(pkg.price) : '';
+        if (hargaHint) hargaHint.textContent = 'Harga mengikuti paket yang dipilih. Klik “Ubah sendiri” bila ingin menyesuaikan.';
+      } else {
+        setManual(true);
+        if (hargaHint) hargaHint.textContent = 'Tulis nominal sesuai kesepakatan — sistem menambah pemisah ribuan otomatis.';
+        if (hargaInput) {
+          hargaInput.focus();
+          try { hargaInput.setSelectionRange(hargaInput.value.length, hargaInput.value.length); } catch (e) { /* silent */ }
+        }
+      }
+      updateSummary();
+    });
+  }
+
   updatePackageOptions();
-  updateSummary();
+  onPackageChange();
 
   /* ---------------- choose package ---------------- */
   $$('[data-pkg]').forEach(function (btn) {
@@ -2714,7 +3425,7 @@ html{background:#FBF9F4}
       var val = btn.getAttribute('data-pkg');
       if (paketSelect) {
         paketSelect.value = val;
-        updateSummary();
+        onPackageChange();
       }
       var target = document.getElementById('pesan');
       if (target) target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
@@ -2859,21 +3570,40 @@ html{background:#FBF9F4}
   }
 
   function buildInvoice(data) {
-    var pkg = PACKAGES[data.paket];
-    var isApp = pkg.type === 'app';
+    var items = (data.items && data.items.length) ? data.items : [];
+    if (!items.length) {
+      var pkg0 = PACKAGES[data.paket];
+      var it0 = makeItem(data.paket, data.jenis, (data.harga && data.harga > 0) ? data.harga : (pkg0 ? pkg0.price : 0), data.manual);
+      if (it0) items = [it0];
+    }
+    var price = items.reduce(function (sum, it) { return sum + (it.price || 0); }, 0);
+    var dp = Math.round(price / 2);
+    var hasWeb = items.some(function (it) { return it.isWebsite; });
+    var hasApp = items.some(function (it) { return !it.isWebsite; });
+    var single = items.length === 1 ? items[0] : null;
+    var custom = items.length ? items.every(function (it) { return it.kind === 'Custom'; }) : false;
+
     return {
       no: invoiceNumber(),
+      seq: data.seq || readLocalSeq(),
+      seqLabel: seqLabel(data.seq || readLocalSeq()),
       date: formatDate(new Date()),
       name: data.nama,
       wa: data.wa,
-      item: packageName(pkg, data.jenis),
-      sub: isApp ? 'Aplikasi siap pakai — beli selamanya' : 'Jasa pembuatan website',
-      term: isApp ? 'Sekali bayar · tanpa biaya bulanan/tahunan' : 'Domain & hosting termasuk',
-      price: pkg.price,
-      dp: pkg.price / 2,
-      sisa: pkg.price / 2,
-      sisaLabel: isApp ? 'Pelunasan sebelum serah terima' : 'Pelunasan sebelum peluncuran',
-      isApp: isApp,
+      items: items,
+      /* field ringkas agar kompatibel dengan invoice lama */
+      item: single ? single.name : items.length + ' layanan',
+      sub: single ? single.sub : 'Rincian per layanan di bawah',
+      term: single ? single.term : 'Sekali bayar · tanpa biaya bulanan/tahunan',
+      price: price,
+      dp: dp,
+      sisa: price - dp,
+      sisaLabel: (hasWeb && hasApp)
+        ? 'Peluncuran web & serah terima aplikasi'
+        : (hasApp ? 'Pelunasan sebelum serah terima' : 'Pelunasan sebelum peluncuran'),
+      isApp: !hasWeb,
+      custom: custom,
+      manual: items.some(function (it) { return it.manual; }),
       note: data.catatan || ''
     };
   }
@@ -2882,16 +3612,46 @@ html{background:#FBF9F4}
     if (!invScrim) return;
     $('#invNo').textContent = inv.no;
     $('#invDate').textContent = inv.date;
+    var seqEl = $('#invSeq');
+    if (seqEl) {
+      var lbl = inv.seqLabel || (inv.seq ? seqLabel(inv.seq) : '');
+      seqEl.textContent = lbl || '—';
+      seqEl.parentElement.hidden = !lbl;
+    }
+    var seqNote = $('#invSeqNote');
+    if (seqNote) {
+      seqNote.textContent = (inv.seq || inv.seqLabel)
+        ? 'Nomor urut pemesan ' + (inv.seqLabel || seqLabel(inv.seq)) + ' — pesanan Anda tercatat di sistem.'
+        : 'Nomor urut pemesan — diperbarui otomatis setiap ada pesanan baru.';
+    }
     $('#invTo').textContent = inv.name;
     $('#invWa').textContent = inv.wa;
-    $('#invItem').textContent = inv.item;
-    $('#invItemSub').textContent = inv.sub;
-    $('#invTerm').textContent = inv.term;
-    $('#invPrice').textContent = rupiah(inv.price);
-    $('#invTotal').textContent = rupiah(inv.price);
-    $('#invDp').textContent = rupiah(inv.dp);
-    $('#invSisa').textContent = rupiah(inv.sisa);
-    $('#invSisaLabel').textContent = inv.sisaLabel;
+
+    /* baris item: pakai inv.items bila ada, kalau tidak dari data tunggal (invoice lama) */
+    var rows = (inv.items && inv.items.length) ? inv.items : [{
+      name: inv.item, sub: inv.sub, term: inv.term, price: inv.price
+    }];
+    var tbody = $('#invRows');
+    if (tbody) {
+      tbody.innerHTML = rows.map(function (r) {
+        return '<tr>'
+          + '<td><b>' + esc(r.name) + '</b><span>' + esc(r.sub || '') + '</span></td>'
+          + '<td>' + esc(r.term || '') + '</td>'
+          + '<td class="r">' + rupiah(r.price) + '</td>'
+          + '</tr>';
+      }).join('');
+    }
+
+    var price = inv.price || rows.reduce(function (sum, r) { return sum + (r.price || 0); }, 0);
+    var dp = (typeof inv.dp === 'number') ? inv.dp : Math.round(price / 2);
+    $('#invTotal').textContent = rupiah(price);
+    $('#invDp').textContent = rupiah(dp);
+    $('#invSisa').textContent = rupiah((typeof inv.sisa === 'number') ? inv.sisa : (price - dp));
+    $('#invSisaLabel').textContent = inv.sisaLabel || 'Pelunasan sebelum peluncuran';
+
+    /* judul kolom item menyesuaikan jumlah baris */
+    var thItem = $('.inv-table thead th');
+    if (thItem) thItem.textContent = rows.length > 1 ? 'Item (' + rows.length + ')' : 'Item';
   }
 
   function openInvoice(inv) {
@@ -2916,15 +3676,26 @@ html{background:#FBF9F4}
     if (lastFocus && lastFocus.focus) lastFocus.focus();
   }
 
+  function orderLines(inv) {
+    var rows = (inv.items && inv.items.length) ? inv.items : [{ name: inv.item, price: inv.price }];
+    if (rows.length === 1) {
+      return 'Pesanan: ' + rows[0].name + '\n';
+    }
+    return 'Pesanan (' + rows.length + ' layanan dalam 1 invoice):\n'
+      + rows.map(function (r, i) { return '  ' + (i + 1) + '. ' + r.name + ' — ' + rupiah(r.price); }).join('\n') + '\n';
+  }
+
   function invoiceMessage(inv) {
     return 'Halo Suport System 👋\n\nSaya ingin memesan dan sudah membuat invoice di website.\n\n'
       + 'No. Invoice: ' + inv.no + '\n'
+      + (inv.seqLabel || inv.seq ? 'No. Pesanan: ' + (inv.seqLabel || seqLabel(inv.seq)) + '\n' : '')
       + 'Tanggal: ' + inv.date + '\n'
       + 'Nama: ' + inv.name + '\n'
       + 'Nomor WhatsApp: ' + inv.wa + '\n'
-      + 'Pesanan: ' + inv.item + '\n'
-      + 'Harga: ' + rupiah(inv.price) + '\n'
+      + orderLines(inv)
+      + 'Total: ' + rupiah(inv.price) + (inv.manual ? ' (ada harga yang saya isi sendiri — mohon dikonfirmasi)' : '') + '\n'
       + 'DP 50%: ' + rupiah(inv.dp) + '\n'
+      + 'Sisa pelunasan: ' + rupiah(inv.sisa) + '\n'
       + (inv.note ? 'Catatan: ' + inv.note + '\n' : '')
       + '\nSaya akan membayar DP melalui GoPay 0813-9239-9300 dan mengirim bukti transfer.\n'
       + 'Mohon dikonfirmasi. Terima kasih.';
@@ -2986,28 +3757,53 @@ html{background:#FBF9F4}
       var wa = $('#wa').value.trim().replace(/[^\d+]/g, '');
       var jenis = $('#jenis').value;
       var paket = $('#paketSelect').value;
+      var harga = currentPrice();
       var catatan = $('#catatan').value.trim();
       var fieldNama = $('#fieldNama'), fieldWa = $('#fieldWa');
       var valid = true;
 
       fieldNama.classList.remove('bad');
       fieldWa.classList.remove('bad');
+      if (fieldHarga) fieldHarga.classList.remove('bad');
 
       if (nama.length < 2) { fieldNama.classList.add('bad'); valid = false; }
       if (!/^(\+?62|0)8\d{7,12}$/.test(wa)) { fieldWa.classList.add('bad'); valid = false; }
+      var needPrice = !orderItems.length;
+      if (needPrice && !harga) { if (fieldHarga) fieldHarga.classList.add('bad'); valid = false; }
 
       if (!valid) {
-        showToast('Mohon lengkapi nama dan nomor WhatsApp yang valid.');
+        showToast((needPrice && !harga)
+          ? 'Mohon isi harga paket/pesanan Anda terlebih dahulu.'
+          : 'Mohon lengkapi nama dan nomor WhatsApp yang valid.');
+        if (needPrice && !harga && hargaInput) hargaInput.focus();
         return;
       }
 
-      var inv = buildInvoice({ nama: nama, wa: wa, jenis: jenis, paket: paket, catatan: catatan });
-      if (window.__openInvoice) {
-        window.__openInvoice(inv);
-        showToast('Invoice ' + inv.no + ' dibuat — kirim ke WhatsApp atau cetak.');
-      } else {
-        window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(invoiceMessage(inv)), '_blank', 'noopener');
+      var items = orderItems.length ? orderItems.slice() : (function () {
+        var it = makeItem(paket, jenis, harga, manualPrice);
+        return it ? [it] : [];
+      })();
+      var submitBtn = form.querySelector('button[type="submit"]');
+      var btnHtml = submitBtn ? submitBtn.innerHTML : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg> Menyiapkan nomor pesanan…';
       }
+
+      takeSeq().then(function (seq) {
+        var inv = buildInvoice({ nama: nama, wa: wa, jenis: jenis, paket: paket, catatan: catatan, harga: harga, manual: manualPrice, items: items, seq: seq });
+        bumpProductCounters(items);
+        if (window.__openInvoice) {
+          window.__openInvoice(inv);
+          showToast('Pesanan ' + (inv.seqLabel || seqLabel(seq)) + ' · Invoice ' + inv.no + ' dibuat.');
+        } else {
+          window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(invoiceMessage(inv)), '_blank', 'noopener');
+        }
+      }).catch(function () {
+        showToast('Gagal membuat nomor pesanan. Coba lagi.');
+      }).then(function () {
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = btnHtml; }
+      });
     });
 
     ['#nama', '#wa'].forEach(function (sel) {
@@ -3026,6 +3822,7 @@ html{background:#FBF9F4}
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 })();
+
 
 </script>
 </body>

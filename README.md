@@ -152,3 +152,45 @@ Detail lengkap ada di [PANDUAN-EDIT.md](PANDUAN-EDIT.md).
 ---
 
 © 2026 Suport System · Surakarta, Jawa Tengah
+
+### Formulir pemesanan — harga otomatis atau isi sendiri
+
+| Paket dipilih | Kolom Harga | Invoice |
+|---|---|---|
+| Paket 1/2/3, I-KOS, Rentcar, Dokter Gigi, Jimpitan Ronda, POS UMKM | Terisi otomatis sesuai paket (tidak bisa diketik) | Memakai harga paket |
+| Klik **“Ubah sendiri”** pada paket apa pun | Aktif — ketik nominal, pemisah ribuan otomatis | Memakai nominal isian, ditandai *“harga saya isi sendiri — mohon dikonfirmasi”* di pesan WhatsApp |
+| **Website custom** / **Aplikasi custom** | Kosong & langsung aktif, tanpa tombol ubah | Harga dari isian; ringkasan & invoice menampilkan *“Sesuai lingkup”* bila kosong |
+
+- Harga **wajib terisi** sebelum invoice dibuat; bila kosong muncul peringatan pada kolom harga.
+- Ringkasan di samping dan **invoice otomatis** selalu mengikuti angka terakhir yang tampil di kolom Harga.
+- DP 50% dan pelunasan dihitung ulang otomatis dari nominal tersebut.
+
+### Satu invoice untuk beberapa layanan (web + aplikasi)
+
+1. Pilih paket/layanan di **Paket yang dipilih** → klik **Tambah ke daftar pesanan**.
+2. Ulangi untuk layanan lain (mis. Paket 2 website + POS UMKM + I-KOS).
+3. **Daftar pesanan** menampilkan setiap item dengan label *Website / Aplikasi / Custom*, harga, dan tombol hapus (×).
+4. Klik **Buat invoice & kirim via WhatsApp** → **satu nomor invoice** memuat semua baris item.
+
+- Ringkasan di samping menampilkan rincian per item + **Total gabungan**, DP 50%, dan pelunasan.
+- Label pelunasan otomatis: *“Peluncuran web & serah terima aplikasi”* bila invoice memuat web **dan** aplikasi.
+- Pesan WhatsApp berisi daftar bernomor: `1. Paket 2 … — Rp 1.500.000` dst., lalu Total, DP, dan sisa.
+- PDF/cetak tetap satu halaman; baris item tidak terpotong antar halaman.
+- Bila daftar pesanan **kosong**, invoice hanya memuat paket yang sedang dipilih (perilaku lama).
+- Invoice lama (tersimpan sebelum fitur ini) tetap bisa dibuka — otomatis tampil sebagai satu baris.
+
+### Nomor urut pemesan (otomatis, lintas perangkat)
+
+- Di atas formulir tampil **“Nomor urut pemesan berikutnya”**, mis. `#0004`, lengkap dengan status
+  *“tersinkron online”* atau *“mode luring”*.
+- Setiap kali invoice dibuat, nomor pesanan **diambil dan dikunci** untuk pesanan itu — tidak pernah sama antar pemesan.
+- Nomor muncul di **kepala invoice** (`NO. PESANAN #0004`), di **catatan invoice**, dan di **pesan WhatsApp** (`No. Pesanan: #0004`).
+- Kartu produk menampilkan lencana kecil **“n pesanan”** yang ikut bertambah setiap ada pesanan masuk.
+
+**Cara kerja:** penghitung daring (abacus.jasoncameron.dev, gratis, tanpa akun) di namespace `suport-system-solo`,
+kunci `pesanan-web` dan `produk-web-<id>`. Nilai tampil = nilai mentah − 1 (baseline pemasangan).
+Bila internet/peramban memblokir, sistem otomatis memakai **penghitung lokal** sehingga formulir tetap berjalan.
+
+> Catatan jujur: ini penghitung berbasis kunjungan formulir, **bukan basis data pesanan**. Bila ingin nomor urut
+> resmi + rekap pesanan yang bisa Anda kelola (status DP, daftar pemesan), perlu backend —
+> mis. Google Apps Script (gratis) atau Supabase. Beri tahu saya bila ingin dibuatkan.

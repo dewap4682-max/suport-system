@@ -62,7 +62,8 @@ html{background:#FBF9F4}
 
 <!-- ICONS -->
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
-  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
   <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
   <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.39-1.48-.88-.79-1.48-1.76-1.66-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.89-9.89 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.89-9.88 9.89m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.69 1.45h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.17-1.24-6.16-3.48-8.41Z"/></symbol>
@@ -442,7 +443,7 @@ html{background:#FBF9F4}
     </div>
 
     <div class="pricing-note reveal">
-      <p>Belum yakin paket mana yang cocok? Ceritakan usaha Anda — kami bantu pilihkan.</p>
+      <p>Belum yakin paket mana yang cocok? Pilih <button class="link-pkg" type="button" data-pkg="wcust">website custom</button> lalu isi sendiri harganya, atau ceritakan usaha Anda — kami bantu pilihkan.</p>
       <a href="https://wa.me/6281392399300?text=Halo%20Suport%20System%2C%20saya%20ingin%20dibantu%20memilih%20paket%20website%20yang%20sesuai%20untuk%20usaha%20saya." target="_blank" rel="noopener">Konsultasi via WhatsApp <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
 
@@ -628,6 +629,7 @@ html{background:#FBF9F4}
         </ul>
         <a class="btn btn--ink" href="https://wa.me/6281392399300?text=Halo%20Suport%20System%2C%20saya%20ingin%20konsultasi%20aplikasi%20custom%20(online%20atau%20offline)%20untuk%20usaha%20saya." target="_blank" rel="noopener">Konsultasi aplikasi custom <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <span class="wa-hint">Gratis diskusi kebutuhan — belum tentu lanjut</span>
+        <button class="btn btn--link cta-custom" type="button" data-pkg="acust">Isi sendiri harganya di formulir <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
       </article>
     </div>
 
@@ -870,7 +872,14 @@ html{background:#FBF9F4}
     <div class="order-grid">
       <form class="form-card reveal" id="orderForm" novalidate>
         <h3>Formulir pemesanan</h3>
-        <p class="hint">Sebagian besar data bisa dilengkapi nanti lewat WhatsApp.</p>
+        <p class="hint">Harga terisi otomatis mengikuti paket. Untuk <b>website/aplikasi custom</b> atau kesepakatan khusus, isi sendiri nominalnya.</p>
+        <div class="seq-pill" id="seqPill">
+          <span class="seq-no" id="seqNext">#0001</span>
+          <span class="seq-txt">
+            <b>Nomor urut pemesan berikutnya</b>
+            <span id="seqStatus"><i class="dot"></i> menghubungkan…</span>
+          </span>
+        </div>
         <div class="form-grid">
           <div class="field" id="fieldNama">
             <label for="nama">Nama Anda <span class="req">*</span></label>
@@ -904,7 +913,40 @@ html{background:#FBF9F4}
                 <option value="jr">APK Jimpitan Ronda — Rp 1.000.000</option>
                 <option value="pu">APK POS UMKM — Rp 1.000.000</option>
               </optgroup>
+              <optgroup label="Custom — harga diisi sendiri">
+                <option value="wcust">Website custom — sesuai kebutuhan</option>
+                <option value="acust">Aplikasi custom — online / offline</option>
+              </optgroup>
             </select>
+          </div>
+          <div class="field full field--price" id="fieldHarga">
+            <label for="harga">Harga <span class="lab-note" id="hargaLabNote">— otomatis dari paket</span></label>
+            <div class="price-input">
+              <span class="rp" aria-hidden="true">Rp</span>
+              <input type="text" id="harga" name="harga" inputmode="numeric" autocomplete="off" placeholder="0" aria-describedby="hargaHint">
+              <button type="button" class="price-edit" id="hargaEdit" aria-pressed="false" aria-controls="harga">
+                <svg class="ic" aria-hidden="true"><use href="#i-wallet"/></svg><span>Ubah sendiri</span>
+              </button>
+            </div>
+            <span class="hint-sm" id="hargaHint">Harga mengikuti paket yang dipilih. Klik “Ubah sendiri” bila ingin menyesuaikan.</span>
+            <span class="err" id="hargaErr">Isi harga terlebih dahulu — contoh: 3.500.000.</span>
+          </div>
+
+          <div class="field full field--add" id="fieldAdd">
+            <button type="button" class="btn btn--add btn--block" id="addItemBtn">
+              <svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg>
+              <span>Tambah ke daftar pesanan</span>
+            </button>
+            <span class="hint-sm" id="addHint">Ingin <b>website + aplikasi dalam satu invoice</b>? Tambahkan lebih dari satu layanan di sini.</span>
+          </div>
+
+          <div class="field full order-list" id="orderListWrap" hidden>
+            <div class="ol-head">
+              <span class="ol-title"><svg class="ic" aria-hidden="true"><use href="#i-receipt"/></svg> Daftar pesanan</span>
+              <span class="ol-count" id="olCount">0 layanan</span>
+            </div>
+            <ul class="ol-items" id="olItems"></ul>
+            <button type="button" class="ol-clear" id="olClear">Kosongkan daftar</button>
           </div>
           <div class="field full">
             <label for="catatan">Catatan (opsional)</label>
@@ -926,7 +968,8 @@ html{background:#FBF9F4}
         <div class="lab"><svg class="ic" aria-hidden="true"><use href="#i-spark"/></svg> Ringkasan pilihan</div>
         <h3 id="sumName">Paket 2 — Katalog Lengkap</h3>
         <p class="for" id="sumJenis">Untuk UMKM / usaha produk &amp; jasa</p>
-        <div class="total"><span class="cur">Rp</span><span class="amt" id="sumPrice">1.500.000</span><span class="per">/ sekali bayar</span></div>
+        <ul class="sum-items" id="sumItems" hidden></ul>
+        <div class="total" id="sumTotalBox"><span class="cur" id="sumCur">Rp</span><span class="amt" id="sumPrice">1.500.000</span><span class="per" id="sumPer">/ sekali bayar</span></div>
         <div class="sum-row dp"><span>DP 50% saat mulai</span><b id="sumDp">Rp 750.000</b></div>
         <div class="sum-row"><span>Pelunasan sebelum peluncuran</span><b id="sumSisa">Rp 750.000</b></div>
         <div class="sum-incl"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> <span id="sumInclText">Domain &amp; hosting sudah termasuk</span></div>
@@ -1060,6 +1103,7 @@ html{background:#FBF9F4}
         <strong id="invTitle">INVOICE</strong>
         <span id="invNo">—</span>
         <span id="invDate">—</span>
+        <span class="inv-seqline">No. Pesanan <b id="invSeq">—</b></span>
       </div>
       <button class="inv-x" id="invClose" type="button" aria-label="Tutup invoice">
         <svg class="ic" aria-hidden="true"><use href="#i-close"/></svg>
@@ -1084,7 +1128,7 @@ html{background:#FBF9F4}
         <thead>
           <tr><th>Item</th><th>Ketentuan</th><th class="r">Harga</th></tr>
         </thead>
-        <tbody>
+        <tbody id="invRows">
           <tr>
             <td><b id="invItem">—</b><span id="invItemSub">—</span></td>
             <td id="invTerm">—</td>
@@ -1119,6 +1163,7 @@ html{background:#FBF9F4}
       </div>
 
       <ul class="inv-notes">
+        <li><svg class="ic" aria-hidden="true"><use href="#i-receipt"/></svg> <span id="invSeqNote">Nomor urut pemesan — diperbarui otomatis setiap ada pesanan baru.</span></li>
         <li><svg class="ic" aria-hidden="true"><use href="#i-infinity"/></svg> Beli selamanya — tanpa biaya bulanan, tahunan, atau potongan tersembunyi.</li>
         <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Invoice ini dibuat otomatis oleh sistem dan sah tanpa tanda tangan.</li>
       </ul>

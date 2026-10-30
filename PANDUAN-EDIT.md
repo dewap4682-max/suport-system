@@ -107,3 +107,38 @@ python3 build-onefile.py
 - **Carousel aplikasi di ponsel**: diatur di blok `@media (max-width:760px)` bagian `.app-grid`.
 - **2 kolom di tablet**: blok `@media (min-width:761px) and (max-width:1024px)`.
 - **Pita emas** (marquee): ubah teks pada elemen `.marquee-item` di `index.html`.
+
+---
+
+## 6. Mengatur harga di formulir
+
+- **Harga paket** ada di `js/app.js` bagian `PACKAGES` (mis. `'2': { price: 1500000 ... }`). Mengubah angka di sana otomatis mengubah kartu harga? **Tidak** — kartu harga ditulis di `index.html`; ubah keduanya bila mengganti harga resmi.
+- **Pengunjung boleh mengisi harga sendiri**: tombol `#hargaEdit` (teks “Ubah sendiri” / “Pakai harga paket”).
+- **Kunci harga** (matikan isian manual): hapus tombol `<button ... id="hargaEdit">` di `index.html`; kolom harga tetap terisi otomatis dan read-only.
+- **Mode custom**: opsi `wcust` dan `acust` di `<optgroup label="Custom — harga diisi sendiri">`. Menambah jenis custom baru cukup menambah opsi + entri `PACKAGES` bertipe `type: 'custom'`.
+- **Batas minimal harga** (opsional): tambahkan pada validasi submit di `js/app.js` — `if (harga < 500000) { ... }`.
+
+---
+
+## 7. Keranjang pesanan (banyak layanan, satu invoice)
+
+- Data pesanan tersimpan di variabel `orderItems` pada `js/app.js` (berisi `pkgId`, `name`, `price`, `kind`, `manual`).
+- Tombol **Tambah ke daftar pesanan** memakai harga yang sedang tampil di kolom Harga — jadi harga isian manual ikut tersimpan per item.
+- Item ganda dicegah: kombinasi **paket + harga yang sama** tidak bisa ditambahkan dua kali.
+- `invoiceItems()` menentukan isi invoice: bila `orderItems` kosong → hanya paket yang dipilih.
+- Untuk mengosongkan otomatis setelah invoice dibuat, tambahkan `orderItems = []; renderOrderList();` di handler `#invClose2`.
+- Markup daftar: `#orderListWrap` (formulir) dan `#sumItems` (ringkasan); baris invoice dibuat dinamis di `#invRows`.
+
+---
+
+## 8. Nomor urut pemesan
+
+- Konfigurasi ada di `js/app.js` bagian **NOMOR URUT PEMESAN**:
+  `SEQ_BASE`, `SEQ_NS`, `SEQ_KEY`, `SEQ_BASELINE`, `SEQ_LOCAL_KEY`.
+- Ganti `SEQ_NS` (mis. `suport-system-solo-2`) bila ingin memulai penghitung dari nol di namespace baru.
+- `SEQ_BASELINE = 1` karena setiap penghitung disemai satu kali saat pemasangan. Bila Anda menyemai ulang
+  (memanggil `/hit/...` manual), naikkan angka ini agar tampilan kembali ke 0.
+- **Lencana produk**: `productKey(id)` → `produk-web-<id>`; tambah id baru di `refreshProductBadges()` bila menambah produk.
+- **Nonaktifkan fitur**: hapus blok `NOMOR URUT PEMESAN` dan elemen `#seqPill`; invoice tetap berjalan tanpa nomor pesanan.
+- **Reset nomor lokal** (per peramban): hapus kunci `ss_order_seq_v2` dan `ss_order_seq_online` di localStorage.
+- **Ganti sumber penghitung**: ubah `SEQ_BASE` ke layanan lain dengan bentuk API `GET /hit/:ns/:key` → `{"value":n}`.
