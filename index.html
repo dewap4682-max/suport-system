@@ -66,6 +66,7 @@ html{background:#FBF9F4}
     <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
   <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="i-tg" viewBox="0 0 24 24"><path d="M21.6 4.2 2.9 11.3c-.9.3-.9 1.5.1 1.8l4.5 1.4 1.7 5.4c.2.7 1.1.9 1.6.3l2.5-2.7 4.4 3.2c.6.4 1.4.1 1.6-.6l3.3-14.9c.2-.9-.7-1.6-1.5-1.3zM9.4 14.2l8.1-5.2-6.6 6.3-.4 3.1-1.1-4.2z"/></symbol>
   <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.39-1.48-.88-.79-1.48-1.76-1.66-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.89-9.89 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.89-9.88 9.89m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.69 1.45h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.17-1.24-6.16-3.48-8.41Z"/></symbol>
   <symbol id="i-store" viewBox="0 0 24 24"><path d="M3 9.5 4.5 4h15L21 9.5M4 9.5V20h16V9.5M4 9.5h16M9.5 20v-5.5h5V20"/></symbol>
   <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10.5 9-7.5 9 7.5M5 9.5V21h14V9.5M9.5 21v-6h5v6"/></symbol>
@@ -120,6 +121,7 @@ html{background:#FBF9F4}
       <a href="#manfaat">Manfaat</a>
       <a href="#paket">Paket</a>
       <a href="#aplikasi">Aplikasi</a>
+      <a href="#galeri">Galeri</a>
       <a href="#proses">Proses</a>
       <a href="#pembayaran">Pembayaran</a>
       <a href="#faq">FAQ</a>
@@ -140,6 +142,7 @@ html{background:#FBF9F4}
   <a class="mm" href="#manfaat">Manfaat <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
   <a class="mm" href="#paket">Paket &amp; harga <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
   <a class="mm" href="#aplikasi">Aplikasi siap pakai <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  <a class="mm" href="#galeri">Galeri aplikasi <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
   <a class="mm" href="#termasuk">Yang Anda dapatkan <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
   <a class="mm" href="#proses">Cara kerja <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
   <a class="mm" href="#pembayaran">Pembayaran <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
@@ -655,11 +658,182 @@ html{background:#FBF9F4}
   </div>
 </section>
 
+
+<!-- ============ GALERI ============ -->
+<section class="section section--ivory" id="galeri">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow"><span class="idx">05</span><span class="dash" aria-hidden="true"></span> Galeri aplikasi &amp; karya</p>
+      <h2>Bukan janji. <span class="serif">Ini yang sudah jalan.</span></h2>
+      <p class="lede">Setiap aplikasi di bawah sudah dipakai di lapangan — warung, kos, rental mobil, klinik gigi, toko klontong. Lihat posternya, lalu pesan yang paling dekat dengan masalah Anda <b>hari ini</b>, bukan &ldquo;nanti kalau sempat&rdquo;.</p>
+    </div>
+
+    <div class="gal-filter reveal" role="tablist" aria-label="Saring galeri">
+      <button class="gal-chip is-active" type="button" data-gal="all" role="tab" aria-selected="true">Semua</button>
+      <button class="gal-chip" type="button" data-gal="app" role="tab" aria-selected="false">Aplikasi Android</button>
+      <button class="gal-chip" type="button" data-gal="web" role="tab" aria-selected="false">Website</button>
+    </div>
+
+    <div class="gal-grid">
+
+      <article class="gal-card reveal" data-kind="app">
+        <button class="gal-shot" type="button" data-shot="assets/img/galeri/rentbook.jpg" data-title="RentBook — Pembukuan Rental Mobil" aria-label="Perbesar poster RentBook">
+          <img src="assets/img/galeri/rentbook.jpg" alt="Poster aplikasi RentBook: pembukuan rental mobil dengan nota urut, status sewa, dan laporan" width="820" height="820" loading="lazy" decoding="async">
+          <span class="gal-tag">APK Android</span>
+          <span class="gal-zoom"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg> Lihat poster</span>
+        </button>
+        <div class="gal-body">
+          <span class="gal-kicker">Rental mobil · offline</span>
+          <h3>RentBook — nota hilang, uang ikut hilang</h3>
+          <p class="gal-drama">&ldquo;Mobil keluar, catatan tidak ada.&rdquo; Satu sewa yang lupa dicatat bukan cuma rugi sehari — itu rugi kepercayaan pemilik mobil. RentBook mencetak nota bernomor urut, menandai sewa aktif, selesai, dan <b>terlambat</b> tanpa Anda perlu mengingat apa pun.</p>
+          <ul class="gal-points">
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Nomor nota urut otomatis 000001, 000002, …</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Nota siap kirim ke penyewa, vendor, pemilik</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Laporan bulanan sekali tekan</li>
+          </ul>
+          <div class="gal-price"><span>Rp</span><b>2.500.000</b><em>sekali bayar · tanpa bulanan</em></div>
+          <div class="gal-cta">
+            <button class="btn btn--gold btn--sm" type="button" data-pkg="rc">Pesan sekarang <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            <a class="btn btn--outline btn--sm" href="https://wa.me/6281392399300?text=Halo%20Suport%20System%2C%20saya%20mau%20pesan%20RentBook%20(APK%20pembukuan%20rental%20mobil%20Rp%202.500.000).%20Bisa%20minta%20demo%3F" target="_blank" rel="noopener"><svg class="ic fill" aria-hidden="true"><use href="#i-wa"/></svg> Tanya dulu</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="gal-card reveal" style="--d:.06s" data-kind="app">
+        <button class="gal-shot" type="button" data-shot="assets/img/galeri/i-kos.jpg" data-title="i-Kos — Manajemen Kos untuk Pemilik" aria-label="Perbesar poster i-Kos">
+          <img src="assets/img/galeri/i-kos.jpg" alt="Poster aplikasi i-Kos: kelola kamar, tagihan bulanan, dan kirim tagihan ke WhatsApp penyewa" width="760" height="1076" loading="lazy" decoding="async">
+          <span class="gal-tag">APK Android</span>
+          <span class="gal-zoom"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg> Lihat poster</span>
+        </button>
+        <div class="gal-body">
+          <span class="gal-kicker">Pengelolaan kos · offline</span>
+          <h3>i-Kos — menagih tidak perlu malu</h3>
+          <p class="gal-drama">Bukan penyewa yang sulit, sering kali Anda yang <b>tidak sempat</b> menagih. i-Kos membuat tagihan lengkap (sewa, listrik, air, kebersihan) lalu mengirimkannya ke WhatsApp penyewa sekali tekan. Uang masuk, tanpa canggung.</p>
+          <ul class="gal-points">
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> 8 kamar atau 80 kamar — tetap rapi</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Tagihan otomatis + pengingat tunggakan</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Data di HP sendiri, tidak perlu server</li>
+          </ul>
+          <div class="gal-price"><span>Rp</span><b>2.500.000</b><em>sekali bayar · tanpa bulanan</em></div>
+          <div class="gal-cta">
+            <button class="btn btn--gold btn--sm" type="button" data-pkg="ik">Pesan sekarang <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            <a class="btn btn--outline btn--sm" href="https://wa.me/6281392399300?text=Halo%20Suport%20System%2C%20saya%20mau%20pesan%20i-Kos%20(APK%20manajemen%20kos%20Rp%202.500.000).%20Bisa%20minta%20demo%3F" target="_blank" rel="noopener"><svg class="ic fill" aria-hidden="true"><use href="#i-wa"/></svg> Tanya dulu</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="gal-card reveal" style="--d:.12s" data-kind="app">
+        <button class="gal-shot" type="button" data-shot="assets/img/galeri/pos-umkm.jpg" data-title="POS UMKM Soloraya — Kasir Warung" aria-label="Perbesar poster POS UMKM">
+          <img src="assets/img/galeri/pos-umkm.jpg" alt="Poster aplikasi POS UMKM Soloraya: kasir, laporan penjualan, absensi karyawan, dan cadangan data" width="760" height="950" loading="lazy" decoding="async">
+          <span class="gal-tag">APK Android</span>
+          <span class="gal-zoom"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg> Lihat poster</span>
+        </button>
+        <div class="gal-body">
+          <span class="gal-kicker">Kasir UMKM · offline</span>
+          <h3>POS UMKM — ramai belum tentu untung</h3>
+          <p class="gal-drama">Warung penuh pembeli, tapi uang di laci tidak pernah cocok. Itu bukan salah rezeki — itu <b>catatan yang berantakan</b>. POS UMKM mencatat setiap transaksi, menghitung laba, dan merekap gaji karyawan dari satu HP.</p>
+          <ul class="gal-points">
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Kasir + metode bayar + cetak nota</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Laporan JPG siap dibagikan ke WhatsApp</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Absensi &amp; gaji karyawan otomatis</li>
+          </ul>
+          <div class="gal-price"><span>Rp</span><b>1.000.000</b><em>sekali bayar · tanpa bulanan</em></div>
+          <div class="gal-cta">
+            <button class="btn btn--gold btn--sm" type="button" data-pkg="pu">Pesan sekarang <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            <a class="btn btn--outline btn--sm" href="https://wa.me/6281392399300?text=Halo%20Suport%20System%2C%20saya%20mau%20pesan%20POS%20UMKM%20(APK%20kasir%20warung%20Rp%201.000.000).%20Bisa%20minta%20demo%3F" target="_blank" rel="noopener"><svg class="ic fill" aria-hidden="true"><use href="#i-wa"/></svg> Tanya dulu</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="gal-card reveal" data-kind="app">
+        <button class="gal-shot" type="button" data-shot="assets/img/galeri/dokter-gigi.jpg" data-title="Praktik Dokter Gigi — POS Klinik" aria-label="Perbesar poster POS Dokter Gigi">
+          <img src="assets/img/galeri/dokter-gigi.jpg" alt="Poster aplikasi Praktik Dokter Gigi: POS, rekam medis, honor tim, multi-cabang, dan nota WhatsApp" width="760" height="1045" loading="lazy" decoding="async">
+          <span class="gal-tag">APK Android</span>
+          <span class="gal-zoom"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg> Lihat poster</span>
+        </button>
+        <div class="gal-body">
+          <span class="gal-kicker">Klinik gigi · multi-cabang</span>
+          <h3>Praktik Dokter Gigi — pasien menunggu, rekap honor belum</h3>
+          <p class="gal-drama">Kursi pasien sudah terisi, tapi rekap honor dokter masih dihitung manual tiap akhir bulan. Satu aplikasi menata <b>kasir, rekam medis, honor tim, sampai laporan cabang</b> — supaya Anda kembali mengurus pasien, bukan spreadsheet.</p>
+          <ul class="gal-points">
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Rekam medis &amp; odontogram pasien</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Honor dokter &amp; gaji staf terhitung otomatis</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Banyak cabang dalam satu aplikasi</li>
+          </ul>
+          <div class="gal-price"><span>Rp</span><b>4.500.000</b><em>sekali bayar · tanpa bulanan</em></div>
+          <div class="gal-cta">
+            <button class="btn btn--gold btn--sm" type="button" data-pkg="dg">Pesan sekarang <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            <a class="btn btn--outline btn--sm" href="https://wa.me/6281392399300?text=Halo%20Suport%20System%2C%20saya%20mau%20pesan%20POS%20Praktik%20Dokter%20Gigi%20(Rp%204.500.000).%20Bisa%20minta%20demo%3F" target="_blank" rel="noopener"><svg class="ic fill" aria-hidden="true"><use href="#i-wa"/></svg> Tanya dulu</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="gal-card reveal" style="--d:.06s" data-kind="app">
+        <button class="gal-shot" type="button" data-shot="assets/img/galeri/toko-klontong.jpg" data-title="POS Toko Klontong — Kasir, Stok &amp; Laba" aria-label="Perbesar poster POS Toko Klontong">
+          <img src="assets/img/galeri/toko-klontong.jpg" alt="Poster aplikasi POS Toko Klontong: kasir, stok, laba rugi, cetak nota 80mm, dan backup otomatis" width="820" height="820" loading="lazy" decoding="async">
+          <span class="gal-tag gal-tag--new">APK · baru</span>
+          <span class="gal-zoom"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg> Lihat poster</span>
+        </button>
+        <div class="gal-body">
+          <span class="gal-kicker">Toko klontong · retail kecil</span>
+          <h3>POS Toko Klontong — stok hilang, laba cuma tebakan</h3>
+          <p class="gal-drama">Barang di rak berkurang, catatannya tidak. Selama laba hanya ditebak, Anda tidak akan pernah tahu <b>produk mana yang sebenarnya menahan usaha Anda</b>. Klontong mencatat jualan, stok, dan laba sampai rupiah terakhir.</p>
+          <ul class="gal-points">
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Kasir + scan barcode &amp; stok otomatis</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Laba harian, bulanan, tahunan + produk terlaris</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Nota 80 mm &amp; backup tiap tutup kasir</li>
+          </ul>
+          <div class="gal-price"><span>Harga</span><b class="ask">Tanya&nbsp;via WA</b><em>paket menyesuaikan jumlah HP</em></div>
+          <div class="gal-cta">
+            <a class="btn btn--gold btn--sm" href="https://wa.me/6281392399300?text=Halo%20Suport%20System%2C%20saya%20tertarik%20POS%20Toko%20Klontong%20(APK%20kasir%20%2B%20stok%20%2B%20laba).%20Mohon%20info%20harga%20dan%20demo." target="_blank" rel="noopener">Pesan sekarang <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn--outline btn--sm" href="https://wa.me/6281392399300?text=Halo%2C%20boleh%20minta%20demo%20POS%20Toko%20Klontong%3F" target="_blank" rel="noopener"><svg class="ic fill" aria-hidden="true"><use href="#i-wa"/></svg> Minta demo</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="gal-card reveal" style="--d:.12s" data-kind="web">
+        <button class="gal-shot" type="button" data-shot="assets/img/galeri/website-umkm.jpg" data-title="Website UMKM — Katalog &amp; Pesanan" aria-label="Perbesar poster contoh website UMKM">
+          <img src="assets/img/galeri/website-umkm.jpg" alt="Poster contoh website UMKM UD Jahe Wangi: katalog produk, form pesanan, nota otomatis, tombol WhatsApp" width="820" height="820" loading="lazy" decoding="async">
+          <span class="gal-tag gal-tag--web">Website</span>
+          <span class="gal-zoom"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg> Lihat poster</span>
+        </button>
+        <div class="gal-body">
+          <span class="gal-kicker">Contoh nyata · ud-jahe-wangi.github.io</span>
+          <h3>Website UMKM — pembeli datang jam 11 malam</h3>
+          <p class="gal-drama">Calon pembeli membuka Instagram Anda pukul 11 malam, bertanya, lalu menunggu sampai pagi. Website ini <b>menjawab untuk Anda</b> — katalog foto asli, form pesanan, nota bernomor, dan tombol WhatsApp yang selalu terbuka.</p>
+          <ul class="gal-points">
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Katalog &amp; filter produk, foto asli</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Pesanan masuk langsung ke WhatsApp</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Ringan, cepat dibuka di HP</li>
+          </ul>
+          <div class="gal-price"><span>Rp</span><b>1.000.000</b><em>mulai dari · domain &amp; hosting termasuk</em></div>
+          <div class="gal-cta">
+            <button class="btn btn--gold btn--sm" type="button" data-pkg="1">Pesan sekarang <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            <a class="btn btn--outline btn--sm" href="https://ud-jahe-wangi.github.io" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg> Lihat contoh</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="gal-foot reveal">
+      <div class="gal-foot__copy">
+        <b>Masih ragu? Wajar.</b>
+        <span>Karena itu kami buka demonya dulu — lihat aplikasi berjalan, coba sendiri, baru putuskan. Tanpa biaya bulanan, tanpa paksaan.</span>
+      </div>
+      <div class="gal-foot__cta">
+        <a class="btn btn--wa btn--sm" href="https://wa.me/6281392399300?text=Halo%20Suport%20System%2C%20saya%20ingin%20jadwal%20demo%20aplikasi%20Android%20sebelum%20memesan." target="_blank" rel="noopener"><svg class="ic fill" aria-hidden="true"><use href="#i-wa"/></svg> Jadwal demo gratis</a>
+        <a class="btn btn--ink btn--sm" href="#pesan">Buat invoice <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ TERMASUK ============ -->
 <section class="section section--white" id="termasuk">
   <div class="container split">
     <div class="reveal">
-      <p class="eyebrow"><span class="idx">05</span><span class="dash" aria-hidden="true"></span> Tanpa biaya tersembunyi</p>
+      <p class="eyebrow"><span class="idx">06</span><span class="dash" aria-hidden="true"></span> Tanpa biaya tersembunyi</p>
       <h2>Semua sudah lengkap, dari nama domain sampai <span class="serif">peluncuran.</span></h2>
       <p class="lede" style="margin-top:18px">Anda tidak perlu mencari penyedia domain atau hosting terpisah. Setiap paket sudah mencakup kebutuhan dasar agar website siap dipakai dan mudah dirawat.</p>
       <ul class="checklist">
@@ -703,7 +877,7 @@ html{background:#FBF9F4}
 <section class="section section--ivory" id="proses">
   <div class="container">
     <div class="section-head section-head--center reveal">
-      <p class="eyebrow"><span class="idx">06</span><span class="dash" aria-hidden="true"></span> Cara kerja</p>
+      <p class="eyebrow"><span class="idx">07</span><span class="dash" aria-hidden="true"></span> Cara kerja</p>
       <h2>Enam langkah, <span class="serif">tanpa ribet.</span></h2>
       <p class="lede">Anda cukup mengirim data. Kami yang menyusun, membangun, dan meluncurkan website Anda.</p>
     </div>
@@ -750,7 +924,7 @@ html{background:#FBF9F4}
 <section class="section section--white" id="pembayaran">
   <div class="container">
     <div class="section-head reveal">
-      <p class="eyebrow"><span class="idx">07</span><span class="dash" aria-hidden="true"></span> Pembayaran</p>
+      <p class="eyebrow"><span class="idx">08</span><span class="dash" aria-hidden="true"></span> Pembayaran</p>
       <h2>Mudah, transparan, dan bisa <span class="serif">pakai GoPay.</span></h2>
       <p class="lede">Mulai dengan DP 50%, sisanya setelah draf disetujui. Tidak ada biaya tersembunyi.</p>
     </div>
@@ -864,7 +1038,7 @@ html{background:#FBF9F4}
 <section class="section section--ivory" id="pesan">
   <div class="container">
     <div class="section-head reveal">
-      <p class="eyebrow"><span class="idx">08</span><span class="dash" aria-hidden="true"></span> Mulai proyek Anda</p>
+      <p class="eyebrow"><span class="idx">09</span><span class="dash" aria-hidden="true"></span> Mulai proyek Anda</p>
       <h2>Pesan langsung <span class="serif">lewat WhatsApp.</span></h2>
       <p class="lede">Tidak perlu membuat akun. Isi data singkat di bawah, lalu kirim pesannya — kami balas untuk konfirmasi langkah berikutnya.</p>
     </div>
@@ -989,7 +1163,7 @@ html{background:#FBF9F4}
 <section class="section section--white" id="faq">
   <div class="container">
     <div class="section-head section-head--center reveal">
-      <p class="eyebrow"><span class="idx">09</span><span class="dash" aria-hidden="true"></span> FAQ</p>
+      <p class="eyebrow"><span class="idx">10</span><span class="dash" aria-hidden="true"></span> FAQ</p>
       <h2>Pertanyaan yang <span class="serif">sering diajukan.</span></h2>
     </div>
     <div class="faq reveal">
@@ -1048,6 +1222,7 @@ html{background:#FBF9F4}
           <li><a href="#manfaat">Manfaat website</a></li>
           <li><a href="#paket">Paket &amp; harga</a></li>
           <li><a href="#aplikasi">Aplikasi siap pakai</a></li>
+          <li><a href="#galeri">Galeri aplikasi &amp; karya</a></li>
           <li><a href="#termasuk">Yang Anda dapatkan</a></li>
           <li><a href="#proses">Cara kerja</a></li>
           <li><a href="#pembayaran">Pembayaran</a></li>
@@ -1074,18 +1249,33 @@ html{background:#FBF9F4}
 
 <!-- MOBILE ACTION BAR -->
 <div class="m-bar" id="mobileBar" aria-hidden="true">
-  <a class="m-bar__wa" href="https://wa.me/6281392399300?text=Halo%20Suport%20System%2C%20saya%20ingin%20bertanya%20tentang%20jasa%20pembuatan%20website%20atau%20aplikasi." target="_blank" rel="noopener">
+  <a class="m-bar__wa" href="https://wa.me/6281392399300?text=Halo%20Suport%20System%2C%20saya%20ingin%20bertanya%20tentang%20jasa%20pembuatan%20website%20atau%20aplikasi." target="_blank" rel="noopener" aria-label="Chat WhatsApp">
     <svg class="ic fill" aria-hidden="true"><use href="#i-wa"/></svg> WhatsApp
   </a>
-  <a class="m-bar__main" href="#pesan">
+  <a class="m-bar__tg" href="https://t.me/+6287835369249" target="_blank" rel="noopener" aria-label="Chat Telegram">
+    <svg class="ic fill" aria-hidden="true"><use href="#i-tg"/></svg>
+  </a>
+  <a class="m-bar__main" href="#pesan" aria-label="Buat invoice">
     <svg class="ic" aria-hidden="true"><use href="#i-receipt"/></svg> Buat invoice
   </a>
 </div>
 
-<a class="wa-float" href="https://wa.me/6281392399300?text=Halo%20Suport%20System%2C%20saya%20ingin%20bertanya%20tentang%20jasa%20pembuatan%20website." target="_blank" rel="noopener" aria-label="Chat via WhatsApp">
-  <svg class="ic fill" aria-hidden="true"><use href="#i-wa"/></svg>
-  <span class="txt">Chat WhatsApp</span>
-</a>
+<div class="fab-stack" aria-label="Hubungi kami">
+  <a class="fab fab--tg" href="https://t.me/+6287835369249" target="_blank" rel="noopener" aria-label="Chat Telegram">
+    <svg class="ic fill" aria-hidden="true"><use href="#i-tg"/></svg>
+    <span class="fab-tip">Telegram</span>
+  </a>
+  <a class="fab fab--inv" href="#pesan" aria-label="Buat invoice pesanan">
+    <span class="fab-ring" aria-hidden="true"></span>
+    <svg class="ic" aria-hidden="true"><use href="#i-receipt"/></svg>
+    <span class="fab-tip">Buat invoice</span>
+  </a>
+  <a class="fab fab--wa" href="https://wa.me/6281392399300?text=Halo%20Suport%20System%2C%20saya%20ingin%20bertanya%20tentang%20jasa%20pembuatan%20website%20atau%20aplikasi." target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+    <span class="fab-ring" aria-hidden="true"></span>
+    <svg class="ic fill" aria-hidden="true"><use href="#i-wa"/></svg>
+    <span class="fab-tip">WhatsApp</span>
+  </a>
+</div>
 
 
 <!-- ============ INVOICE MODAL ============ -->

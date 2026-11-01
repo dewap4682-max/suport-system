@@ -194,3 +194,38 @@ Bila internet/peramban memblokir, sistem otomatis memakai **penghitung lokal** s
 > Catatan jujur: ini penghitung berbasis kunjungan formulir, **bukan basis data pesanan**. Bila ingin nomor urut
 > resmi + rekap pesanan yang bisa Anda kelola (status DP, daftar pemesan), perlu backend —
 > mis. Google Apps Script (gratis) atau Supabase. Beri tahu saya bila ingin dibuatkan.
+
+### Galeri aplikasi & karya (`#galeri`)
+
+Section 05 — enam poster unggulan, masing-masing berisi **cerita penjualan** dan tombol **Pesan sekarang**.
+
+| Poster | Produk | Harga |
+|---|---|---|
+| RentBook | POS/pembukuan rental mobil (APK) | Rp 2.500.000 |
+| i-Kos | Manajemen kos + tagihan WhatsApp (APK) | Rp 2.500.000 |
+| POS UMKM Soloraya | Kasir warung + laporan + gaji (APK) | Rp 1.000.000 |
+| Praktik Dokter Gigi | POS klinik + rekam medis (APK) | Rp 4.500.000 |
+| POS Toko Klontong | Kasir, stok, laba (APK) | Tanya via WA |
+| Website UMKM | Contoh nyata `ud-jahe-wangi.github.io` | mulai Rp 1.000.000 |
+
+- **Filter**: Semua · Aplikasi Android · Website.
+- **Lightbox**: klik poster → tampil besar (poster asli), tutup dengan tombol ×, klik latar, atau `Esc`.
+- **Pesan sekarang** memilih paket di formulir lalu menggulir ke `#pesan`; **Tanya dulu / Minta demo** membuka WhatsApp dengan pesan siap kirim.
+- Gambar disimpan sebagai JPG teroptimasi di `assets/img/galeri/` (total ±627 KB, `loading="lazy"`).
+  `build-onefile.py` meng-embed JPG/SVG sebagai data URI; versi satu file menjadi ±1,18 MB karena keenam poster ikut tertanam.
+
+### Tombol kontak mengambang (kanan bawah)
+
+| Tombol | Warna | Perilaku |
+|---|---|---|
+| WhatsApp | hijau, **berkedip** (cahaya + cincin) | buka chat WA 0813-9239-9300 |
+| Buat invoice | kuning, **berkedip** | gulir ke formulir pemesanan |
+| Telegram | biru gelembung | buka `t.me/+6287835369249` — **nomor tidak ditampilkan** di halaman |
+
+- Di **ponsel**, setelah digulir muncul bar bawah 3 tombol: **WhatsApp · Telegram · Buat invoice**;
+  tombol WA & invoice ikut berdenyut halus.
+- Animasi otomatis nonaktif bila pengguna mengaktifkan *prefers-reduced-motion*.
+- Nomor Telegram disimpan sebagai tautan `t.me/+62…` (undangan tersembunyi, tanpa angka terlihat).
+
+> Penting: tautan `t.me/+62…` adalah format **undangan grup**, bukan chat pribadi. Bila ingin tombol
+> langsung membuka chat pribadi, ganti menjadi `https://t.me/username` (perlu username Telegram publik).

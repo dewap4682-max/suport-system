@@ -31,11 +31,12 @@ def to_data_uri(match):
     path = ROOT / rel
     if not path.exists():
         return match.group(0)
-    mime = "image/svg+xml" if path.suffix == ".svg" else "image/png"
+    mime = {".svg": "image/svg+xml", ".jpg": "image/jpeg", ".jpeg": "image/jpeg",
+            ".webp": "image/webp"}.get(path.suffix.lower(), "image/png")
     data = base64.b64encode(path.read_bytes()).decode()
     return 'src="data:%s;base64,%s"' % (mime, data)
 
-html = re.sub(r'src="(assets/img/[^"]+\.(?:png|svg))"', to_data_uri, html)
+html = re.sub(r'src="(assets/img/[^"]+\.(?:png|svg|jpg|jpeg|webp))"', to_data_uri, html)
 
 out = ROOT / "versi-satu-file.html"
 out.write_text(html, encoding="utf-8")

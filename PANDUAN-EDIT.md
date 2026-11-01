@@ -142,3 +142,27 @@ python3 build-onefile.py
 - **Nonaktifkan fitur**: hapus blok `NOMOR URUT PEMESAN` dan elemen `#seqPill`; invoice tetap berjalan tanpa nomor pesanan.
 - **Reset nomor lokal** (per peramban): hapus kunci `ss_order_seq_v2` dan `ss_order_seq_online` di localStorage.
 - **Ganti sumber penghitung**: ubah `SEQ_BASE` ke layanan lain dengan bentuk API `GET /hit/:ns/:key` → `{"value":n}`.
+
+---
+
+## 9. Galeri poster
+
+- Setiap kartu di `#galeri` berbentuk:
+  `<article class="gal-card" data-kind="app|web">` → `.gal-shot` (tombol + `<img>`) → `.gal-body`.
+- **Ganti poster**: timpa file di `assets/img/galeri/` dengan nama sama (`rentbook.jpg`, `i-kos.jpg`,
+  `pos-umkm.jpg`, `dokter-gigi.jpg`, `toko-klontong.jpg`, `website-umkm.jpg`).
+- **Tambah poster baru**: duplikat satu `<article>`, ganti gambar, judul, cerita, harga, dan
+  `data-pkg` pada tombol **Pesan sekarang** (harus salah satu dari `1 2 3 ik rc dg jr pu wcust acust`).
+- **Filter**: nilai `data-kind` menentukan masuk ke tombol “Aplikasi Android” (`app`) atau “Website” (`web`).
+- **Naskah dramatis** ada di paragraf `.gal-drama` — boleh diganti; jaga gaya: masalah nyata → akibat → solusi.
+- Ukuran gambar disarankan rasio 1:1 atau 3:4, lebar ≥ 760 px, dan sudah dikompres < 200 KB.
+
+---
+
+## 10. Tombol WhatsApp, Invoice, dan Telegram
+
+- Markup ada di `index.html` bagian **`.fab-stack`** (desktop & tablet) dan **`.m-bar`** (ponsel).
+- Ganti tautan Telegram di dua tempat: `.fab--tg` dan `.m-bar__tg` → `https://t.me/+62…` atau `https://t.me/username`.
+- Kecepatan kedip: ubah durasi pada `animation:waGlow 2.2s` dan `animation:goldGlow 2.2s` di `css/styles.css`.
+- Mematikan kedip salah satu tombol: hapus properti `animation:` pada `.fab--wa` atau `.fab--inv`.
+- Ukuran tombol: `width/height` di `.fab--wa` (60px) dan `.fab--inv` (56px).

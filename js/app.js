@@ -263,7 +263,7 @@
 
   /* ---------------- active nav link ---------------- */
   var navLinks = $$('.nav a');
-  var sections = ['manfaat', 'paket', 'aplikasi', 'proses', 'pembayaran', 'faq'];
+  var sections = ['manfaat', 'paket', 'aplikasi', 'galeri', 'proses', 'pembayaran', 'faq'];
   if ('IntersectionObserver' in window && navLinks.length) {
     var navObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -1108,6 +1108,63 @@
       }
     });
   }
+
+  /* ---------------- galeri: filter + lightbox ---------------- */
+  var galChips = $$('.gal-chip');
+  var galCards = $$('.gal-card');
+  if (galChips.length && galCards.length) {
+    galChips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var kind = chip.getAttribute('data-gal');
+        galChips.forEach(function (c) {
+          var on = c === chip;
+          c.classList.toggle('is-active', on);
+          c.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        galCards.forEach(function (card) {
+          var show = kind === 'all' || card.getAttribute('data-kind') === kind;
+          card.hidden = !show;
+        });
+      });
+    });
+  }
+
+  var shotBtns = $$('.gal-shot');
+  var lb = null;
+  function buildLightbox() {
+    lb = document.createElement('div');
+    lb.className = 'gal-lb';
+    lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-modal', 'true');
+    lb.setAttribute('aria-label', 'Poster aplikasi');
+    lb.innerHTML = '<button class="gal-lb-close" type="button" aria-label="Tutup"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button>'
+      + '<figure class="gal-lb-fig"><img class="gal-lb-img" alt=""><figcaption class="gal-lb-cap"></figcaption></figure>';
+    document.body.appendChild(lb);
+    lb.addEventListener('click', function (e) {
+      if (e.target === lb || e.target.closest('.gal-lb-close')) closeLightbox();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && lb.classList.contains('is-open')) closeLightbox();
+    });
+  }
+  function openLightbox(src, title) {
+    if (!lb) buildLightbox();
+    lb.querySelector('.gal-lb-img').src = src;
+    lb.querySelector('.gal-lb-img').alt = title || 'Poster aplikasi';
+    lb.querySelector('.gal-lb-cap').textContent = title || '';
+    lb.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    if (!lb) return;
+    lb.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+  shotBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      openLightbox(btn.getAttribute('data-shot'), btn.getAttribute('data-title'));
+    });
+  });
 
   /* ---------------- footer year ---------------- */
   var yearEl = $('#year');
