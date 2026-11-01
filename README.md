@@ -229,3 +229,21 @@ Section 05 — enam poster unggulan, masing-masing berisi **cerita penjualan** d
 
 > Penting: tautan `t.me/+62…` adalah format **undangan grup**, bukan chat pribadi. Bila ingin tombol
 > langsung membuka chat pribadi, ganti menjadi `https://t.me/username` (perlu username Telegram publik).
+
+### Band “Teknologi handal, dukungan tanpa batas” (`#tim`)
+
+Section tepat setelah hero — dua kolom:
+- **Kiri:** pill *Tim & dukungan*, judul **“Teknologi handal, dukungan tanpa batas.”**, penjelasan build → deploy → stabil di Windows & Android,
+  4 chip (Support 24/7 · Keamanan data terjamin · Deployment cepat & stabil · Pengembangan berkelanjutan), tombol **Hubungi sekarang** (WA) dan *Lihat karya kami*.
+- **Kanan:** foto tim `assets/img/galeri/tim-suport.jpg` (1400×788) dengan lencana *Support 24/7* dan kutipan di atasnya.
+
+### Gelembung “Hubungi sekarang”
+
+- **Desktop/tablet:** gelembung hijau berkedip menempel di atas tombol WhatsApp mengambang (pojok kanan bawah).
+- **Ponsel:** gelembung muncul tepat di atas bar tiga tombol (WhatsApp · Telegram · Buat invoice).
+- Nomor WhatsApp **0813-9239-9300 tidak ditampilkan** — hanya tersimpan di dalam tautan `wa.me/6281392399300`.
+- Animasi berhenti otomatis pada `prefers-reduced-motion`.
+
+### Galeri — tambahan
+
+Kartu ke-7: **APK Custom — Yona Futsal** (booking lapangan, kasir, laporan), tombol **Pesan sekarang** mengarah ke paket *Aplikasi custom* dan **Tanya dulu** ke WhatsApp.

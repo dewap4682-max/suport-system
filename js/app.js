@@ -263,7 +263,7 @@
 
   /* ---------------- active nav link ---------------- */
   var navLinks = $$('.nav a');
-  var sections = ['manfaat', 'paket', 'aplikasi', 'galeri', 'proses', 'pembayaran', 'faq'];
+  var sections = ['tim', 'manfaat', 'paket', 'aplikasi', 'galeri', 'proses', 'pembayaran', 'faq'];
   if ('IntersectionObserver' in window && navLinks.length) {
     var navObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {

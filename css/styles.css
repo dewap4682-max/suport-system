@@ -1761,3 +1761,145 @@ h2{font-size:clamp(2.05rem,3.9vw,3.15rem);letter-spacing:-.04em}
 @media (prefers-reduced-motion:reduce){
   .fab,.fab-ring,.m-bar__wa,.m-bar__main{animation:none!important}
 }
+
+/* ============================================================
+   29. BAND TAGLINE TIM + GELEMBUNG "HUBUNGI SEKARANG"
+   ============================================================ */
+.trust-band{
+  position:relative;overflow:hidden;
+  background:linear-gradient(160deg,#0B1215 0%,#0F1B22 52%,#0A1013 100%);
+  color:var(--ivory);padding:clamp(48px,6vw,86px) 0;
+  border-top:1px solid rgba(255,255,255,.07);
+}
+.trust-band::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(680px 360px at 82% 8%,rgba(255,194,14,.14),transparent 62%),
+             radial-gradient(520px 300px at 4% 92%,rgba(37,211,102,.08),transparent 60%);
+}
+.trust-inner{
+  position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);
+  gap:clamp(28px,4vw,56px);align-items:center;
+}
+.trust-pill{
+  display:inline-flex;align-items:center;gap:7px;margin-bottom:16px;
+  font-size:.66rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold);border:1px solid rgba(255,194,14,.34);background:rgba(255,194,14,.08);
+  padding:6px 12px;border-radius:999px;
+}
+.trust-pill .dot,.trust-badge .dot{
+  width:6px;height:6px;border-radius:50%;background:#2EE07A;flex:none;
+  box-shadow:0 0 0 3px rgba(46,224,122,.18);animation:dotPulse 2s ease-in-out infinite;
+}
+@keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.82)}}
+
+.trust-band h2{
+  color:#fff;font-size:clamp(1.9rem,3.4vw,2.85rem);line-height:1.06;letter-spacing:-.04em;margin:0 0 16px;
+}
+.trust-band h2 .serif{color:var(--gold);font-size:1.02em}
+.trust-lede{font-size:.98rem;line-height:1.72;color:rgba(246,242,234,.68);max-width:52ch;margin:0 0 20px}
+.trust-lede b{color:#fff;font-weight:700}
+.trust-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px;padding:0;list-style:none}
+.trust-chips li{
+  display:inline-flex;align-items:center;gap:6px;font-size:.74rem;font-weight:700;
+  color:rgba(246,242,234,.86);border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.05);border-radius:999px;padding:7px 12px;
+  backdrop-filter:blur(6px);
+}
+.trust-chips .ic{width:13px;height:13px;color:var(--gold);flex:none}
+.trust-actions{display:flex;gap:10px;flex-wrap:wrap}
+.trust-band .btn--ghost{
+  border:1px solid rgba(255,255,255,.24);color:#fff;background:rgba(255,255,255,.05);
+}
+.trust-band .btn--ghost:hover{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.45);color:#fff}
+
+.trust-media{position:relative;margin:0;border-radius:18px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow:0 40px 90px -46px rgba(0,0,0,.95),0 0 0 1px rgba(255,255,255,.04) inset;
+}
+.trust-media img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.trust-media::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(10,16,19,0) 52%,rgba(10,16,19,.86) 100%);
+}
+.trust-cap{position:absolute;left:0;right:0;bottom:0;z-index:2;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  padding:14px 16px;
+}
+.trust-badge{
+  display:inline-flex;align-items:center;gap:6px;font-size:.66rem;font-weight:800;
+  letter-spacing:.08em;text-transform:uppercase;color:#0A1013;background:var(--gold);
+  border-radius:999px;padding:5px 10px;
+}
+.trust-badge .dot{background:#0A1013;box-shadow:none}
+.trust-quote{font-family:var(--font-serif);font-style:italic;font-size:.86rem;color:rgba(255,255,255,.86)}
+
+@media (max-width:960px){
+  .trust-inner{grid-template-columns:1fr;gap:26px}
+  .trust-media{order:-1}
+  .trust-lede{max-width:none}
+}
+
+/* ---------- gelembung "Hubungi sekarang" ---------- */
+.wa-bubble{
+  position:relative;display:inline-flex;align-items:center;gap:9px;
+  padding:9px 14px;border-radius:16px 16px 4px 16px;
+  background:linear-gradient(150deg,#25D366,#0F7A46);color:#fff;text-decoration:none;
+  box-shadow:0 14px 30px -14px rgba(15,122,70,.95),0 0 0 1px rgba(255,255,255,.18) inset;
+  animation:bubblePulse 2.4s ease-in-out infinite;
+  white-space:nowrap;
+}
+.wa-bubble::after{
+  content:"";position:absolute;right:-6px;bottom:2px;
+  border:7px solid transparent;border-left-color:#12894F;
+  transform:rotate(8deg);
+}
+.wa-bubble__dot{
+  width:8px;height:8px;border-radius:50%;background:#B9FFD9;flex:none;
+  box-shadow:0 0 0 3px rgba(185,255,217,.28);animation:dotPulse 1.8s ease-in-out infinite;
+}
+.wa-bubble__txt{display:flex;flex-direction:column;line-height:1.15;font-size:.78rem;font-weight:800;letter-spacing:.01em}
+.wa-bubble__sub{font-size:.58rem;font-weight:600;letter-spacing:.02em;color:rgba(255,255,255,.78);text-transform:none}
+@keyframes bubblePulse{
+  0%,100%{transform:scale(1);box-shadow:0 14px 30px -14px rgba(15,122,70,.95),0 0 0 0 rgba(37,211,102,.5),0 0 0 1px rgba(255,255,255,.18) inset}
+  50%{transform:scale(1.035);box-shadow:0 18px 36px -14px rgba(37,211,102,1),0 0 0 10px rgba(37,211,102,0),0 0 0 1px rgba(255,255,255,.18) inset}
+}
+@media (hover:none){.wa-bubble::after{display:none}}
+
+/* ponsel: gelembung muncul di atas bar bawah */
+@media (max-width:760px){
+  .fab-stack .wa-bubble{
+    position:fixed;right:14px;bottom:calc(78px + env(safe-area-inset-bottom));z-index:96;
+    padding:8px 12px;border-radius:14px 14px 4px 14px;
+  }
+  .fab-stack .wa-bubble::after{right:10px;bottom:-9px;border-left-color:transparent;border-top-color:#12894F;transform:none}
+  .wa-bubble__txt{font-size:.74rem}
+  .wa-bubble__sub{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .wa-bubble,.wa-bubble__dot,.trust-pill .dot,.trust-badge .dot{animation:none!important}
+}
+
+/* gelembung "Hubungi sekarang" menempel di kiri tombol WhatsApp */
+.fab-stack{row-gap:12px}
+.fab-stack .wa-bubble{
+  align-self:flex-end;margin-right:66px;margin-bottom:-64px;
+  position:relative;z-index:1;
+}
+@media (max-width:760px){
+  .fab-stack{display:none}
+  .fab-stack .wa-bubble{margin:0}
+  .wa-mobile-bubble{
+    position:fixed;right:12px;bottom:calc(80px + env(safe-area-inset-bottom));z-index:96;
+    padding:8px 12px;border-radius:14px 14px 4px 14px;
+    animation:bubblePulse 2.4s ease-in-out infinite;
+  }
+  .wa-mobile-bubble .wa-bubble__sub{display:none}
+}
+
+/* tampilan gelembung: desktop menempel di atas tombol WA */
+@media (min-width:761px){
+  .wa-mobile-bubble{
+    position:fixed;right:22px;bottom:calc(22px + 60px + 11px + 56px + 11px + 54px + 14px);
+    z-index:95;animation:bubblePulse 2.4s ease-in-out infinite;
+  }
+}

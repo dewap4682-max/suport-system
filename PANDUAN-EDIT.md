@@ -166,3 +166,13 @@ python3 build-onefile.py
 - Kecepatan kedip: ubah durasi pada `animation:waGlow 2.2s` dan `animation:goldGlow 2.2s` di `css/styles.css`.
 - Mematikan kedip salah satu tombol: hapus properti `animation:` pada `.fab--wa` atau `.fab--inv`.
 - Ukuran tombol: `width/height` di `.fab--wa` (60px) dan `.fab--inv` (56px).
+
+---
+
+## 11. Band tim & gelembung WhatsApp
+
+- Section `#tim` ada di `index.html` sebelum section Manfaat. Ganti foto dengan menimpa `assets/img/galeri/tim-suport.jpg` (rasio 16:9, lebar ≥1400 px).
+- Teks judul memakai `<h2>` + `<span class="serif">` agar tetap gaya editorial emas.
+- Gelembung: elemen `.wa-bubble.wa-mobile-bubble` (satu elemen, dua perilaku lewat media query). Ubah teks di `.wa-bubble__txt` dan subteks di `.wa-bubble__sub`.
+- Kecepatan kedip: `animation:bubblePulse 2.4s` pada `.wa-bubble`.
+- Untuk menampilkan nomor (bila suatu saat diinginkan), tambahkan teks nomor di dalam `aria-label` atau `<span>` baru — saat ini sengaja disembunyikan.
