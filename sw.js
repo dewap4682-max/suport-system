@@ -13,7 +13,7 @@
    Naikkan VERSI setiap kali mengubah berkas inti, supaya cache
    lama dibuang.
    ============================================================ */
-var VERSI = 'ss-v1.2.0';
+var VERSI = 'ss-v1.3.0';
 var CACHE_INTI = VERSI + '-inti';
 var CACHE_GAMBAR = VERSI + '-gambar';
 
@@ -87,6 +87,7 @@ self.addEventListener('fetch', function (e) {
   var dasarScope = new URL(self.registration.scope).pathname;
   if (url.pathname.indexOf(dasarScope + 'notaku/') === 0) return;
   if (url.pathname.indexOf(dasarScope + 'ps-rent/') === 0) return;
+  if (url.pathname.indexOf(dasarScope + 'futsal/') === 0) return;
 
   var html = req.mode === 'navigate' ||
              (req.headers.get('accept') || '').indexOf('text/html') > -1;

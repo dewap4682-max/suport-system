@@ -91,6 +91,18 @@
           "type": "image/png"
         }
       ]
+    },
+    {
+      "name": "Pembukuan Futsal",
+      "short_name": "Futsal",
+      "url": "./futsal/",
+      "icons": [
+        {
+          "src": "futsal/icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
     }
   ]
 }

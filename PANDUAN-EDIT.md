@@ -247,3 +247,30 @@ Detail dan batasannya ada di `PWA-PASANG.md`.
 - `ps-rent/sw.js` — service worker; **naikkan `VERSION`** setiap memperbarui aplikasi.
 - Ikon & gambar dibuat ulang: `cd ps-rent && python3 buat-aset.py`.
 - Cache hanya `pspos-*`; jangan menghapus cache aplikasi lain.
+
+---
+
+## 18. Aplikasi Futsal (folder `futsal/`)
+
+- `futsal/index.html` — seluruh aplikasi (10 menu). Merek di dalam: **YONA FUTSAL**.
+- `futsal/manifest.webmanifest` — nama **“Pembukuan & Booking Lapangan Futsal”**,
+  nama pendek **“Futsal POS”**, warna tema `#0c2b1a`, 4 pintasan
+  (Booking, Jadwal, Kasir, Laporan).
+- `futsal/sw.js` — service worker; **naikkan `VERSI`** setiap memperbarui aplikasi:
+
+```js
+var VERSI = 'futsal-v1.3.0';   // → 'futsal-v1.3.1'
+```
+
+- Cache hanya `futsal-*`. Jangan menghapus cache aplikasi lain.
+- Mengganti harga sewa: menu **Pengaturan → Harga sewa** (default Siang
+  Rp 50.000/jam, Malam Rp 80.000/jam).
+- Lisensi: `YONA-MON-XXXXXX-XXXX` = sewa **30 hari**, `YONA-LIFE-XXXXXX-XXXX` =
+  **sekali beli**. Demo 30 hari; tombol “Ulangi Demo 30 Hari” ada di menu Lisensi.
+- Di halaman utama, pita `.futsal-band` menampilkan dua kartu
+  **Sewa bulanan** / **Sekali beli** + tombol **Tanya harga** (WA). Kalau harga
+  sudah ditetapkan, ubah teks di dalam `<aside class="futsal-band ...">` pada
+  `index.html` — tambahkan nominal di `.futsal-harga__ket`.
+- **Jangan** menuliskan nomor telepon sebagai teks; tombol WA memakai
+  `https://wa.me/6281392399300`.
+- Panduan rinci: `futsal/README-PASANG.md`.

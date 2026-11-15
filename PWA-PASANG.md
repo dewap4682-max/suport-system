@@ -214,13 +214,23 @@ var VERSI = 'ss-v1.1.0';
 var VERSI = 'notaku-pos-v2';
 ```
 
-### Tiga service worker (per akhir 2026)
+### Empat service worker (per akhir 2026)
 
-| Berkas | Lingkup | Cache |
-|---|---|---|
-| `sw.js` (akar) | `/suport-system/` | `ss-v…` |
-| `notaku/notaku-sw.js` | `/suport-system/notaku/` | `notaku-pos-v…` |
-| `ps-rent/sw.js` | `/suport-system/ps-rent/` | `pspos-v…` |
+| Berkas | Lingkup | Cache | Versi sekarang |
+|---|---|---|---|
+| `sw.js` (akar) | `/suport-system/` | `ss-v…` | `ss-v1.3.0` |
+| `notaku/notaku-sw.js` | `/suport-system/notaku/` | `notaku-pos-v…` | `notaku-pos-v2` |
+| `ps-rent/sw.js` | `/suport-system/ps-rent/` | `pspos-v…` | `pspos-v1.6.3` |
+| `futsal/sw.js` | `/suport-system/futsal/` | `futsal-v…` | `futsal-v1.3.0` |
+
+Service worker akar **melewati** ketiga folder aplikasi:
+
+```js
+var dasarScope = new URL(self.registration.scope).pathname;
+if (url.pathname.indexOf(dasarScope + 'notaku/') === 0) return;
+if (url.pathname.indexOf(dasarScope + 'ps-rent/') === 0) return;
+if (url.pathname.indexOf(dasarScope + 'futsal/') === 0) return;
+```
 
 Aturan wajib: **setiap service worker hanya boleh menghapus cache miliknya sendiri.**
 Jangan pernah memakai `keys.map(k => caches.delete(k))` tanpa filter — itu akan

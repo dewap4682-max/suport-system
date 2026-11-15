@@ -44,7 +44,7 @@ import re as _re
 _kanon = _re.search(r'<link rel="canonical" href="([^"]+)"', html)
 if _kanon:
     _dasar = _kanon.group(1).rstrip("/")
-    for _folder in ("notaku/", "ps-rent/"):
+    for _folder in ("notaku/", "ps-rent/", "futsal/"):
         html = html.replace('href="%s' % _folder, 'href="%s/%s' % (_dasar, _folder))
 
 out = ROOT / "versi-satu-file.html"

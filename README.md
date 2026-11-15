@@ -148,6 +148,7 @@ Detail lengkap ada di [PANDUAN-EDIT.md](PANDUAN-EDIT.md).
 | APK Jimpitan Ronda — Kas & Ronda Warga | Rp 1.000.000 | Tidak ada (beli selamanya) |
 | APK POS UMKM — Kasir UMKM | Rp 1.000.000 | Tidak ada (beli selamanya) |
 | Aplikasi custom (online / offline) | sesuai kebutuhan | Tidak ada (beli selamanya) |
+| Aplikasi Futsal — Pembukuan & Booking Lapangan | **belum ditetapkan** → tombol **Tanya harga** via WA | Pilih: sewa bulanan (30 hari) **atau** sekali beli |
 
 ---
 
@@ -320,3 +321,21 @@ struk thermal, sewa 12/24 jam + perjanjian siap cetak, laporan harian/bulanan.
 - Panduan: `ps-rent/README-PASANG.md`
 - **Penting:** `ps-rent/sw.js` hanya boleh menghapus cache `pspos-*`,
   jangan pernah cache situs utama atau Notaku
+
+### Futsal — Pembukuan & Booking Lapangan (folder `futsal/`)
+
+Aplikasi pembukuan + booking lapangan futsal (merek **YONA FUTSAL**): jadwal per
+slot, booking kalender, kasir minuman & snack, pelanggan, pengeluaran, laporan
+harian/bulanan (kirim WhatsApp teks & gambar, cetak), pengaturan, dan lisensi.
+
+- Alamat: `futsal/` · manifest sendiri (`yona-futsal`) · service worker sendiri (`futsal-v…`)
+- Nama di layar utama: **Pembukuan & Booking Lapangan Futsal** (pendek: “Futsal POS”)
+- Lisensi: `YONA-MON-…` = **sewa bulanan 30 hari**, `YONA-LIFE-…` = **sekali beli**
+- Demo 30 hari, data disimpan di perangkat (`localStorage`), bisa dipakai tanpa internet
+- Panduan: `futsal/README-PASANG.md` · dokumentasi asli: `futsal/README-YONA.md`
+- **Penting:** `futsal/sw.js` hanya menghapus cache `futsal-*`. Versi asli yang
+  Anda unggah menghapus *semua* cache — sudah diperbaiki agar offline Notaku dan
+  PS Rent tidak ikut mati.
+- Harga belum ditetapkan → di situs ditampilkan dua pilihan (sewa bulanan /
+  sekali beli) dengan tombol **Tanya harga** ke WhatsApp.
+- Aplikasi ini **PWA**, bukan APK Play Store.

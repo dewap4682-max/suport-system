@@ -2182,6 +2182,57 @@ html[data-pwa="terpasang"] .footer-cta .btn--outline[data-pwa-open]{display:none
   .ps-band .notaku-band__aksi .btn{flex:1 1 100%;justify-content:center}
 }
 
+/* Pita Futsal — aksen hijau lapangan */
+.futsal-band{
+  display:grid;grid-template-columns:1.55fr 1fr;gap:26px;align-items:center;
+  margin-top:18px;
+  background:
+    radial-gradient(120% 140% at 88% 0%, rgba(198,242,78,.16), transparent 58%),
+    linear-gradient(135deg,#08240F 0%,#0C3A1C 48%,#061C0C 100%);
+  border-color:rgba(198,242,78,.28);
+}
+.futsal-band::after{background:radial-gradient(circle,rgba(198,242,78,.16),transparent 68%)}
+.futsal-band__label{color:#C6F24E}
+.futsal-band h3 span{color:#B9F58A}
+.futsal-band p{color:#A8C9B4}
+.futsal-band__cta{background:#18C964 !important;border-color:#18C964 !important;color:#04160C !important}
+.futsal-band__cta:hover{background:#12B458 !important;border-color:#12B458 !important}
+.futsal-chip b{background:#C6F24E;color:#0C2B1A}
+.futsal-chip span{color:#A8C9B4}
+.futsal-band__teks{min-width:0}
+@media (max-width:900px){
+  .futsal-band{grid-template-columns:1fr;gap:20px;padding:23px 20px}
+  .futsal-band .notaku-band__kartu{grid-template-columns:repeat(4,1fr)}
+  .futsal-band .notaku-chip{padding:10px;align-items:center;text-align:center}
+  .futsal-band .notaku-chip span{font-size:10.5px}
+}
+@media (max-width:560px){
+  .futsal-band .notaku-band__kartu{grid-template-columns:1fr 1fr}
+  .futsal-band .notaku-band__aksi .btn{flex:1 1 100%;justify-content:center}
+}
+
+/* harga sewa / beli pada pita futsal (tanpa angka — ditanyakan via WhatsApp) */
+.futsal-harga{
+  display:flex;flex-wrap:wrap;gap:10px;margin-top:15px;align-items:stretch;
+}
+.futsal-harga__item{
+  flex:1 1 150px;min-width:0;padding:11px 13px;border-radius:12px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(198,242,78,.26);
+  display:flex;flex-direction:column;gap:3px;
+}
+.futsal-harga__label{font-size:13px;font-weight:800;color:#EAFBE3;letter-spacing:.2px}
+.futsal-harga__note{font-size:11.5px;color:#9FC2AC;line-height:1.4}
+.futsal-harga__wa{
+  flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  padding:11px 16px;border-radius:12px;text-decoration:none;
+  background:#25D366;color:#06210F;font-size:13px;font-weight:800;white-space:nowrap;
+}
+.futsal-harga__wa:hover{background:#1FBF5B}
+.futsal-harga__wa .ic{width:16px;height:16px}
+@media (max-width:560px){
+  .futsal-harga__wa{flex:1 1 100%}
+}
+
 </style>
 
 <!-- Open Graph (URL absolut agar tampil benar saat dibagikan) -->
@@ -3007,6 +3058,47 @@ html{background:#FBF9F4}
         <div class="notaku-chip ps-chip"><b>24J</b><span>Sewa harian</span></div>
       </div>
     </aside>
+
+    <!-- Pembukuan & Booking Lapangan Futsal -->
+    <aside class="notaku-band futsal-band reveal" aria-labelledby="futsalJudul">
+      <div class="notaku-band__teks ps-band__teks">
+        <span class="notaku-band__label futsal-band__label">
+          <svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg> Baru · siap dicoba
+        </span>
+        <h3 id="futsalJudul">Pembukuan &amp; Booking <span>Lapangan Futsal</span></h3>
+        <p>Jadwal jam kosong, booking per slot, kasir minuman &amp; snack, pengeluaran,
+          dan laporan harian — <b>lengkap dengan nota WhatsApp</b>. Bisa dipasang ke
+          layar utama dan dipakai tanpa internet. Tersedia <b>sewa bulanan</b> atau
+          <b>sekali beli</b>.</p>
+        <div class="futsal-harga">
+          <div class="futsal-harga__item">
+            <span class="futsal-harga__label">Sewa bulanan</span>
+            <span class="futsal-harga__note">30 hari · bisa diperpanjang</span>
+          </div>
+          <div class="futsal-harga__item">
+            <span class="futsal-harga__label">Sekali beli</span>
+            <span class="futsal-harga__note">aktif selamanya · tanpa biaya bulanan</span>
+          </div>
+          <a class="futsal-harga__wa" href="https://wa.me/6281392399300?text=Halo%20Suport%20System%2C%20saya%20ingin%20menanyakan%20harga%20aplikasi%20Pembukuan%20%26%20Booking%20Lapangan%20Futsal%20(sewa%20bulanan%20%2F%20sekali%20beli)." target="_blank" rel="noopener">
+            <svg class="ic fill" aria-hidden="true"><use href="#i-wa"/></svg> Tanya harga
+          </a>
+        </div>
+        <div class="notaku-band__aksi">
+          <a class="btn btn--ink futsal-band__cta" href="https://dewap4682-max.github.io/suport-system/futsal/" target="_blank" rel="noopener">
+            <svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg> Buka &amp; pasang aplikasi
+          </a>
+          <a class="btn btn--outline" href="https://dewap4682-max.github.io/suport-system/futsal/README-PASANG.md" target="_blank" rel="noopener">
+            <svg class="ic" aria-hidden="true"><use href="#i-book"/></svg> Panduan pemasangan
+          </a>
+        </div>
+      </div>
+      <div class="notaku-band__kartu futsal-band__kartu" aria-hidden="true">
+        <div class="notaku-chip futsal-chip"><b>BK</b><span>Booking slot</span></div>
+        <div class="notaku-chip futsal-chip"><b>KS</b><span>Kasir snack</span></div>
+        <div class="notaku-chip futsal-chip"><b>LP</b><span>Laporan</span></div>
+        <div class="notaku-chip futsal-chip"><b>WA</b><span>Nota WhatsApp</span></div>
+      </div>
+    </aside>
   </div>
 </section>
 
@@ -3640,6 +3732,7 @@ html{background:#FBF9F4}
         <div class="footer-cta">
           <a class="btn btn--ghost" href="https://dewap4682-max.github.io/suport-system/notaku/">Buka Notaku POS</a>
           <a class="btn btn--ghost" href="https://dewap4682-max.github.io/suport-system/ps-rent/">Buka PS Rent POS</a>
+          <a class="btn btn--ghost" href="https://dewap4682-max.github.io/suport-system/futsal/">Buka Aplikasi Futsal</a>
           <button class="btn btn--outline" type="button" data-pwa-open>
             <svg class="ic" aria-hidden="true"><use href="#i-download"/></svg> Pasang aplikasi
           </button>
