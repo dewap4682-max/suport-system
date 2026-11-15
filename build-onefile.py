@@ -38,6 +38,14 @@ def to_data_uri(match):
 
 html = re.sub(r'src="(assets/img/[^"]+\.(?:png|svg|jpg|jpeg|webp))"', to_data_uri, html)
 
+# 4) tautan ke folder Notaku dibuat absolut — berkas satu-file bisa dibuka
+#    dari mana saja dan tautan tetap menuju situs yang benar
+import re as _re
+_kanon = _re.search(r'<link rel="canonical" href="([^"]+)"', html)
+if _kanon:
+    _dasar = _kanon.group(1).rstrip("/")
+    html = html.replace('href="notaku/', 'href="%s/notaku/' % _dasar)
+
 out = ROOT / "versi-satu-file.html"
 out.write_text(html, encoding="utf-8")
 print("✔ %s  (%.0f KB)" % (out.name, out.stat().st_size / 1024))

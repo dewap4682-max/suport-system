@@ -1,0 +1,7 @@
+# Suport System — https://dewap4682-max.github.io/suport-system/
+User-agent: *
+Allow: /
+Disallow: /build-onefile.py
+
+# Peta situs
+Sitemap: https://dewap4682-max.github.io/suport-system/sitemap.xml

@@ -1,0 +1,41 @@
+{
+  "id": "notaku-pos-atk",
+  "name": "Notaku POS — ATK",
+  "short_name": "Notaku ATK",
+  "description": "Alat tulis kantor, kertas, printer, dan perlengkapan kantor.",
+  "lang": "id",
+  "start_url": "./notaku-atk.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "standalone",
+    "minimal-ui",
+    "browser"
+  ],
+  "background_color": "#17102a",
+  "theme_color": "#7c3aed",
+  "categories": [
+    "business",
+    "productivity"
+  ],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

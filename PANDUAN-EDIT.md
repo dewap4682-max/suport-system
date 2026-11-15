@@ -176,3 +176,65 @@ python3 build-onefile.py
 - Gelembung: elemen `.wa-bubble.wa-mobile-bubble` (satu elemen, dua perilaku lewat media query). Ubah teks di `.wa-bubble__txt` dan subteks di `.wa-bubble__sub`.
 - Kecepatan kedip: `animation:bubblePulse 2.4s` pada `.wa-bubble`.
 - Untuk menampilkan nomor (bila suatu saat diinginkan), tambahkan teks nomor di dalam `aria-label` atau `<span>` baru — saat ini sengaja disembunyikan.
+
+---
+
+## 12. SEO
+
+- **Ganti domain**: cari-ganti `https://dewap4682-max.github.io/suport-system/` di `index.html`
+  (`canonical`, `og:url`, `og:image`, JSON-LD), `sitemap.xml`, dan `robots.txt`.
+- **Tambah kota baru**: duplikat satu `<li class="area-card">` di section `#area`, lalu
+  tambahkan nama kota ke `areaServed` pada JSON-LD.
+- **Verifikasi Google**: tempel `<meta name="google-site-verification" content="...">` di `<head>`
+  tepat setelah `<meta name="robots">`.
+- **Hindari**: menumpuk kata kunci di paragraf tersembunyi, atau mengulang frasa yang sama berkali-kali —
+  Google menilainya *keyword stuffing*.
+
+---
+
+## 13. Ganti ke domain sendiri
+
+1. Beli domain (lihat `DOMAIN-SENDIRI.md`).
+2. Arahkan DNS: 4 record `A` → 185.199.108–111.153, `CNAME www` → `USERNAME.github.io`.
+3. GitHub → Settings → Pages → Custom domain → simpan → tunggu hijau → centang Enforce HTTPS.
+4. Jalankan `python3 ganti-domain.py namadomain.id` lalu commit.
+5. Submit ulang sitemap di Search Console.
+
+---
+
+## 14. Ganti username GitHub
+
+Username tidak boleh memuat `&` atau spasi. Ganti nama tampilan profil saja kalau
+hanya ingin terlihat profesional (Settings → Public profile → Name).
+
+Untuk mengubah alamat website:
+
+1. GitHub → Settings → Account → Change username.
+2. `python3 ganti-username.py <username-baru>` (memperbarui canonical, JSON-LD, sitemap, robots, dokumen).
+3. Upload ulang berkas yang berubah, lalu daftarkan ulang properti Search Console.
+
+---
+
+## 15. PWA (pasang ke layar utama)
+
+- Identitas aplikasi: `manifest.webmanifest` (nama, ikon, warna, 4 pintasan).
+- Cache & offline: `sw.js`. Halaman darurat: `offline.html`.
+- Ikon dibuat dari logo: `python3 buat-ikon-pwa.py`.
+- Tombol pasang: `.fab--pwa` (mengambang) dan tombol di footer.
+- **Setiap mengubah CSS/JS/gambar inti → naikkan `var VERSI` di `sw.js`.**
+- Uji: DevTools → Application → Manifest & Service Workers; lalu aktifkan
+  mode *Offline* dan muat ulang halaman.
+
+Detail dan batasannya ada di `PWA-PASANG.md`.
+
+---
+
+## 16. Aplikasi Notaku POS (folder `notaku/`)
+
+- Halaman depan: `notaku/index.html` → daftar 9 edisi (array `edisi`).
+- Tiap edisi punya manifest sendiri: `notaku/manifest-<edisi>.webmanifest`.
+- Service worker: `notaku/notaku-sw.js` (lingkup `/notaku/` saja).
+- Mengganti HTML Notaku dengan versi baru yang masih memakai manifest inline:
+  jalankan `cd notaku && python3 siapkan-manifest.py`.
+- **Setiap memperbarui Notaku, naikkan `var VERSI` di `notaku/notaku-sw.js`.**
+- Nomor WhatsApp tidak dicetak sebagai teks; hanya lewat tautan `wa.me`.

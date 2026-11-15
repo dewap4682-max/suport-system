@@ -247,3 +247,65 @@ Section tepat setelah hero — dua kolom:
 ### Galeri — tambahan
 
 Kartu ke-7: **APK Custom — Yona Futsal** (booking lapangan, kasir, laporan), tombol **Pesan sekarang** mengarah ke paket *Aplikasi custom* dan **Tanya dulu** ke WhatsApp.
+
+### SEO lokal Solo Raya
+
+- **Judul & deskripsi** memuat: website UMKM, properti, APK Android, dan 7 kota (Surakarta, Sukoharjo, Klaten, Boyolali, Karanganyar, Wonogiri, Sragen).
+- **Structured data** (JSON-LD `@graph`): `LocalBusiness/ProfessionalService`, `WebSite`, 3 `Service`
+  (website UMKM · website properti · APK Android), `FAQPage` 5 pertanyaan, `BreadcrumbList`, dan `OfferCatalog` 10 layanan.
+- **Section `#area`** — 7 kartu kota + CTA + baris kata kunci layanan.
+- **`sitemap.xml`** (termasuk image sitemap) dan **`robots.txt`** siap dibaca Google.
+- **`SEO-GOOGLE.md`** — panduan langkah demi langkah: Search Console, submit sitemap, minta indexing,
+  Google Business Profile, dan strategi backlink lokal.
+
+### Domain sendiri (opsional, lebih kuat untuk SEO)
+
+Situs berjalan di `https://dewap4682-max.github.io/suport-system/`. Untuk memakai domain sendiri:
+
+```bash
+python3 ganti-domain.py suportsystem.id          # tanpa www
+python3 ganti-domain.py suportsystem.id --www    # dengan www
+```
+
+Skrip memperbarui `canonical`, `og:url`, `og:image`, seluruh JSON-LD, `sitemap.xml`, `robots.txt`,
+membuat file `CNAME`, dan membangun ulang `versi-satu-file.html`.
+
+Panduan lengkap (harga domain, record DNS, Settings → Pages, Enforce HTTPS, checklist setelah pindah):
+**`DOMAIN-SENDIRI.md`**.
+
+### Ganti username GitHub
+
+```bash
+python3 ganti-username.py web-aplikasi-android
+```
+
+Username hanya boleh huruf/angka/tanda hubung (tanpa `&` atau spasi).
+Nama tampilan "Web & Aplikasi Android" diatur di Settings → Public profile → Name.
+Detail & risikonya: `DOMAIN-SENDIRI.md` bagian 10.
+
+### PWA — bisa dipasang di layar utama
+
+Website ini adalah **Progressive Web App**: pengunjung bisa memasangnya sebagai
+aplikasi dari browser (Android Chrome, iPhone Safari, desktop Chrome/Edge) tanpa
+Play Store dan tanpa biaya tambahan.
+
+Berkas terkait: `manifest.webmanifest`, `sw.js`, `offline.html`,
+`assets/img/icon-*.png`. Panduan lengkap: **`PWA-PASANG.md`**.
+
+```bash
+python3 buat-ikon-pwa.py     # buat ulang ikon dari logo
+```
+
+Saat memperbarui isi, naikkan `VERSI` di `sw.js` agar perangkat yang sudah
+memasang aplikasi ikut memperbarui berkas inti.
+
+### Notaku POS — 9 edisi kasir (folder `notaku/`)
+
+Aplikasi kasir siap pakai yang ikut dipublikasikan di `notaku/`: sembako, listrik,
+ATK, bangunan, warmindo, mukena, barbershop, salon & spa, serta kas & iuran PKK.
+
+- Halaman depan: `notaku/index.html` → 9 kartu edisi
+- Setiap edisi punya manifest sendiri (`notaku/manifest-<edisi>.webmanifest`)
+  → bisa dipasang terpisah dengan ikon masing-masing
+- Service worker terpisah (`notaku/notaku-sw.js`), lingkupnya hanya `/notaku/`
+- Panduan: `notaku/README-PASANG.md`

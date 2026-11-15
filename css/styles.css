@@ -1903,3 +1903,207 @@ h2{font-size:clamp(2.05rem,3.9vw,3.15rem);letter-spacing:-.04em}
     z-index:95;animation:bubblePulse 2.4s ease-in-out infinite;
   }
 }
+
+/* ============================================================
+   30. AREA LAYANAN SOLO RAYA (SEO lokal)
+   ============================================================ */
+.area-grid{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;
+  margin:26px 0 22px;padding:0;list-style:none;
+}
+.area-card{
+  display:flex;gap:11px;align-items:flex-start;padding:16px 17px;
+  background:var(--white);border:1px solid #E4DED2;border-radius:13px;
+  transition:border-color .2s,box-shadow .2s,transform .2s;
+}
+.area-card:hover{border-color:rgba(240,177,0,.5);box-shadow:0 22px 44px -34px rgba(13,20,23,.5);transform:translateY(-2px)}
+.area-dot{
+  flex:none;width:9px;height:9px;border-radius:50%;margin-top:6px;
+  background:var(--gold);box-shadow:0 0 0 4px rgba(255,194,14,.16);
+}
+.area-card div{display:flex;flex-direction:column;gap:3px;min-width:0}
+.area-card b{font-size:.86rem;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.area-card span{font-size:.76rem;line-height:1.55;color:var(--muted)}
+
+.area-cta{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  padding:20px 22px;border-radius:16px;background:var(--paper);border:1px solid #E4DED2;
+}
+.area-cta p{margin:0;font-size:.88rem;line-height:1.62;color:var(--muted);max-width:62ch}
+.area-cta p b{color:var(--ink)}
+.area-actions{display:flex;gap:8px;flex-wrap:wrap}
+.area-note{
+  margin:16px 0 0;font-size:.74rem;line-height:1.7;color:var(--muted-2);
+}
+.area-note b{color:var(--ink-soft);font-weight:700}
+@media (max-width:900px){.area-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){
+  .area-grid{grid-template-columns:1fr}
+  .area-actions{width:100%}
+  .area-actions .btn{flex:1 1 100%;justify-content:center}
+}
+
+/* ============================================================
+   §31. PWA — tombol pasang, panel bawah, mode aplikasi
+   ============================================================ */
+
+/* tombol mengambang (urutan: pasang → telegram → invoice → WA) */
+.fab--pwa{
+  background:#FBF9F4;color:var(--ink);border:1px solid var(--line);
+  box-shadow:0 14px 30px -14px rgba(13,20,23,.55);
+}
+.fab--pwa .ic{width:24px;height:24px}
+.fab--pwa:hover{
+  background:var(--gold);border-color:var(--gold);
+  box-shadow:0 18px 38px -12px rgba(255,194,14,.95);
+  animation-play-state:paused;
+}
+/* disembunyikan sebelum status pasang diketahui / setelah terpasang */
+.fab--pwa[hidden]{display:none}
+
+/* tombol di footer */
+.footer-cta .btn--outline{cursor:pointer;font-family:inherit}
+
+/* ---------- panel bawah ---------- */
+.pwa-sheet{position:fixed;inset:0;z-index:200;display:flex;align-items:flex-end;justify-content:center}
+.pwa-sheet[hidden]{display:none}
+.pwa-sheet__bg{
+  position:absolute;inset:0;background:rgba(13,20,23,.58);
+  backdrop-filter:blur(3px);animation:pwa-fade .22s ease both;
+}
+.pwa-sheet__card{
+  position:relative;width:100%;max-width:520px;
+  background:var(--paper);color:var(--ink);
+  border-radius:26px 26px 0 0;
+  padding:30px 26px calc(26px + env(safe-area-inset-bottom));
+  box-shadow:0 -30px 70px -30px rgba(13,20,23,.55);
+  animation:pwa-naik .28s var(--ease) both;
+}
+@keyframes pwa-fade{from{opacity:0}to{opacity:1}}
+@keyframes pwa-naik{from{transform:translateY(26px);opacity:0}to{transform:none;opacity:1}}
+.pwa-sheet__x{
+  position:absolute;top:14px;right:14px;width:40px;height:40px;
+  display:grid;place-items:center;border:0;border-radius:50%;
+  background:rgba(13,20,23,.06);color:var(--ink);cursor:pointer;
+}
+.pwa-sheet__x:hover{background:rgba(13,20,23,.12)}
+.pwa-sheet__mark{width:64px;height:64px;margin-bottom:16px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.pwa-sheet__mark img{width:100%;height:100%;display:block}
+.pwa-sheet__card h2{font-size:23px;letter-spacing:-.02em;margin-bottom:8px}
+.pwa-sheet__lead{font-size:14.5px;line-height:1.6;color:var(--muted);margin-bottom:20px}
+.pwa-sheet__steps{list-style:none;display:grid;gap:10px;margin-bottom:18px}
+.pwa-sheet__steps li{
+  display:flex;gap:12px;align-items:flex-start;
+  font-size:14.5px;line-height:1.5;color:var(--ink-soft);
+  background:var(--white);border:1px solid var(--line-soft);
+  border-radius:14px;padding:12px 14px;
+}
+.pwa-sheet__steps .n{
+  flex:none;width:24px;height:24px;border-radius:50%;
+  display:grid;place-items:center;
+  background:var(--gold);color:var(--ink);font-size:12.5px;font-weight:800;
+}
+.pwa-sheet__steps b{color:var(--ink);font-weight:700}
+.pwa-sheet__note{
+  font-size:13px;line-height:1.55;color:var(--gold-deep);
+  background:var(--gold-tint);border:1px solid var(--gold-soft);
+  border-radius:12px;padding:11px 14px;margin-bottom:16px;
+}
+.pwa-sheet__go{width:100%;justify-content:center;margin-bottom:9px}
+.pwa-sheet__skip{width:100%;justify-content:center}
+@media (min-width:560px){
+  .pwa-sheet{align-items:center}
+  .pwa-sheet__card{border-radius:26px;margin:20px}
+}
+
+/* ---------- mode aplikasi terpasang ---------- */
+@media (display-mode:standalone), (display-mode:minimal-ui){
+  .fab--pwa,.footer-cta .btn--outline[data-pwa-open]{display:none !important}
+}
+html[data-pwa="terpasang"] .fab--pwa,
+html[data-pwa="terpasang"] .footer-cta .btn--outline[data-pwa-open]{display:none !important}
+
+/* ponsel: fab-stack hanya menampilkan tombol pasang, di kiri agar tidak
+   bertabrakan dengan gelembung WhatsApp (kanan) dan .m-bar (bawah) */
+@media (max-width:760px){
+  .fab-stack{
+    display:flex;right:auto;left:12px;
+    bottom:calc(84px + env(safe-area-inset-bottom));
+    align-items:flex-start;z-index:96;
+  }
+  .fab-stack .fab--tg,
+  .fab-stack .fab--inv,
+  .fab-stack .fab--wa{display:none}
+  .fab--pwa{width:48px;height:48px}
+  .fab--pwa .fab-tip{display:none}
+}
+
+/* [hidden] kalah oleh .btn{display:inline-flex} — paksa sembunyi */
+.pwa-sheet__go[hidden]{display:none !important}
+
+/* ============================================================
+   §32. NOTAKU POS — pita promo di bagian Aplikasi
+   ============================================================ */
+.notaku-band{
+  display:grid;grid-template-columns:1.55fr 1fr;gap:26px;align-items:center;
+  margin-top:26px;padding:27px 28px;
+  border-radius:var(--radius-lg);
+  background:
+    radial-gradient(120% 140% at 88% 0%, rgba(124,58,237,.30), transparent 58%),
+    linear-gradient(135deg,#1B0F2E 0%,#241138 48%,#150B24 100%);
+  color:#F6F2EA;border:1px solid rgba(167,139,250,.30);
+  box-shadow:0 34px 70px -46px rgba(27,10,45,.85);
+  position:relative;overflow:hidden;
+}
+.notaku-band::after{
+  content:"";position:absolute;right:-70px;bottom:-90px;width:230px;height:230px;
+  border-radius:50%;background:radial-gradient(circle,rgba(251,191,36,.20),transparent 68%);
+  pointer-events:none;
+}
+.notaku-band__label{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  color:#FBBF24;margin-bottom:12px;
+}
+.notaku-band__label .ic{width:14px;height:14px}
+.notaku-band h3{
+  font-size:clamp(21px,2.4vw,27px);line-height:1.2;letter-spacing:-.02em;
+  color:#FDF9FF;margin-bottom:9px;
+}
+.notaku-band h3 span{
+  font-family:var(--serif);font-style:italic;font-weight:400;color:#E9D5FF;
+}
+.notaku-band p{
+  font-size:13.8px;line-height:1.62;color:#C4B5D9;max-width:56ch;
+}
+.notaku-band p b{color:#FDF9FF}
+.notaku-band__aksi{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.notaku-band__aksi .btn--ink{background:#A855F7;color:#fff;border-color:#A855F7}
+.notaku-band__aksi .btn--ink:hover{background:#9333EA;border-color:#9333EA}
+.notaku-band__aksi .btn--outline{background:transparent;color:#E9D5FF;border-color:rgba(167,139,250,.45)}
+.notaku-band__aksi .btn--outline:hover{background:rgba(167,139,250,.12);color:#fff}
+
+.notaku-band__kartu{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;position:relative;z-index:1;
+}
+.notaku-chip{
+  display:flex;flex-direction:column;gap:6px;
+  padding:13px 14px;border-radius:14px;
+  background:rgba(255,255,255,.055);border:1px solid rgba(167,139,250,.24);
+}
+.notaku-chip b{
+  width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
+  background:#A855F7;color:#fff;font-size:11.5px;font-weight:800;letter-spacing:.4px;
+}
+.notaku-chip span{font-size:12px;color:#C4B5D9;letter-spacing:.2px}
+
+@media (max-width:900px){
+  .notaku-band{grid-template-columns:1fr;gap:20px;padding:23px 20px}
+  .notaku-band__kartu{grid-template-columns:repeat(4,1fr)}
+  .notaku-chip{padding:10px;align-items:center;text-align:center}
+  .notaku-chip span{font-size:10.5px}
+}
+@media (max-width:560px){
+  .notaku-band__kartu{grid-template-columns:1fr 1fr}
+  .notaku-band__aksi .btn{flex:1 1 100%;justify-content:center}
+}

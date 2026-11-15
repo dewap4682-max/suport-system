@@ -3,12 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Suport System — Website UMKM & Properti + Aplikasi I-KOS, POS Rentcar, Dokter Gigi · Surakarta</title>
-<meta name="description" content="Jasa pembuatan website untuk UMKM & pemasaran properti di Surakarta, plus aplikasi siap pakai: I-KOS, POS Rentcar, POS Dokter Gigi. Beli selamanya — tanpa biaya bulanan atau tahunan. Website siap online 3–14 hari kerja.">
-<meta name="theme-color" content="#0B1215">
+
+<title>Jasa Pembuatan Website UMKM &amp; Properti Solo Raya + APK Android — Suport System</title>
+<meta name="description" content="Jasa pembuatan website UMKM, agen properti, dan aplikasi Android (APK) untuk Solo Raya — Surakarta, Sukoharjo, Klaten, Boyolali, Karanganyar, Wonogiri, Sragen. Domain &amp; hosting termasuk, siap online 3–14 hari, sekali bayar tanpa biaya bulanan.">
+<meta name="keywords" content="jasa pembuatan website solo, jasa website umkm solo raya, website properti solo, jasa pembuatan apk android solo, aplikasi kasir umkm solo, website surakarta, jasa pembuatan aplikasi android solo raya, website agen properti sukoharjo, apk kasir klaten, web umkm boyolali, jasa website karanganyar, aplikasi android wonogiri, jasa web sragen">
+<meta name="author" content="Suport System">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
+<link rel="canonical" href="https://dewap4682-max.github.io/suport-system/">
+<link rel="alternate" hreflang="id" href="https://dewap4682-max.github.io/suport-system/">
+<link rel="alternate" hreflang="x-default" href="https://dewap4682-max.github.io/suport-system/">
+<link rel="sitemap" type="application/xml" href="sitemap.xml">
+<meta name="theme-color" content="#0D1417">
 <meta name="color-scheme" content="light">
+
+<!-- lokal / geo -->
+<meta name="geo.region" content="ID-JT">
+<meta name="geo.placename" content="Surakarta (Solo), Jawa Tengah">
+<meta name="geo.position" content="-7.5755;110.8243">
+<meta name="ICBM" content="-7.5755, 110.8243">
+
 <link rel="icon" href="assets/img/favicon.png" sizes="any">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="application-name" content="Suport System">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Suport System">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" href="assets/img/icon-192.png" sizes="192x192" type="image/png">
+<link rel="icon" href="assets/img/icon-512.png" sizes="512x512" type="image/png">
 <style>
 /* ============================================================
    SUPORT SYSTEM — editorial premium stylesheet
@@ -1923,53 +1947,344 @@ h2{font-size:clamp(2.05rem,3.9vw,3.15rem);letter-spacing:-.04em}
   }
 }
 
+/* ============================================================
+   30. AREA LAYANAN SOLO RAYA (SEO lokal)
+   ============================================================ */
+.area-grid{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;
+  margin:26px 0 22px;padding:0;list-style:none;
+}
+.area-card{
+  display:flex;gap:11px;align-items:flex-start;padding:16px 17px;
+  background:var(--white);border:1px solid #E4DED2;border-radius:13px;
+  transition:border-color .2s,box-shadow .2s,transform .2s;
+}
+.area-card:hover{border-color:rgba(240,177,0,.5);box-shadow:0 22px 44px -34px rgba(13,20,23,.5);transform:translateY(-2px)}
+.area-dot{
+  flex:none;width:9px;height:9px;border-radius:50%;margin-top:6px;
+  background:var(--gold);box-shadow:0 0 0 4px rgba(255,194,14,.16);
+}
+.area-card div{display:flex;flex-direction:column;gap:3px;min-width:0}
+.area-card b{font-size:.86rem;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.area-card span{font-size:.76rem;line-height:1.55;color:var(--muted)}
+
+.area-cta{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  padding:20px 22px;border-radius:16px;background:var(--paper);border:1px solid #E4DED2;
+}
+.area-cta p{margin:0;font-size:.88rem;line-height:1.62;color:var(--muted);max-width:62ch}
+.area-cta p b{color:var(--ink)}
+.area-actions{display:flex;gap:8px;flex-wrap:wrap}
+.area-note{
+  margin:16px 0 0;font-size:.74rem;line-height:1.7;color:var(--muted-2);
+}
+.area-note b{color:var(--ink-soft);font-weight:700}
+@media (max-width:900px){.area-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){
+  .area-grid{grid-template-columns:1fr}
+  .area-actions{width:100%}
+  .area-actions .btn{flex:1 1 100%;justify-content:center}
+}
+
+/* ============================================================
+   §31. PWA — tombol pasang, panel bawah, mode aplikasi
+   ============================================================ */
+
+/* tombol mengambang (urutan: pasang → telegram → invoice → WA) */
+.fab--pwa{
+  background:#FBF9F4;color:var(--ink);border:1px solid var(--line);
+  box-shadow:0 14px 30px -14px rgba(13,20,23,.55);
+}
+.fab--pwa .ic{width:24px;height:24px}
+.fab--pwa:hover{
+  background:var(--gold);border-color:var(--gold);
+  box-shadow:0 18px 38px -12px rgba(255,194,14,.95);
+  animation-play-state:paused;
+}
+/* disembunyikan sebelum status pasang diketahui / setelah terpasang */
+.fab--pwa[hidden]{display:none}
+
+/* tombol di footer */
+.footer-cta .btn--outline{cursor:pointer;font-family:inherit}
+
+/* ---------- panel bawah ---------- */
+.pwa-sheet{position:fixed;inset:0;z-index:200;display:flex;align-items:flex-end;justify-content:center}
+.pwa-sheet[hidden]{display:none}
+.pwa-sheet__bg{
+  position:absolute;inset:0;background:rgba(13,20,23,.58);
+  backdrop-filter:blur(3px);animation:pwa-fade .22s ease both;
+}
+.pwa-sheet__card{
+  position:relative;width:100%;max-width:520px;
+  background:var(--paper);color:var(--ink);
+  border-radius:26px 26px 0 0;
+  padding:30px 26px calc(26px + env(safe-area-inset-bottom));
+  box-shadow:0 -30px 70px -30px rgba(13,20,23,.55);
+  animation:pwa-naik .28s var(--ease) both;
+}
+@keyframes pwa-fade{from{opacity:0}to{opacity:1}}
+@keyframes pwa-naik{from{transform:translateY(26px);opacity:0}to{transform:none;opacity:1}}
+.pwa-sheet__x{
+  position:absolute;top:14px;right:14px;width:40px;height:40px;
+  display:grid;place-items:center;border:0;border-radius:50%;
+  background:rgba(13,20,23,.06);color:var(--ink);cursor:pointer;
+}
+.pwa-sheet__x:hover{background:rgba(13,20,23,.12)}
+.pwa-sheet__mark{width:64px;height:64px;margin-bottom:16px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.pwa-sheet__mark img{width:100%;height:100%;display:block}
+.pwa-sheet__card h2{font-size:23px;letter-spacing:-.02em;margin-bottom:8px}
+.pwa-sheet__lead{font-size:14.5px;line-height:1.6;color:var(--muted);margin-bottom:20px}
+.pwa-sheet__steps{list-style:none;display:grid;gap:10px;margin-bottom:18px}
+.pwa-sheet__steps li{
+  display:flex;gap:12px;align-items:flex-start;
+  font-size:14.5px;line-height:1.5;color:var(--ink-soft);
+  background:var(--white);border:1px solid var(--line-soft);
+  border-radius:14px;padding:12px 14px;
+}
+.pwa-sheet__steps .n{
+  flex:none;width:24px;height:24px;border-radius:50%;
+  display:grid;place-items:center;
+  background:var(--gold);color:var(--ink);font-size:12.5px;font-weight:800;
+}
+.pwa-sheet__steps b{color:var(--ink);font-weight:700}
+.pwa-sheet__note{
+  font-size:13px;line-height:1.55;color:var(--gold-deep);
+  background:var(--gold-tint);border:1px solid var(--gold-soft);
+  border-radius:12px;padding:11px 14px;margin-bottom:16px;
+}
+.pwa-sheet__go{width:100%;justify-content:center;margin-bottom:9px}
+.pwa-sheet__skip{width:100%;justify-content:center}
+@media (min-width:560px){
+  .pwa-sheet{align-items:center}
+  .pwa-sheet__card{border-radius:26px;margin:20px}
+}
+
+/* ---------- mode aplikasi terpasang ---------- */
+@media (display-mode:standalone), (display-mode:minimal-ui){
+  .fab--pwa,.footer-cta .btn--outline[data-pwa-open]{display:none !important}
+}
+html[data-pwa="terpasang"] .fab--pwa,
+html[data-pwa="terpasang"] .footer-cta .btn--outline[data-pwa-open]{display:none !important}
+
+/* ponsel: fab-stack hanya menampilkan tombol pasang, di kiri agar tidak
+   bertabrakan dengan gelembung WhatsApp (kanan) dan .m-bar (bawah) */
+@media (max-width:760px){
+  .fab-stack{
+    display:flex;right:auto;left:12px;
+    bottom:calc(84px + env(safe-area-inset-bottom));
+    align-items:flex-start;z-index:96;
+  }
+  .fab-stack .fab--tg,
+  .fab-stack .fab--inv,
+  .fab-stack .fab--wa{display:none}
+  .fab--pwa{width:48px;height:48px}
+  .fab--pwa .fab-tip{display:none}
+}
+
+/* [hidden] kalah oleh .btn{display:inline-flex} — paksa sembunyi */
+.pwa-sheet__go[hidden]{display:none !important}
+
+/* ============================================================
+   §32. NOTAKU POS — pita promo di bagian Aplikasi
+   ============================================================ */
+.notaku-band{
+  display:grid;grid-template-columns:1.55fr 1fr;gap:26px;align-items:center;
+  margin-top:26px;padding:27px 28px;
+  border-radius:var(--radius-lg);
+  background:
+    radial-gradient(120% 140% at 88% 0%, rgba(124,58,237,.30), transparent 58%),
+    linear-gradient(135deg,#1B0F2E 0%,#241138 48%,#150B24 100%);
+  color:#F6F2EA;border:1px solid rgba(167,139,250,.30);
+  box-shadow:0 34px 70px -46px rgba(27,10,45,.85);
+  position:relative;overflow:hidden;
+}
+.notaku-band::after{
+  content:"";position:absolute;right:-70px;bottom:-90px;width:230px;height:230px;
+  border-radius:50%;background:radial-gradient(circle,rgba(251,191,36,.20),transparent 68%);
+  pointer-events:none;
+}
+.notaku-band__label{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  color:#FBBF24;margin-bottom:12px;
+}
+.notaku-band__label .ic{width:14px;height:14px}
+.notaku-band h3{
+  font-size:clamp(21px,2.4vw,27px);line-height:1.2;letter-spacing:-.02em;
+  color:#FDF9FF;margin-bottom:9px;
+}
+.notaku-band h3 span{
+  font-family:var(--serif);font-style:italic;font-weight:400;color:#E9D5FF;
+}
+.notaku-band p{
+  font-size:13.8px;line-height:1.62;color:#C4B5D9;max-width:56ch;
+}
+.notaku-band p b{color:#FDF9FF}
+.notaku-band__aksi{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.notaku-band__aksi .btn--ink{background:#A855F7;color:#fff;border-color:#A855F7}
+.notaku-band__aksi .btn--ink:hover{background:#9333EA;border-color:#9333EA}
+.notaku-band__aksi .btn--outline{background:transparent;color:#E9D5FF;border-color:rgba(167,139,250,.45)}
+.notaku-band__aksi .btn--outline:hover{background:rgba(167,139,250,.12);color:#fff}
+
+.notaku-band__kartu{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;position:relative;z-index:1;
+}
+.notaku-chip{
+  display:flex;flex-direction:column;gap:6px;
+  padding:13px 14px;border-radius:14px;
+  background:rgba(255,255,255,.055);border:1px solid rgba(167,139,250,.24);
+}
+.notaku-chip b{
+  width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
+  background:#A855F7;color:#fff;font-size:11.5px;font-weight:800;letter-spacing:.4px;
+}
+.notaku-chip span{font-size:12px;color:#C4B5D9;letter-spacing:.2px}
+
+@media (max-width:900px){
+  .notaku-band{grid-template-columns:1fr;gap:20px;padding:23px 20px}
+  .notaku-band__kartu{grid-template-columns:repeat(4,1fr)}
+  .notaku-chip{padding:10px;align-items:center;text-align:center}
+  .notaku-chip span{font-size:10.5px}
+}
+@media (max-width:560px){
+  .notaku-band__kartu{grid-template-columns:1fr 1fr}
+  .notaku-band__aksi .btn{flex:1 1 100%;justify-content:center}
+}
+
 </style>
 
+<!-- Open Graph (URL absolut agar tampil benar saat dibagikan) -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Suport System">
-<meta property="og:title" content="Suport System — Jasa Pembuatan Website UMKM & Properti Surakarta">
-<meta property="og:description" content="Website profesional untuk UMKM & properti, plus aplikasi siap pakai I-KOS, POS Rentcar, dan POS Dokter Gigi. Beli selamanya — tanpa biaya bulanan/tahunan.">
-<meta property="og:image" content="assets/img/og-image.png">
 <meta property="og:locale" content="id_ID">
+<meta property="og:url" content="https://dewap4682-max.github.io/suport-system/">
+<meta property="og:title" content="Jasa Website UMKM &amp; Properti Solo Raya + APK Android — Suport System">
+<meta property="og:description" content="Website UMKM, pemasaran properti, dan aplikasi Android untuk Solo Raya. Domain &amp; hosting termasuk, sekali bayar, tanpa biaya bulanan.">
+<meta property="og:image" content="https://dewap4682-max.github.io/suport-system/assets/img/og-image.png">
+<meta property="og:image:alt" content="Suport System — jasa pembuatan website UMKM, properti, dan aplikasi Android Solo Raya">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Suport System — Jasa Pembuatan Website UMKM & Properti">
-<meta name="twitter:description" content="Desain sesuai identitas usaha, domain & hosting termasuk, siap online 3–14 hari kerja.">
-<meta name="twitter:image" content="assets/img/og-image.png">
+<meta name="twitter:title" content="Jasa Website UMKM &amp; Properti Solo Raya + APK Android">
+<meta name="twitter:description" content="Website UMKM, agen properti, dan aplikasi Android untuk Surakarta, Sukoharjo, Klaten, Boyolali, Karanganyar, Wonogiri, Sragen.">
+<meta name="twitter:image" content="https://dewap4682-max.github.io/suport-system/assets/img/og-image.png">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Suport System",
-  "image": "assets/img/logo-mark.png",
-  "logo": "assets/img/logo-mark.png",
-  "description": "Jasa pembuatan website untuk UMKM dan pemasaran properti di Surakarta dan sekitarnya.",
-  "telephone": "+62-813-9239-9300",
-  "priceRange": "Rp1.000.000–Rp2.500.000",
-  "areaServed": "Surakarta dan sekitarnya",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Surakarta",
-    "addressRegion": "Jawa Tengah",
-    "addressCountry": "ID"
-  },
-  "paymentAccepted": "Transfer Bank, GoPay",
-  "makesOffer": [
-    {"@type": "Offer", "name": "Paket 1 — Profil Bisnis / Daftar Properti Dasar", "price": "1000000", "priceCurrency": "IDR"},
-    {"@type": "Offer", "name": "Paket 2 — Katalog Lengkap / Daftar Properti Menengah", "price": "1500000", "priceCurrency": "IDR"},
-    {"@type": "Offer", "name": "Paket 3 — Toko Daring / Portal Properti Lengkap", "price": "2500000", "priceCurrency": "IDR"},
-    {"@type": "Offer", "name": "APK I-KOS — Pengelolaan Kos (beli selamanya)", "price": "2500000", "priceCurrency": "IDR"},
-    {"@type": "Offer", "name": "APK POS Rentcar — Rental Mobil (beli selamanya)", "price": "2500000", "priceCurrency": "IDR"},
-    {"@type": "Offer", "name": "APK POS Dokter Gigi (beli selamanya)", "price": "4500000", "priceCurrency": "IDR"}
-  ],
-  "openingHoursSpecification": {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "08:00", "closes": "20:00"}
+  "@graph": [
+    {
+      "@type": ["LocalBusiness", "ProfessionalService"],
+      "@id": "https://dewap4682-max.github.io/suport-system/#business",
+      "name": "Suport System",
+      "alternateName": "Suport System Surakarta",
+      "url": "https://dewap4682-max.github.io/suport-system/",
+      "image": "https://dewap4682-max.github.io/suport-system/assets/img/og-image.png",
+      "logo": "https://dewap4682-max.github.io/suport-system/assets/img/logo-mark.png",
+      "description": "Jasa pembuatan website UMKM dan pemasaran properti serta aplikasi Android (APK) untuk Solo Raya: Surakarta, Sukoharjo, Klaten, Boyolali, Karanganyar, Wonogiri, dan Sragen. Domain dan hosting termasuk, sekali bayar tanpa biaya bulanan.",
+      "telephone": "+62-813-9239-9300",
+      "priceRange": "Rp1.000.000–Rp4.500.000",
+      "currenciesAccepted": "IDR",
+      "paymentAccepted": "Transfer Bank, GoPay, Tunai",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Surakarta",
+        "addressRegion": "Jawa Tengah",
+        "addressCountry": "ID"
+      },
+      "geo": {"@type": "GeoCoordinates", "latitude": -7.5755, "longitude": 110.8243},
+      "areaServed": [
+        {"@type": "City", "name": "Surakarta (Solo)"},
+        {"@type": "City", "name": "Sukoharjo"},
+        {"@type": "City", "name": "Klaten"},
+        {"@type": "City", "name": "Boyolali"},
+        {"@type": "City", "name": "Karanganyar"},
+        {"@type": "City", "name": "Wonogiri"},
+        {"@type": "City", "name": "Sragen"}
+      ],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+        "opens": "08:00",
+        "closes": "20:00"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Layanan Suport System",
+        "itemListElement": [
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Website Profil Bisnis UMKM", "areaServed": "Solo Raya"}, "price": "1000000", "priceCurrency": "IDR"},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Website Katalog Lengkap UMKM", "areaServed": "Solo Raya"}, "price": "1500000", "priceCurrency": "IDR"},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Website Toko Daring UMKM", "areaServed": "Solo Raya"}, "price": "2500000", "priceCurrency": "IDR"},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Website Pemasaran Properti / Agen Properti", "areaServed": "Solo Raya"}, "price": "1000000", "priceCurrency": "IDR"},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "APK I-KOS — Pengelolaan Kos"}, "price": "2500000", "priceCurrency": "IDR"},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "APK POS Rentcar — Rental Mobil"}, "price": "2500000", "priceCurrency": "IDR"},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "APK POS Dokter Gigi"}, "price": "4500000", "priceCurrency": "IDR"},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "APK Jimpitan Ronda"}, "price": "1000000", "priceCurrency": "IDR"},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "APK POS UMKM — Kasir Warung"}, "price": "1000000", "priceCurrency": "IDR"},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Pembuatan Aplikasi Android Custom (online/offline)"}}
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://dewap4682-max.github.io/suport-system/#website",
+      "url": "https://dewap4682-max.github.io/suport-system/",
+      "name": "Suport System",
+      "inLanguage": "id-ID",
+      "publisher": {"@id": "https://dewap4682-max.github.io/suport-system/#business"}
+    },
+    {
+      "@type": "Service",
+      "name": "Jasa Pembuatan Website UMKM Solo Raya",
+      "serviceType": "Pembuatan website UMKM",
+      "provider": {"@id": "https://dewap4682-max.github.io/suport-system/#business"},
+      "areaServed": ["Surakarta","Sukoharjo","Klaten","Boyolali","Karanganyar","Wonogiri","Sragen"],
+      "description": "Website katalog produk, profil bisnis, dan toko daring untuk UMKM di Solo Raya. Sudah termasuk domain, hosting, tombol WhatsApp, dan panduan pengelolaan.",
+      "offers": {"@type": "Offer", "price": "1000000", "priceCurrency": "IDR", "availability": "https://schema.org/InStock"}
+    },
+    {
+      "@type": "Service",
+      "name": "Jasa Pembuatan Website Pemasaran Properti Solo Raya",
+      "serviceType": "Website pemasaran properti",
+      "provider": {"@id": "https://dewap4682-max.github.io/suport-system/#business"},
+      "areaServed": ["Surakarta","Sukoharjo","Klaten","Boyolali","Karanganyar","Wonogiri","Sragen"],
+      "description": "Website agen properti dengan daftar rumah, ruko, dan tanah di Solo Raya, lengkap dengan pencarian, filter, dan tautan WhatsApp langsung.",
+      "offers": {"@type": "Offer", "price": "1000000", "priceCurrency": "IDR", "availability": "https://schema.org/InStock"}
+    },
+    {
+      "@type": "Service",
+      "name": "Jasa Pembuatan APK Android Custom Solo Raya",
+      "serviceType": "Pengembangan aplikasi Android",
+      "provider": {"@id": "https://dewap4682-max.github.io/suport-system/#business"},
+      "areaServed": ["Surakarta","Sukoharjo","Klaten","Boyolali","Karanganyar","Wonogiri","Sragen"],
+      "description": "Pembuatan aplikasi Android (APK) untuk kasir, pembukuan, rental, kos, klinik, dan usaha lain di Solo Raya. Bisa dipakai online maupun offline, file APK siap dipasang di HP.",
+      "offers": {"@type": "Offer", "price": "1000000", "priceCurrency": "IDR", "availability": "https://schema.org/InStock"}
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Apakah harga paket sudah termasuk domain dan hosting?", "acceptedAnswer": {"@type": "Answer", "text": "Ya. Semua paket website sudah mencakup nama domain dan hosting tanpa biaya tambahan. Bila ada kebutuhan khusus di luar paket, rinciannya disampaikan lebih dulu sebelum pengerjaan."}},
+        {"@type": "Question", "name": "Berapa lama proses pembuatan website atau aplikasi?", "acceptedAnswer": {"@type": "Answer", "text": "Website dikerjakan 3–14 hari kerja tergantung paket. Aplikasi Android siap pakai bisa dipasang lebih cepat, sedangkan aplikasi custom menyesuaikan lingkup pekerjaan."}},
+        {"@type": "Question", "name": "Bagaimana cara pembayaran dan apakah bisa GoPay?", "acceptedAnswer": {"@type": "Answer", "text": "Pembayaran DP 50% saat mulai dan pelunasan 50% sebelum serah terima. Bisa melalui GoPay 0813-9239-9300 atau transfer bank. Invoice dibuat otomatis oleh sistem."}},
+        {"@type": "Question", "name": "Apakah ada biaya bulanan atau tahunan?", "acceptedAnswer": {"@type": "Answer", "text": "Tidak ada. Website maupun aplikasi dibeli sekali bayar dan menjadi milik Anda — tanpa biaya bulanan, tahunan, atau potongan tersembunyi."}},
+        {"@type": "Question", "name": "Saya di luar Surakarta, apakah tetap bisa pesan?", "acceptedAnswer": {"@type": "Answer", "text": "Bisa. Layanan mencakup seluruh Solo Raya dan sekitarnya: Sukoharjo, Klaten, Boyolali, Karanganyar, Wonogiri, dan Sragen. Seluruh proses berjalan daring lewat WhatsApp dan email."}}
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://dewap4682-max.github.io/suport-system/"},
+        {"@type": "ListItem", "position": 2, "name": "Website UMKM & Properti", "item": "https://dewap4682-max.github.io/suport-system/#paket"},
+        {"@type": "ListItem", "position": 3, "name": "Aplikasi Android", "item": "https://dewap4682-max.github.io/suport-system/#aplikasi"},
+        {"@type": "ListItem", "position": 4, "name": "Galeri & Portofolio", "item": "https://dewap4682-max.github.io/suport-system/#galeri"},
+        {"@type": "ListItem", "position": 5, "name": "Area Layanan Solo Raya", "item": "https://dewap4682-max.github.io/suport-system/#area"}
+      ]
+    }
+  ]
 }
 </script>
 <style>
 /* critical fallback so first paint never shows unstyled content */
 html{background:#FBF9F4}
 </style>
-</head>
 <body>
 
 <div class="progress" id="scrollProgress" aria-hidden="true"></div>
@@ -1996,6 +2311,9 @@ html{background:#FBF9F4}
   <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
   <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
   <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 20h16"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4.5 13.5H11l-1 8.5 8.5-11.5H12l1-8.5Z"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.6"/><rect x="14" y="3" width="7" height="7" rx="1.6"/><rect x="3" y="14" width="7" height="7" rx="1.6"/><rect x="14" y="14" width="7" height="7" rx="1.6"/></symbol>
   <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
   <symbol id="i-wallet" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="15" rx="2.5"/><path d="M2 10h20M16 15h2"/></symbol>
   <symbol id="i-phone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18.5h2"/></symbol>
@@ -2037,6 +2355,7 @@ html{background:#FBF9F4}
       <a href="#aplikasi">Aplikasi</a>
       <a href="#galeri">Galeri</a>
       <a href="#tim">Tim</a>
+      <a href="#area">Area</a>
       <a href="#proses">Proses</a>
       <a href="#pembayaran">Pembayaran</a>
       <a href="#faq">FAQ</a>
@@ -2059,6 +2378,7 @@ html{background:#FBF9F4}
   <a class="mm" href="#aplikasi">Aplikasi siap pakai <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
   <a class="mm" href="#galeri">Galeri aplikasi <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
   <a class="mm" href="#tim">Tim &amp; dukungan <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  <a class="mm" href="#area">Area Solo Raya <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
   <a class="mm" href="#termasuk">Yang Anda dapatkan <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
   <a class="mm" href="#proses">Cara kerja <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
   <a class="mm" href="#pembayaran">Pembayaran <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
@@ -2076,7 +2396,7 @@ html{background:#FBF9F4}
     <div class="hero-copy">
       <p class="eyebrow"><span class="idx">01</span><span class="dash" aria-hidden="true"></span> Jasa pembuatan website · Surakarta</p>
       <h1>Website yang membuat bisnis Anda <span class="serif mark-underline">terlihat serius.</span></h1>
-      <p class="hero-lead">Untuk <strong>UMKM</strong> dan <strong>pemasaran properti</strong> — desain menyesuaikan identitas usaha, domain &amp; hosting sudah termasuk, siap online dalam 3–14 hari kerja.</p>
+      <p class="hero-lead">Untuk <strong>UMKM</strong>, <strong>agen properti</strong>, dan pelaku usaha di <strong>Solo Raya</strong> — website menyesuaikan identitas usaha, domain &amp; hosting sudah termasuk, siap online dalam 3–14 hari kerja. Butuh aplikasi? Tersedia <strong>APK Android</strong> siap pakai maupun custom.</p>
       <div class="hero-actions">
         <a class="btn btn--gold btn--lg" href="#pesan">Mulai proyek Anda <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <a class="btn btn--outline btn--lg" href="#paket">Lihat paket &amp; harga</a>
@@ -2318,7 +2638,7 @@ html{background:#FBF9F4}
     <div class="section-head section-head--row reveal">
       <div class="section-head" style="margin-bottom:0">
         <p class="eyebrow"><span class="idx">03</span><span class="dash" aria-hidden="true"></span> Paket &amp; harga</p>
-        <h2>Pilih sesuai kebutuhan <span class="serif">usaha Anda.</span></h2>
+        <h2>Paket website UMKM &amp; properti <span class="serif">untuk Solo Raya.</span></h2>
         <p class="lede">Harga transparan, sekali bayar. Domain &amp; hosting sudah termasuk — tanpa biaya tambahan.</p>
       </div>
       <div class="seg" role="group" aria-label="Tampilkan paket untuk">
@@ -2447,7 +2767,7 @@ html{background:#FBF9F4}
     <div class="section-head section-head--row reveal">
       <div class="section-head" style="margin-bottom:0">
         <p class="eyebrow"><span class="idx">04</span><span class="dash" aria-hidden="true"></span> Aplikasi siap pakai</p>
-        <h2>Butuh sistem, bukan sekadar <span class="serif">website?</span></h2>
+        <h2>Aplikasi Android (APK) <span class="serif">siap pakai.</span></h2>
         <p class="lede">Lima aplikasi siap pakai untuk usaha sehari-hari, plus aplikasi custom sesuai kebutuhan Anda. <strong>Beli sekali, pakai selamanya</strong> — tanpa biaya bulanan atau tahunan, tanpa potongan per transaksi.</p>
       </div>
       <a class="btn btn--outline" href="https://wa.me/6281392399300?text=Halo%20Suport%20System%2C%20saya%20ingin%20bertanya%20tentang%20aplikasi%20siap%20pakai%20(I-KOS%20%2F%20POS%20Rentcar%20%2F%20POS%20Dokter%20Gigi)." target="_blank" rel="noopener">Tanya lewat WhatsApp <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
@@ -2602,6 +2922,33 @@ html{background:#FBF9F4}
       <p>Butuh fitur tambahan atau penyesuaian alur kerja? Bisa didiskusikan sebelum pengerjaan.</p>
       <a href="#pesan">Pilih aplikasi &amp; mulai proyek <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
+
+    <!-- Notaku POS — aplikasi kasir yang bisa langsung dicoba & dipasang -->
+    <aside class="notaku-band reveal" aria-labelledby="notakuJudul">
+      <div class="notaku-band__teks">
+        <span class="notaku-band__label">
+          <svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg> Bisa dicoba sekarang
+        </span>
+        <h3 id="notakuJudul">Notaku POS — <span>9 edisi kasir</span> siap pakai</h3>
+        <p>Sembako, listrik, ATK, bangunan, warmindo, mukena, barbershop, salon &amp; spa,
+          sampai kas &amp; iuran PKK. Buka dari browser, pasang ke layar utama,
+          lalu pakai tanpa sinyal. <b>Demo 30 hari</b>, data tersimpan di perangkat Anda.</p>
+        <div class="notaku-band__aksi">
+          <a class="btn btn--ink" href="https://dewap4682-max.github.io/suport-system/notaku/" target="_blank" rel="noopener">
+            <svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg> Buka &amp; pasang Notaku
+          </a>
+          <a class="btn btn--outline" href="https://dewap4682-max.github.io/suport-system/notaku/Panduan-Notaku-POS.pdf" target="_blank" rel="noopener">
+            <svg class="ic" aria-hidden="true"><use href="#i-book"/></svg> Panduan (PDF)
+          </a>
+        </div>
+      </div>
+      <div class="notaku-band__kartu" aria-hidden="true">
+        <div class="notaku-chip"><b>SB</b><span>Sembako</span></div>
+        <div class="notaku-chip"><b>WM</b><span>Warmindo</span></div>
+        <div class="notaku-chip"><b>BB</b><span>Barbershop</span></div>
+        <div class="notaku-chip"><b>PKK</b><span>Kas warga</span></div>
+      </div>
+    </aside>
   </div>
 </section>
 
@@ -2684,7 +3031,7 @@ html{background:#FBF9F4}
             <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Laporan JPG siap dibagikan ke WhatsApp</li>
             <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Absensi &amp; gaji karyawan otomatis</li>
           </ul>
-          <div class="gal-price"><span>Rp</span><b>2.500.000</b><em>sekali bayar · tanpa bulanan</em></div>
+          <div class="gal-price"><span>Rp</span><b>1.000.000</b><em>sekali bayar · tanpa bulanan</em></div>
           <div class="gal-cta">
             <button class="btn btn--gold btn--sm" type="button" data-pkg="pu">Pesan sekarang <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
             <a class="btn btn--outline btn--sm" href="https://wa.me/6281392399300?text=Halo%20Suport%20System%2C%20saya%20mau%20pesan%20POS%20UMKM%20(APK%20kasir%20warung%20Rp%201.000.000).%20Bisa%20minta%20demo%3F" target="_blank" rel="noopener"><svg class="ic fill" aria-hidden="true"><use href="#i-wa"/></svg> Tanya dulu</a>
@@ -3129,6 +3476,59 @@ html{background:#FBF9F4}
   </div>
 </section>
 
+<!-- ============ AREA LAYANAN ============ -->
+<section class="section section--white" id="area" aria-labelledby="areaTitle">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow"><span class="dash" aria-hidden="true"></span> Area layanan · Solo Raya</p>
+      <h2 id="areaTitle">Jasa website UMKM, properti, dan APK Android <span class="serif">untuk Solo Raya.</span></h2>
+      <p class="lede">Kami berbasis di Surakarta dan melayani seluruh eks-Karesidenan Surakarta. Semua proses berjalan daring — dari konsultasi, desain, sampai serah terima file APK atau website yang siap online.</p>
+    </div>
+
+    <ul class="area-grid reveal">
+        <li class="area-card">
+          <span class="area-dot" aria-hidden="true"></span>
+          <div><b>Surakarta (Solo)</b><span>UMKM di kawasan Banjarsari, Laweyan, Pasar Kliwon, dan pusat kota Solo — website katalog, toko daring, sampai aplikasi kasir warung &amp; kos.</span></div>
+        </li>
+        <li class="area-card">
+          <span class="area-dot" aria-hidden="true"></span>
+          <div><b>Sukoharjo</b><span>Agen properti dan UMKM Sukoharjo (Grogol, Kartasura, Baki) butuh katalog rumah/ruko yang rapi dan cepat dibuka di HP.</span></div>
+        </li>
+        <li class="area-card">
+          <span class="area-dot" aria-hidden="true"></span>
+          <div><b>Klaten</b><span>Usaha kuliner, mebel, dan toko bangunan Klaten memanfaatkan website + APK kasir untuk mencatat pesanan dan stok.</span></div>
+        </li>
+        <li class="area-card">
+          <span class="area-dot" aria-hidden="true"></span>
+          <div><b>Boyolali</b><span>Produsen susu, sapi, dan hasil tani Boyolali memakai website profil untuk menjangkau pembeli luar kota tanpa biaya bulanan.</span></div>
+        </li>
+        <li class="area-card">
+          <span class="area-dot" aria-hidden="true"></span>
+          <div><b>Karanganyar</b><span>UMKM wisata, penginapan, dan kebun Karanganyar memakai website pemesanan dengan tombol WhatsApp langsung.</span></div>
+        </li>
+        <li class="area-card">
+          <span class="area-dot" aria-hidden="true"></span>
+          <div><b>Wonogiri</b><span>Toko, jasa, dan koperasi Wonogiri memakai aplikasi Android offline agar pencatatan tetap jalan meski sinyal lemah.</span></div>
+        </li>
+        <li class="area-card">
+          <span class="area-dot" aria-hidden="true"></span>
+          <div><b>Sragen</b><span>Rental mobil, bengkel, dan warung Sragen memakai APK pembukuan &amp; kasir sekali bayar, tanpa langganan.</span></div>
+        </li>
+    </ul>
+
+    <div class="area-cta reveal">
+      <p><b>Butuh website UMKM, website properti, atau aplikasi Android?</b> Ceritakan usaha Anda — kami balas dengan rekomendasi paket dan estimasi biaya yang jelas, tanpa biaya bulanan.</p>
+      <div class="area-actions">
+        <a class="btn btn--wa" href="https://wa.me/6281392399300?text=Halo%20Suport%20System%2C%20saya%20di%20%5Bkota%5D%20dan%20ingin%20konsultasi%20jasa%20website%20UMKM%20atau%20aplikasi%20Android." target="_blank" rel="noopener"><svg class="ic fill" aria-hidden="true"><use href="#i-wa"/></svg> Konsultasi di kotaku</a>
+        <a class="btn btn--outline" href="#paket">Lihat paket website</a>
+        <a class="btn btn--ink" href="#aplikasi">Lihat APK Android</a>
+      </div>
+    </div>
+
+    <p class="area-note reveal">Layanan: <b>jasa pembuatan website Solo</b> · <b>website UMKM Solo Raya</b> · <b>website properti Surakarta</b> · <b>jasa pembuatan APK Android Solo</b> · <b>aplikasi kasir UMKM</b> · <b>aplikasi custom online &amp; offline</b>.</p>
+  </div>
+</section>
+
 <!-- ============ FAQ ============ -->
 <section class="section section--white" id="faq">
   <div class="container">
@@ -3180,6 +3580,10 @@ html{background:#FBF9F4}
         <p class="tag">Website untuk UMKM dan pemasaran properti — dirancang sesuai identitas usaha, lengkap dengan domain &amp; hosting.</p>
         <span class="footer-area"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg> Surakarta &amp; sekitarnya</span>
         <div class="footer-cta">
+          <a class="btn btn--ghost" href="https://dewap4682-max.github.io/suport-system/notaku/">Buka Notaku POS</a>
+          <button class="btn btn--outline" type="button" data-pwa-open>
+            <svg class="ic" aria-hidden="true"><use href="#i-download"/></svg> Pasang aplikasi
+          </button>
           <a class="btn btn--gold" href="https://wa.me/6281392399300?text=Halo%20Suport%20System%2C%20saya%20ingin%20konsultasi%20pembuatan%20website%20untuk%20usaha%20saya." target="_blank" rel="noopener">
             <svg class="ic fill" aria-hidden="true"><use href="#i-wa"/></svg> Konsultasi gratis
           </a>
@@ -3194,6 +3598,7 @@ html{background:#FBF9F4}
           <li><a href="#aplikasi">Aplikasi siap pakai</a></li>
           <li><a href="#galeri">Galeri aplikasi &amp; karya</a></li>
           <li><a href="#tim">Tim &amp; dukungan</a></li>
+          <li><a href="#area">Area layanan Solo Raya</a></li>
           <li><a href="#termasuk">Yang Anda dapatkan</a></li>
           <li><a href="#proses">Cara kerja</a></li>
           <li><a href="#pembayaran">Pembayaran</a></li>
@@ -3232,6 +3637,10 @@ html{background:#FBF9F4}
 </div>
 
 <div class="fab-stack" aria-label="Hubungi kami">
+  <button class="fab fab--pwa" type="button" id="btnPasang" aria-label="Pasang website sebagai aplikasi">
+    <svg class="ic" aria-hidden="true"><use href="#i-download"/></svg>
+    <span class="fab-tip">Pasang aplikasi</span>
+  </button>
   <a class="fab fab--tg" href="https://t.me/+6287835369249" target="_blank" rel="noopener" aria-label="Chat Telegram">
     <svg class="ic fill" aria-hidden="true"><use href="#i-tg"/></svg>
     <span class="fab-tip">Telegram</span>
@@ -3246,6 +3655,28 @@ html{background:#FBF9F4}
     <svg class="ic fill" aria-hidden="true"><use href="#i-wa"/></svg>
     <span class="fab-tip">WhatsApp</span>
   </a>
+</div>
+
+<!-- panel "pasang aplikasi" -->
+<div class="pwa-sheet" id="pwaSheet" hidden>
+  <div class="pwa-sheet__bg" data-pwa-close></div>
+  <div class="pwa-sheet__card" role="dialog" aria-modal="true" aria-labelledby="pwaJudul">
+    <button class="pwa-sheet__x" type="button" data-pwa-close aria-label="Tutup">
+      <svg class="ic" aria-hidden="true"><use href="#i-close"/></svg>
+    </button>
+    <div class="pwa-sheet__mark" aria-hidden="true">
+      <img src="data:image/png;base64,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" alt="" width="64" height="64">
+    </div>
+    <h2 id="pwaJudul">Pasang di layar utama</h2>
+    <p class="pwa-sheet__lead">Buka Suport System seperti aplikasi — ikon sendiri, layar penuh,
+      dan tetap bisa dibuka saat sinyal lemah.</p>
+    <ol class="pwa-sheet__steps" id="pwaSteps"></ol>
+    <div class="pwa-sheet__note" id="pwaNote" hidden></div>
+    <button class="btn btn--gold pwa-sheet__go" type="button" id="pwaInstall" hidden>
+      <svg class="ic" aria-hidden="true"><use href="#i-download"/></svg> Pasang sekarang
+    </button>
+    <button class="btn btn--outline pwa-sheet__skip" type="button" data-pwa-close>Nanti saja</button>
+  </div>
 </div>
 
 <a class="wa-bubble wa-mobile-bubble" href="https://wa.me/6281392399300?text=Halo%20Suport%20System%2C%20saya%20ingin%20bertanya%20tentang%20jasa%20pembuatan%20website%20atau%20aplikasi." target="_blank" rel="noopener" aria-label="Hubungi kami sekarang via WhatsApp">
@@ -3528,17 +3959,51 @@ html{background:#FBF9F4}
     });
   }
 
+  var BADGE_CACHE = 'ss_badge_cache';
+  var badgeLoaded = false;
+
+  function paintFromCache() {
+    try {
+      var cached = JSON.parse(localStorage.getItem(BADGE_CACHE) || 'null');
+      if (cached) paintProductBadges(cached);
+    } catch (e) { /* silent */ }
+  }
+
   function refreshProductBadges() {
+    if (badgeLoaded) return;
+    badgeLoaded = true;
     var ids = ['1', '2', '3', 'ik', 'rc', 'dg', 'jr', 'pu'];
-    Promise.all(ids.map(function (id) {
-      return seqFetch('/get/' + SEQ_NS + '/' + productKey(id), 2200)
-        .then(function (d) { return [id, seqCount((d && d.value) || 0)]; })
-        .catch(function () { return [id, 0]; });
-    })).then(function (rows) {
-      var map = {};
-      rows.forEach(function (r) { if (r[1] > 0) map[r[0]] = r[1]; });
-      paintProductBadges(map);
+    var map = {};
+    /* satu per satu dengan jeda kecil agar tidak memicu batas laju layanan */
+    ids.reduce(function (chain, id) {
+      return chain.then(function () {
+        return seqFetch('/get/' + SEQ_NS + '/' + productKey(id), 2600)
+          .then(function (d) { var n = seqCount((d && d.value) || 0); if (n > 0) map[id] = n; })
+          .catch(function () { /* lewati */ })
+          .then(function () { return new Promise(function (r) { setTimeout(r, 260); }); });
+      });
+    }, Promise.resolve()).then(function () {
+      if (Object.keys(map).length) {
+        paintProductBadges(map);
+        try { localStorage.setItem(BADGE_CACHE, JSON.stringify(map)); } catch (e) { /* silent */ }
+      }
     });
+  }
+
+  /* muat lencana hanya ketika bagian aplikasi mendekati layar */
+  var appsSection = document.getElementById('aplikasi');
+  if (appsSection) {
+    paintFromCache();
+    if ('IntersectionObserver' in window) {
+      var badgeObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { refreshProductBadges(); badgeObs.disconnect(); }
+        });
+      }, { rootMargin: '300px' });
+      badgeObs.observe(appsSection);
+    } else {
+      setTimeout(refreshProductBadges, 1500);
+    }
   }
 
   function bumpProductCounters(items) {
@@ -3551,7 +4016,6 @@ html{background:#FBF9F4}
   }
 
   if (seqNextEl) refreshSeqPreview();
-  if (document.querySelector('.app-card')) setTimeout(refreshProductBadges, 900);
   document.addEventListener('visibilitychange', function () {
     if (document.visibilityState === 'visible' && seqNextEl) refreshSeqPreview();
   });
@@ -3617,7 +4081,7 @@ html{background:#FBF9F4}
 
   /* ---------------- active nav link ---------------- */
   var navLinks = $$('.nav a');
-  var sections = ['tim', 'manfaat', 'paket', 'aplikasi', 'galeri', 'proses', 'pembayaran', 'faq'];
+  var sections = ['tim', 'manfaat', 'paket', 'aplikasi', 'galeri', 'proses', 'pembayaran', 'area', 'faq'];
   if ('IntersectionObserver' in window && navLinks.length) {
     var navObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -4526,6 +4990,179 @@ html{background:#FBF9F4}
 
 })();
 
+
+/* ============================================================
+   PWA — pasang ke layar utama & pembaruan service worker
+   ============================================================ */
+(function pwa() {
+  var btnFab = document.getElementById('btnPasang');
+  var sheet = document.getElementById('pwaSheet');
+  var steps = document.getElementById('pwaSteps');
+  var note = document.getElementById('pwaNote');
+  var btnGo = document.getElementById('pwaInstall');
+  var deferred = null;                 // even prompt dari Chrome/Edge/Android
+  var terpasang = false;
+
+  if (!sheet) return;
+
+  /* versi satu-file (dibuka dari file://) tidak punya manifest & sw.js,
+     jadi tombol pasang disembunyikan agar tidak menyesatkan */
+  if (location.protocol === 'file:') {
+    if (btnFab) btnFab.hidden = true;
+    Array.prototype.forEach.call(document.querySelectorAll('[data-pwa-open]'), function (el) {
+      el.hidden = true;
+    });
+    return;
+  }
+
+  /* ---------- deteksi lingkungan ---------- */
+  var ua = navigator.userAgent;
+  var iOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var android = /Android/i.test(ua);
+  var standalone = window.matchMedia('(display-mode: standalone)').matches ||
+                   window.navigator.standalone === true;
+
+  function sudahTerpasang() {
+    return standalone || terpasang ||
+      (window.matchMedia('(display-mode: minimal-ui)').matches);
+  }
+
+  function sembunyikanTombol() {
+    if (btnFab) btnFab.hidden = true;
+    document.documentElement.dataset.pwa = 'terpasang';
+  }
+
+  if (sudahTerpasang()) sembunyikanTombol();
+
+  /* ---------- isi langkah sesuai perangkat ---------- */
+  function isiLangkah() {
+    var isi = '';
+    if (deferred) {
+      isi = '<li><span class="n">1</span><div>Ketuk <b>Pasang sekarang</b> di bawah.</div></li>'
+          + '<li><span class="n">2</span><div>Konfirmasi <b>Pasang</b> pada dialog peramban.</div></li>'
+          + '<li><span class="n">3</span><div>Ikon <b>Suport System</b> muncul di layar utama.</div></li>';
+      if (btnGo) btnGo.hidden = false;
+    } else if (iOS) {
+      isi = '<li><span class="n">1</span><div>Buka di <b>Safari</b>, lalu ketuk tombol <b>Bagikan</b> (kotak dengan panah ke atas).</div></li>'
+          + '<li><span class="n">2</span><div>Gulir ke bawah, pilih <b>Tambahkan ke Layar Utama</b>.</div></li>'
+          + '<li><span class="n">3</span><div>Ketuk <b>Tambah</b> — ikon muncul di layar utama.</div></li>';
+    } else if (android) {
+      isi = '<li><span class="n">1</span><div>Ketuk menu <b>⋮</b> di kanan atas Chrome.</div></li>'
+          + '<li><span class="n">2</span><div>Pilih <b>Instal aplikasi</b> atau <b>Tambahkan ke layar utama</b>.</div></li>'
+          + '<li><span class="n">3</span><div>Ketuk <b>Instal</b> — ikon muncul di layar utama.</div></li>';
+    } else {
+      isi = '<li><span class="n">1</span><div>Klik ikon <b>instal</b> di ujung kanan bilah alamat, atau menu <b>⋮</b>.</div></li>'
+          + '<li><span class="n">2</span><div>Pilih <b>Instal Suport System</b>.</div></li>'
+          + '<li><span class="n">3</span><div>Aplikasi terbuka di jendela sendiri, tanpa bilah alamat.</div></li>';
+    }
+    if (steps) steps.innerHTML = isi;
+    if (note) {
+      var pesan = '';
+      if (!window.isSecureContext) {
+        pesan = 'Fitur pasang aplikasi hanya aktif pada alamat HTTPS.';
+      } else if (/Firefox/i.test(ua) && !deferred) {
+        pesan = 'Firefox di komputer belum mendukung pemasangan. Buka di Chrome, Edge, atau Safari (iPhone).';
+      } else if (!deferred && !iOS) {
+        pesan = 'Peramban ini belum menawarkan pemasangan otomatis — ikuti langkah manual di atas.';
+      }
+      note.hidden = !pesan;
+      note.textContent = pesan;
+    }
+  }
+
+  /* ---------- buka / tutup panel ---------- */
+  var fokusAwal = null;
+  function buka() {
+    fokusAwal = document.activeElement;
+    isiLangkah();
+    sheet.hidden = false;
+    document.body.style.overflow = 'hidden';
+    var x = sheet.querySelector('.pwa-sheet__x');
+    if (x) x.focus();
+  }
+  function tutup() {
+    sheet.hidden = true;
+    document.body.style.overflow = '';
+    if (fokusAwal && fokusAwal.focus) fokusAwal.focus();
+  }
+
+  if (btnFab) btnFab.addEventListener('click', buka);
+  Array.prototype.forEach.call(document.querySelectorAll('[data-pwa-open]'), function (el) {
+    el.addEventListener('click', buka);
+  });
+  Array.prototype.forEach.call(sheet.querySelectorAll('[data-pwa-close]'), function (el) {
+    el.addEventListener('click', tutup);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !sheet.hidden) tutup();
+  });
+
+  /* ---------- tombol "Pasang sekarang" ---------- */
+  if (btnGo) btnGo.addEventListener('click', function () {
+    if (!deferred) return;
+    deferred.prompt();
+    deferred.userChoice.then(function (hasil) {
+      if (hasil.outcome === 'accepted') {
+        terpasang = true;
+        sembunyikanTombol();
+        tutup();
+      }
+      deferred = null;
+      isiLangkah();
+    });
+  });
+
+  /* ---------- event dari peramban ---------- */
+  window.addEventListener('beforeinstallprompt', function (e) {
+    e.preventDefault();
+    deferred = e;
+    if (!sudahTerpasang()) { if (btnFab) btnFab.hidden = false; }
+    if (!sheet.hidden) isiLangkah();
+  });
+
+  window.addEventListener('appinstalled', function () {
+    terpasang = true;
+    sembunyikanTombol();
+    tutup();
+    var tc = document.getElementById('toast'), tt = document.getElementById('toastText');
+    if (tc && tt) { tt.textContent = 'Aplikasi terpasang di layar utama';
+      tc.classList.add('show'); setTimeout(function () { tc.classList.remove('show'); }, 3200); }
+  });
+
+  /* ---------- daftarkan service worker ---------- */
+  /* Kalau halaman dibuka tanpa pengendali SW (kunjungan pertama), JANGAN
+     reload saat SW mengambil kendali — itu membuat halaman berkedip.
+     Reload hanya perlu ketika versi baru menggantikan versi lama. */
+  var adaPengendaliAwal = !!(navigator.serviceWorker && navigator.serviceWorker.controller);
+  if ('serviceWorker' in navigator && window.isSecureContext) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('sw.js', { scope: './' }).then(function (reg) {
+        // pembaruan tersedia → pasang versi baru, lalu muat ulang sekali
+        reg.addEventListener('updatefound', function () {
+          var baru = reg.installing;
+          if (!baru) return;
+          baru.addEventListener('statechange', function () {
+            if (baru.state === 'installed' && navigator.serviceWorker.controller) {
+              baru.postMessage('SKIP_WAITING');
+            }
+          });
+        });
+        // cek pembaruan tiap kali halaman dibuka (maks. sekali / jam)
+        setTimeout(function () { reg.update(); }, 60 * 60 * 1000);
+      }).catch(function () { /* diabaikan: situs tetap berjalan normal */ });
+    });
+
+    var reloadSekali = false;
+    navigator.serviceWorker.addEventListener('controllerchange', function () {
+      if (!adaPengendaliAwal || reloadSekali) return;   // kunjungan pertama: jangan reload
+      reloadSekali = true;
+      if (sessionStorage.getItem('ss_pwa_reload') !== '1') {
+        sessionStorage.setItem('ss_pwa_reload', '1');
+        location.reload();
+      }
+    });
+  }
+})();
 
 </script>
 </body>

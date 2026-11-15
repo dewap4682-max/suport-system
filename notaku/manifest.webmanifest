@@ -1,0 +1,37 @@
+{
+  "id": "notaku-pos",
+  "name": "Notaku POS — Kasir untuk Semua Jenis Usaha",
+  "short_name": "Notaku POS",
+  "description": "9 edisi aplikasi kasir siap pakai: sembako, listrik, ATK, bangunan, warmindo, mukena, barbershop, salon & spa, serta kas & iuran PKK.",
+  "lang": "id",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#150b24",
+  "theme_color": "#7c3aed",
+  "categories": [
+    "business",
+    "productivity",
+    "shopping"
+  ],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -174,17 +174,51 @@
     });
   }
 
+  var BADGE_CACHE = 'ss_badge_cache';
+  var badgeLoaded = false;
+
+  function paintFromCache() {
+    try {
+      var cached = JSON.parse(localStorage.getItem(BADGE_CACHE) || 'null');
+      if (cached) paintProductBadges(cached);
+    } catch (e) { /* silent */ }
+  }
+
   function refreshProductBadges() {
+    if (badgeLoaded) return;
+    badgeLoaded = true;
     var ids = ['1', '2', '3', 'ik', 'rc', 'dg', 'jr', 'pu'];
-    Promise.all(ids.map(function (id) {
-      return seqFetch('/get/' + SEQ_NS + '/' + productKey(id), 2200)
-        .then(function (d) { return [id, seqCount((d && d.value) || 0)]; })
-        .catch(function () { return [id, 0]; });
-    })).then(function (rows) {
-      var map = {};
-      rows.forEach(function (r) { if (r[1] > 0) map[r[0]] = r[1]; });
-      paintProductBadges(map);
+    var map = {};
+    /* satu per satu dengan jeda kecil agar tidak memicu batas laju layanan */
+    ids.reduce(function (chain, id) {
+      return chain.then(function () {
+        return seqFetch('/get/' + SEQ_NS + '/' + productKey(id), 2600)
+          .then(function (d) { var n = seqCount((d && d.value) || 0); if (n > 0) map[id] = n; })
+          .catch(function () { /* lewati */ })
+          .then(function () { return new Promise(function (r) { setTimeout(r, 260); }); });
+      });
+    }, Promise.resolve()).then(function () {
+      if (Object.keys(map).length) {
+        paintProductBadges(map);
+        try { localStorage.setItem(BADGE_CACHE, JSON.stringify(map)); } catch (e) { /* silent */ }
+      }
     });
+  }
+
+  /* muat lencana hanya ketika bagian aplikasi mendekati layar */
+  var appsSection = document.getElementById('aplikasi');
+  if (appsSection) {
+    paintFromCache();
+    if ('IntersectionObserver' in window) {
+      var badgeObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { refreshProductBadges(); badgeObs.disconnect(); }
+        });
+      }, { rootMargin: '300px' });
+      badgeObs.observe(appsSection);
+    } else {
+      setTimeout(refreshProductBadges, 1500);
+    }
   }
 
   function bumpProductCounters(items) {
@@ -197,7 +231,6 @@
   }
 
   if (seqNextEl) refreshSeqPreview();
-  if (document.querySelector('.app-card')) setTimeout(refreshProductBadges, 900);
   document.addEventListener('visibilitychange', function () {
     if (document.visibilityState === 'visible' && seqNextEl) refreshSeqPreview();
   });
@@ -263,7 +296,7 @@
 
   /* ---------------- active nav link ---------------- */
   var navLinks = $$('.nav a');
-  var sections = ['tim', 'manfaat', 'paket', 'aplikasi', 'galeri', 'proses', 'pembayaran', 'faq'];
+  var sections = ['tim', 'manfaat', 'paket', 'aplikasi', 'galeri', 'proses', 'pembayaran', 'area', 'faq'];
   if ('IntersectionObserver' in window && navLinks.length) {
     var navObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -1172,3 +1205,176 @@
 
 })();
 
+
+/* ============================================================
+   PWA — pasang ke layar utama & pembaruan service worker
+   ============================================================ */
+(function pwa() {
+  var btnFab = document.getElementById('btnPasang');
+  var sheet = document.getElementById('pwaSheet');
+  var steps = document.getElementById('pwaSteps');
+  var note = document.getElementById('pwaNote');
+  var btnGo = document.getElementById('pwaInstall');
+  var deferred = null;                 // even prompt dari Chrome/Edge/Android
+  var terpasang = false;
+
+  if (!sheet) return;
+
+  /* versi satu-file (dibuka dari file://) tidak punya manifest & sw.js,
+     jadi tombol pasang disembunyikan agar tidak menyesatkan */
+  if (location.protocol === 'file:') {
+    if (btnFab) btnFab.hidden = true;
+    Array.prototype.forEach.call(document.querySelectorAll('[data-pwa-open]'), function (el) {
+      el.hidden = true;
+    });
+    return;
+  }
+
+  /* ---------- deteksi lingkungan ---------- */
+  var ua = navigator.userAgent;
+  var iOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var android = /Android/i.test(ua);
+  var standalone = window.matchMedia('(display-mode: standalone)').matches ||
+                   window.navigator.standalone === true;
+
+  function sudahTerpasang() {
+    return standalone || terpasang ||
+      (window.matchMedia('(display-mode: minimal-ui)').matches);
+  }
+
+  function sembunyikanTombol() {
+    if (btnFab) btnFab.hidden = true;
+    document.documentElement.dataset.pwa = 'terpasang';
+  }
+
+  if (sudahTerpasang()) sembunyikanTombol();
+
+  /* ---------- isi langkah sesuai perangkat ---------- */
+  function isiLangkah() {
+    var isi = '';
+    if (deferred) {
+      isi = '<li><span class="n">1</span><div>Ketuk <b>Pasang sekarang</b> di bawah.</div></li>'
+          + '<li><span class="n">2</span><div>Konfirmasi <b>Pasang</b> pada dialog peramban.</div></li>'
+          + '<li><span class="n">3</span><div>Ikon <b>Suport System</b> muncul di layar utama.</div></li>';
+      if (btnGo) btnGo.hidden = false;
+    } else if (iOS) {
+      isi = '<li><span class="n">1</span><div>Buka di <b>Safari</b>, lalu ketuk tombol <b>Bagikan</b> (kotak dengan panah ke atas).</div></li>'
+          + '<li><span class="n">2</span><div>Gulir ke bawah, pilih <b>Tambahkan ke Layar Utama</b>.</div></li>'
+          + '<li><span class="n">3</span><div>Ketuk <b>Tambah</b> — ikon muncul di layar utama.</div></li>';
+    } else if (android) {
+      isi = '<li><span class="n">1</span><div>Ketuk menu <b>⋮</b> di kanan atas Chrome.</div></li>'
+          + '<li><span class="n">2</span><div>Pilih <b>Instal aplikasi</b> atau <b>Tambahkan ke layar utama</b>.</div></li>'
+          + '<li><span class="n">3</span><div>Ketuk <b>Instal</b> — ikon muncul di layar utama.</div></li>';
+    } else {
+      isi = '<li><span class="n">1</span><div>Klik ikon <b>instal</b> di ujung kanan bilah alamat, atau menu <b>⋮</b>.</div></li>'
+          + '<li><span class="n">2</span><div>Pilih <b>Instal Suport System</b>.</div></li>'
+          + '<li><span class="n">3</span><div>Aplikasi terbuka di jendela sendiri, tanpa bilah alamat.</div></li>';
+    }
+    if (steps) steps.innerHTML = isi;
+    if (note) {
+      var pesan = '';
+      if (!window.isSecureContext) {
+        pesan = 'Fitur pasang aplikasi hanya aktif pada alamat HTTPS.';
+      } else if (/Firefox/i.test(ua) && !deferred) {
+        pesan = 'Firefox di komputer belum mendukung pemasangan. Buka di Chrome, Edge, atau Safari (iPhone).';
+      } else if (!deferred && !iOS) {
+        pesan = 'Peramban ini belum menawarkan pemasangan otomatis — ikuti langkah manual di atas.';
+      }
+      note.hidden = !pesan;
+      note.textContent = pesan;
+    }
+  }
+
+  /* ---------- buka / tutup panel ---------- */
+  var fokusAwal = null;
+  function buka() {
+    fokusAwal = document.activeElement;
+    isiLangkah();
+    sheet.hidden = false;
+    document.body.style.overflow = 'hidden';
+    var x = sheet.querySelector('.pwa-sheet__x');
+    if (x) x.focus();
+  }
+  function tutup() {
+    sheet.hidden = true;
+    document.body.style.overflow = '';
+    if (fokusAwal && fokusAwal.focus) fokusAwal.focus();
+  }
+
+  if (btnFab) btnFab.addEventListener('click', buka);
+  Array.prototype.forEach.call(document.querySelectorAll('[data-pwa-open]'), function (el) {
+    el.addEventListener('click', buka);
+  });
+  Array.prototype.forEach.call(sheet.querySelectorAll('[data-pwa-close]'), function (el) {
+    el.addEventListener('click', tutup);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !sheet.hidden) tutup();
+  });
+
+  /* ---------- tombol "Pasang sekarang" ---------- */
+  if (btnGo) btnGo.addEventListener('click', function () {
+    if (!deferred) return;
+    deferred.prompt();
+    deferred.userChoice.then(function (hasil) {
+      if (hasil.outcome === 'accepted') {
+        terpasang = true;
+        sembunyikanTombol();
+        tutup();
+      }
+      deferred = null;
+      isiLangkah();
+    });
+  });
+
+  /* ---------- event dari peramban ---------- */
+  window.addEventListener('beforeinstallprompt', function (e) {
+    e.preventDefault();
+    deferred = e;
+    if (!sudahTerpasang()) { if (btnFab) btnFab.hidden = false; }
+    if (!sheet.hidden) isiLangkah();
+  });
+
+  window.addEventListener('appinstalled', function () {
+    terpasang = true;
+    sembunyikanTombol();
+    tutup();
+    var tc = document.getElementById('toast'), tt = document.getElementById('toastText');
+    if (tc && tt) { tt.textContent = 'Aplikasi terpasang di layar utama';
+      tc.classList.add('show'); setTimeout(function () { tc.classList.remove('show'); }, 3200); }
+  });
+
+  /* ---------- daftarkan service worker ---------- */
+  /* Kalau halaman dibuka tanpa pengendali SW (kunjungan pertama), JANGAN
+     reload saat SW mengambil kendali — itu membuat halaman berkedip.
+     Reload hanya perlu ketika versi baru menggantikan versi lama. */
+  var adaPengendaliAwal = !!(navigator.serviceWorker && navigator.serviceWorker.controller);
+  if ('serviceWorker' in navigator && window.isSecureContext) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('sw.js', { scope: './' }).then(function (reg) {
+        // pembaruan tersedia → pasang versi baru, lalu muat ulang sekali
+        reg.addEventListener('updatefound', function () {
+          var baru = reg.installing;
+          if (!baru) return;
+          baru.addEventListener('statechange', function () {
+            if (baru.state === 'installed' && navigator.serviceWorker.controller) {
+              baru.postMessage('SKIP_WAITING');
+            }
+          });
+        });
+        // cek pembaruan tiap kali halaman dibuka (maks. sekali / jam)
+        setTimeout(function () { reg.update(); }, 60 * 60 * 1000);
+      }).catch(function () { /* diabaikan: situs tetap berjalan normal */ });
+    });
+
+    var reloadSekali = false;
+    navigator.serviceWorker.addEventListener('controllerchange', function () {
+      if (!adaPengendaliAwal || reloadSekali) return;   // kunjungan pertama: jangan reload
+      reloadSekali = true;
+      if (sessionStorage.getItem('ss_pwa_reload') !== '1') {
+        sessionStorage.setItem('ss_pwa_reload', '1');
+        location.reload();
+      }
+    });
+  }
+})();

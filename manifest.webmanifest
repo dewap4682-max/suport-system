@@ -1,0 +1,84 @@
+{
+  "id": "/suport-system/",
+  "name": "Suport System — Website & Aplikasi Android Solo Raya",
+  "short_name": "Suport System",
+  "description": "Jasa pembuatan website UMKM & properti serta aplikasi Android (APK) untuk Solo Raya. Sekali bayar, tanpa biaya bulanan.",
+  "lang": "id",
+  "dir": "ltr",
+  "start_url": "./?src=pwa",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "standalone",
+    "minimal-ui",
+    "browser"
+  ],
+  "orientation": "portrait-primary",
+  "background_color": "#F6F2EA",
+  "theme_color": "#0D1417",
+  "categories": [
+    "business",
+    "productivity",
+    "shopping"
+  ],
+  "icons": [
+    {
+      "src": "assets/img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/img/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "assets/img/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Paket & harga",
+      "short_name": "Paket",
+      "url": "./?src=pwa#paket"
+    },
+    {
+      "name": "Aplikasi Android",
+      "short_name": "APK",
+      "url": "./?src=pwa#aplikasi"
+    },
+    {
+      "name": "Buat invoice",
+      "short_name": "Invoice",
+      "url": "./?src=pwa#pesan"
+    },
+    {
+      "name": "Notaku POS",
+      "short_name": "Notaku",
+      "url": "./notaku/",
+      "icons": [
+        {
+          "src": "notaku/icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Galeri karya",
+      "short_name": "Galeri",
+      "url": "./?src=pwa#galeri"
+    }
+  ]
+}
