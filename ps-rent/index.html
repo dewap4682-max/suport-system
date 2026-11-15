@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=5" />
+<title>PS Rent POS — Kasir Rental PlayStation</title>
+<meta name="description" content="Aplikasi kasir (POS) offline-first untuk rental PlayStation: timer sesi per unit, tarif per jam, Kantin Kita, struk, dan laporan harian." />
+<meta name="application-name" content="PS Rent POS" />
+<meta name="theme-color" content="#f2f8f4" />
+<script>
+  /* terapkan tema simpanan sebelum halaman dilukis supaya tidak berkedip */
+  try {
+    var _s = JSON.parse(localStorage.getItem('pspos.v1') || '{}');
+    var _t = (_s.settings && _s.settings.theme) === 'gelap' ? 'dark' : 'light';
+    document.documentElement.dataset.theme = _t;
+    document.documentElement.style.colorScheme = _t;
+    if (_t === 'dark') {
+      var _m = document.querySelector('meta[name="theme-color"]');
+      if (_m) _m.setAttribute('content', '#03080a');
+    }
+  } catch (e) {}
+</script>
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="PS Rent POS" />
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32" />
+<link rel="icon" href="icons/favicon.png" sizes="96x96" />
+<link rel="icon" href="icons/icon-192.png" sizes="192x192" />
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png" />
+<link rel="apple-touch-startup-image" href="icons/icon-512.png" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header id="topbar" class="topbar"></header>
+    <main id="view" class="view" role="main"></main>
+    <nav id="tabbar" class="tabbar" aria-label="Navigasi utama"></nav>
+    <div id="fab-root" class="fab-root"></div>
+  </div>
+
+  <div id="modal-root"></div>
+  <div id="toast-wrap" class="toast-wrap" aria-live="polite"></div>
+  <div id="print-area" aria-hidden="true"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

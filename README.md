@@ -309,3 +309,14 @@ ATK, bangunan, warmindo, mukena, barbershop, salon & spa, serta kas & iuran PKK.
   → bisa dipasang terpisah dengan ikon masing-masing
 - Service worker terpisah (`notaku/notaku-sw.js`), lingkupnya hanya `/notaku/`
 - Panduan: `notaku/README-PASANG.md`
+
+### PS Rent POS — kasir rental PlayStation (folder `ps-rent/`)
+
+Aplikasi kasir rental PS3/PS4/PS5: timer per unit, billing per jam, kantin,
+struk thermal, sewa 12/24 jam + perjanjian siap cetak, laporan harian/bulanan.
+
+- Alamat: `ps-rent/` · manifest sendiri · service worker sendiri (`pspos-v…`)
+- Ikon & foto unit/produk dibuat oleh `ps-rent/buat-aset.py`
+- Panduan: `ps-rent/README-PASANG.md`
+- **Penting:** `ps-rent/sw.js` hanya boleh menghapus cache `pspos-*`,
+  jangan pernah cache situs utama atau Notaku

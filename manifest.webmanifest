@@ -79,6 +79,18 @@
       "name": "Galeri karya",
       "short_name": "Galeri",
       "url": "./?src=pwa#galeri"
+    },
+    {
+      "name": "PS Rent POS",
+      "short_name": "PS Rent",
+      "url": "./ps-rent/",
+      "icons": [
+        {
+          "src": "ps-rent/icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
     }
   ]
 }

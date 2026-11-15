@@ -213,3 +213,15 @@ var VERSI = 'ss-v1.1.0';
 // notaku/notaku-sw.js
 var VERSI = 'notaku-pos-v2';
 ```
+
+### Tiga service worker (per akhir 2026)
+
+| Berkas | Lingkup | Cache |
+|---|---|---|
+| `sw.js` (akar) | `/suport-system/` | `ss-v…` |
+| `notaku/notaku-sw.js` | `/suport-system/notaku/` | `notaku-pos-v…` |
+| `ps-rent/sw.js` | `/suport-system/ps-rent/` | `pspos-v…` |
+
+Aturan wajib: **setiap service worker hanya boleh menghapus cache miliknya sendiri.**
+Jangan pernah memakai `keys.map(k => caches.delete(k))` tanpa filter — itu akan
+menghapus cache aplikasi lain di origin yang sama dan mematikan mode offline mereka.

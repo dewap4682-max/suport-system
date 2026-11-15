@@ -2107,3 +2107,34 @@ html[data-pwa="terpasang"] .footer-cta .btn--outline[data-pwa-open]{display:none
   .notaku-band__kartu{grid-template-columns:1fr 1fr}
   .notaku-band__aksi .btn{flex:1 1 100%;justify-content:center}
 }
+
+/* PS Rent — varian pita: aksen hijau neon khas aplikasi kasir PS */
+.ps-band{
+  display:grid;grid-template-columns:1.55fr 1fr;gap:26px;align-items:center;
+  margin-top:18px;
+  background:
+    radial-gradient(120% 140% at 88% 0%, rgba(0,255,135,.20), transparent 58%),
+    linear-gradient(135deg,#04120C 0%,#07231A 48%,#030C09 100%);
+  border-color:rgba(0,255,135,.28);
+}
+.ps-band::after{background:radial-gradient(circle,rgba(198,255,61,.18),transparent 68%)}
+.ps-band__teks{min-width:0}
+.ps-band__label{color:#C6FF3D}
+.ps-band h3 span{color:#9BFFD0}
+.ps-band p{color:#9FC7B8}
+.ps-band__cta{background:#00E07A !important;border-color:#00E07A !important;color:#03130C !important}
+.ps-band__cta:hover{background:#00C86D !important;border-color:#00C86D !important}
+.ps-chip b{background:#00E07A;color:#03130C}
+.ps-chip span{color:#9FC7B8}
+
+/* pita PS Rent: samakan perilaku responsif dengan pita Notaku */
+@media (max-width:900px){
+  .ps-band{grid-template-columns:1fr;gap:20px;padding:23px 20px}
+  .ps-band .notaku-band__kartu{grid-template-columns:repeat(4,1fr)}
+  .ps-band .notaku-chip{padding:10px;align-items:center;text-align:center}
+  .ps-band .notaku-chip span{font-size:10.5px}
+}
+@media (max-width:560px){
+  .ps-band .notaku-band__kartu{grid-template-columns:1fr 1fr}
+  .ps-band .notaku-band__aksi .btn{flex:1 1 100%;justify-content:center}
+}

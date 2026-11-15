@@ -1,0 +1,29 @@
+{
+  "id": "ps-rent-pos",
+  "name": "PS Rent POS — Kasir Rental PlayStation",
+  "short_name": "PS Rent POS",
+  "description": "Kasir rental PlayStation: timer sesi per unit, tarif per jam, sewa 12/24 jam, kasir & billiard bayar, kantin, struk thermal, dan laporan harian. Bekerja penuh tanpa internet.",
+  "lang": "id",
+  "dir": "ltr",
+  "start_url": "./index.html?src=pwa",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "portrait-primary",
+  "background_color": "#03080a",
+  "theme_color": "#03080a",
+  "categories": ["business", "productivity", "utilities"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-256.png", "sizes": "256x256", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-384.png", "sizes": "384x384", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Mulai sesi", "short_name": "Sesi", "url": "./index.html?src=pwa#sesi" },
+    { "name": "Kasir", "short_name": "Kasir", "url": "./index.html?src=pwa#kasir" },
+    { "name": "Laporan", "short_name": "Laporan", "url": "./index.html?src=pwa#laporan" }
+  ]
+}

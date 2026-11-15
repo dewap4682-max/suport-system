@@ -238,3 +238,12 @@ Detail dan batasannya ada di `PWA-PASANG.md`.
   jalankan `cd notaku && python3 siapkan-manifest.py`.
 - **Setiap memperbarui Notaku, naikkan `var VERSI` di `notaku/notaku-sw.js`.**
 - Nomor WhatsApp tidak dicetak sebagai teks; hanya lewat tautan `wa.me`.
+
+---
+
+## 17. PS Rent POS (folder `ps-rent/`)
+
+- `ps-rent/index.html` kerangka aplikasi; seluruh UI dibangun oleh `app.js`.
+- `ps-rent/sw.js` — service worker; **naikkan `VERSION`** setiap memperbarui aplikasi.
+- Ikon & gambar dibuat ulang: `cd ps-rent && python3 buat-aset.py`.
+- Cache hanya `pspos-*`; jangan menghapus cache aplikasi lain.
